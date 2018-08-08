@@ -55,11 +55,9 @@ yarn upgrade webpack-dev-server@^2.11.1 -D
 Start the server with this command:
 
 ```
-foreman start -f Procfile.dev -p 3000
+yarn start
 ```
-
-I'll look into making it shorter somehow.
 
 ## License
 
-Check back later for dis. 
+Check back later for dis.

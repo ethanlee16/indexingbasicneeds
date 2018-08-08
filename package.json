@@ -16,5 +16,8 @@
   "devDependencies": {
     "postcss-loader": "^2.1.6",
     "webpack-dev-server": "^2.11.1"
+  },
+  "scripts": {
+    "start": "foreman start -f Procfile.dev -p 3000"
   }
 }
