@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+def create_resources
+  10.times do |i|
+    Resource.create(
+      title: "Resource number #{i}"
+    )
+  end
+end
+
+create_resources
