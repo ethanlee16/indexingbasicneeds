@@ -1,5 +1,5 @@
 class Api::ResourcesController < ApplicationController
     def index 
-        return Resource.all
+        render json: Resource.all
     end
 end

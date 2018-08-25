@@ -2,7 +2,7 @@ import Requester from "./requester";
 
 class API {
   static async ResourcesIndex() {
-    return Requester.get("/api/resources");
+    return await Requester.get("/api/resources");
   }
 }
 

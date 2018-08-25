@@ -1,21 +1,31 @@
-import React from 'react';
+import React from "react";
+import ResourceList from "./ResourceList";
+
+import API from "../middleware/api";
 
 class LandingPage extends React.Component {
+  constructor(props) {
+    super(props);
 
-  hello = () => {
-    alert("hi tonya")
+    this.state = {
+      resources: {}
+    };
+  }
+
+  async componentDidMount() {
+    let resources = await API.ResourcesIndex();
+    this.setState({ resources: resources });
   }
 
   render() {
-    return(
+    return (
       <div>
+        <ResourceList resources={this.state.resources} />
         <h1>Hello World</h1>
-        <button onClick={this.hello}>
-          Click me
-        </button>
+        <button onClick={this.hello}>Click me</button>
       </div>
-    )
+    );
   }
 }
 
-export default LandingPage
+export default LandingPage;

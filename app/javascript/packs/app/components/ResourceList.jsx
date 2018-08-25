@@ -2,19 +2,8 @@ import React from "react";
 import API from "../middleware/api";
 
 class ResourceList extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      resources: {}
-    };
-  }
-
-  componentDidMount() {
-    Requester.get();
-  }
-
   renderResources() {
+    if (!this.props.resourecs) return null;
     return this.props.resources.map(resource => <div>resource.title</div>);
   }
 
