@@ -1,5 +1,5 @@
 import React from "react";
-import Requester from "../middleware/api";
+import API from "../middleware/api";
 
 class ResourceList extends React.Component {
   constructor(props) {
