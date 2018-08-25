@@ -3,20 +3,22 @@ import {
   Alignment,
   Button,
   Classes,
-  H5,
   Navbar,
   NavbarDivider,
   NavbarGroup,
-  NavbarHeading,
-  Switch
+  NavbarHeading
 } from "@blueprintjs/core";
+
+import Logo from "images/bns-logo.svg";
 
 export default class extends React.Component {
   render() {
     return (
       <Navbar fixedToTop>
         <NavbarGroup align={Alignment.LEFT}>
-          <NavbarHeading>Blueprint</NavbarHeading>
+          <NavbarHeading>
+            <img src={Logo} className="navbar-image" />
+          </NavbarHeading>
           <NavbarDivider />
           <Button className={Classes.MINIMAL} icon="home" text="Home" />
           <Button className={Classes.MINIMAL} icon="document" text="Files" />
