@@ -3,8 +3,13 @@ import API from "../middleware/api";
 
 class ResourceList extends React.Component {
   renderResources() {
-    if (!this.props.resourecs) return null;
-    return this.props.resources.map(resource => <div>resource.title</div>);
+    if (!this.props.resources) {
+      return null;
+    }
+
+    return this.props.resources.map(resource => (
+      <div key={`resource-${resource.id}`}>{resource.title}</div>
+    ));
   }
 
   render() {
