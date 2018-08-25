@@ -20,6 +20,10 @@
 @import "@blueprintjs/core/lib/css/blueprint.css";
 @import "@blueprintjs/core/lib/scss/variables";
 
+@import "bulma/sass/utilities/_all.sass";
+@import "bulma/sass/layout/_all.sass";
+@import "bulma/sass/grid/columns.sass";
+
 body {
   padding-top: $pt-navbar-height;
 }

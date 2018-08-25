@@ -1,6 +1,5 @@
 import React from "react";
 import ResourceList from "./ResourceList";
-import { Button } from "@blueprintjs/core";
 
 import Navbar from "./common/Navbar";
 
@@ -22,9 +21,8 @@ class LandingPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Navbar />
-        <Button intent="success" text="button content" />
         <ResourceList resources={this.state.resources} />
         <h1>Hello World</h1>
         <button onClick={this.hello}>Click me</button>

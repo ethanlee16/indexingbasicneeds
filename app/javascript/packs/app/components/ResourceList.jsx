@@ -1,5 +1,5 @@
 import React from "react";
-import API from "../middleware/api";
+import { Button, Card, Elevation } from "@blueprintjs/core";
 
 class ResourceList extends React.Component {
   renderResources() {
@@ -8,12 +8,19 @@ class ResourceList extends React.Component {
     }
 
     return this.props.resources.map(resource => (
-      <div key={`resource-${resource.id}`}>{resource.title}</div>
+      <Card
+        interactive={true}
+        elevation={Elevation.TWO}
+        key={`resource-${resource.id}`}
+        className="resource-list-card"
+      >
+        <h3>{resource.title}</h3>
+      </Card>
     ));
   }
 
   render() {
-    return <div>{this.renderResources()}</div>;
+    return <div className="resource-list">{this.renderResources()}</div>;
   }
 }
 
