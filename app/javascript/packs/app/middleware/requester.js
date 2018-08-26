@@ -45,7 +45,7 @@ class BaseRequester {
 
     let payload = {
       method: method,
-      headers: headers
+      headers: headers,
     };
 
     if (method != "GET") {
@@ -81,10 +81,17 @@ class BaseRequester {
    * Returns headers to be passed in request.
    */
   static _getHeaders() {
-    return {
+    let headers = {
       Accept: "application/json",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     };
+
+    const csrfHeader = document.querySelector('meta[name="csrf-token"]');
+    if (csrfHeader) {
+      headers["X-CSRF-Token"] = csrfHeader.content;
+    }
+
+    return headers;
   }
 
   /**

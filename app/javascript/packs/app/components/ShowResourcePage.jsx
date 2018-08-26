@@ -1,37 +1,35 @@
 import React from "react";
 import ResourceList from "./ResourceList";
-import { Button } from "@blueprintjs/core";
+import { Button, H1 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
 import Navbar from "./common/Navbar";
 
 import API from "../middleware/api";
 
-class LandingPage extends React.Component {
+class ShowResourcePage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      resources: [],
+      resource: {},
     };
   }
 
   async componentDidMount() {
-    let resources = await API.ResourcesIndex();
-    this.setState({ resources: resources });
+    const resource = await API.ShowResource(this.props.match.params.id);
+    this.setState({ resource: resource });
   }
 
   render() {
     return (
       <div className="container is-widescreen landing-page">
         <Navbar />
-        <Link to="/resource/new">
-          <Button large rightIcon="add" text="Add new resource" />
-        </Link>
-        <ResourceList resources={this.state.resources} />
+        <H1>{this.state.resource.title}</H1>
+        <div dangerouslySetInnerHTML={{ __html: this.state.resource.body }} />
       </div>
     );
   }
 }
 
-export default LandingPage;
+export default ShowResourcePage;

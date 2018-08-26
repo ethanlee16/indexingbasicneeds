@@ -4,11 +4,11 @@ import {
   Button,
   FormGroup,
   H1,
-  H5,
   InputGroup,
   Intent,
-  Switch,
+  Toaster,
 } from "@blueprintjs/core";
+import { withRouter } from "react-router";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import update from "immutability-helper";
@@ -23,42 +23,36 @@ class CreateResourcePage extends React.Component {
 
     this.state = {
       formFields: {
-        title: {
-          value: "",
-          errors: [],
-        },
-        body: {
-          value: "",
-          errors: [],
-        },
+        title: "",
+        body: "",
+      },
+      formErrors: {
+        title: [],
+        body: [],
       },
     };
-    this.resourceBody = "";
-  }
-
-  async componentDidMount() {
-    let resources = await API.ResourcesIndex();
-    this.setState({ resources: resources });
   }
 
   getIntent(fieldName) {
-    const details = this.state.formFields[fieldName];
-    return !!details.errors && details.errors.length > 0
-      ? Intent.DANGER
-      : Intent.NONE;
+    const errors = this.state.formErrors[fieldName];
+    return !!errors && errors.length > 0 ? Intent.DANGER : Intent.NONE;
   }
 
   updateFormFieldCallback(fieldName) {
     return event => {
       const newState = update(this.state, {
-        formFields: { [fieldName]: { value: { $set: event.target.value } } },
+        formFields: { [fieldName]: { $set: event.target.value } },
       });
       this.setState(newState);
     };
   }
 
-  submit = () => {
-    console.log(this.state);
+  submit = async () => {
+    let response = await API.CreateNewResource(this.state.formFields);
+    // TODO (Ken): Add error checking
+    this.props.history.push("/");
+    let toaster = Toaster.create();
+    toaster.show({ message: "Success!", intent: Intent.SUCCESS });
   };
 
   render() {
@@ -90,15 +84,18 @@ class CreateResourcePage extends React.Component {
         >
           <CKEditor
             editor={ClassicEditor}
-            data="<p>Start composing your resource now...</p>"
+            data={this.state.formFields.body}
             onInit={editor => {
               // You can store the "editor" and use when it's needed.
               console.log("Editor is ready to use!", editor);
             }}
             onChange={(event, editor) => {
               const data = editor.getData();
-              this.resourceBody = data;
-              this.updateFormFieldCallback("body");
+              const newState = update(this.state, {
+                formFields: { body: { $set: data } },
+              });
+              this.setState(newState);
+              //   this.resourceBody = data;
             }}
           />
         </FormGroup>
