@@ -1,23 +1,18 @@
 import React from 'react';
 
 class ResourceList extends React.Component {
+  // class component
   renderResources() {
     return this.props.resources.map(resource => (
-      <div className="Resources-Page">
-        <div className="Tabs"></div>
-        <div className="Search">
-          <div className="TextField"></div>
-          <div className="SearchBtn"></div>
-        </div>
-
-        <div className="Resources">
-          <div className="Resource">
-            <div className="img"> </div>
+//begin tonya
+          // this is an element
+          <div className="Resource-Info">
+            <img className="img"></img>
             <div className="title">
               {resource.title}
             </div>
             <div className="description">
-              {resource.title}
+              {resource.description}
             </div>
             <div className="links">
               <div className="link">
@@ -29,13 +24,13 @@ class ResourceList extends React.Component {
             </div>
           
           </div>
-        </div>
-        
-      </div>
     ))
+//end tonya
   }
 
   render() {
+    // move the body of the function into render,
+    // replace props w/ this.props
     return (
       <div>
         {this.renderResources()}
