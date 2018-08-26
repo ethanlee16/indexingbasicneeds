@@ -1,13 +1,7 @@
 import React from "react";
 import ResourceList from "./ResourceList";
-import {
-  AnchorButton,
-  Button,
-  Code,
-  H5,
-  Intent,
-  Switch
-} from "@blueprintjs/core";
+import { Button } from "@blueprintjs/core";
+import { Link } from "react-router-dom";
 
 import Navbar from "./common/Navbar";
 
@@ -31,10 +25,10 @@ class LandingPage extends React.Component {
     return (
       <div className="container is-widescreen landing-page">
         <Navbar />
-        <Button large rightIcon="add" text="Add new resource" />
+        <Link to="/resources/create">
+          <Button large rightIcon="add" text="Add new resource" />
+        </Link>
         <ResourceList resources={this.state.resources} />
-        <h1>Hello World</h1>
-        <button onClick={this.hello}>Click me</button>
       </div>
     );
   }

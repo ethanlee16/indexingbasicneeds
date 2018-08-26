@@ -8,6 +8,7 @@ import {
   NavbarGroup,
   NavbarHeading
 } from "@blueprintjs/core";
+import { Link } from "react-router-dom";
 
 import Logo from "images/bns-logo.svg";
 
@@ -17,11 +18,14 @@ export default class extends React.Component {
       <Navbar fixedToTop>
         <NavbarGroup align={Alignment.LEFT}>
           <NavbarHeading>
-            <img src={Logo} className="navbar-image" />
+            <Link to="/">
+              <img src={Logo} className="navbar-image" />
+            </Link>
           </NavbarHeading>
           <NavbarDivider />
-          <Button className={Classes.MINIMAL} icon="home" text="Home" />
-          <Button className={Classes.MINIMAL} icon="document" text="Files" />
+          <Link to="/">
+            <Button className={Classes.MINIMAL} icon="home" text="Home" />
+          </Link>
         </NavbarGroup>
       </Navbar>
     );
