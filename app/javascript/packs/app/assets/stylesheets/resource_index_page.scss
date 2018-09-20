@@ -1,0 +1,16 @@
+.resource-index-page {
+  padding: 50px;
+}
+
+$sidebar-width: 200px;
+.resource-index-page-sidebar {
+  position: fixed;
+  width: $sidebar-width;
+  top: 0px;
+  left: 0px;
+  padding-top: 20px;
+}
+
+.resource-index-page-main-container {
+  margin-left: $sidebar-width;
+}

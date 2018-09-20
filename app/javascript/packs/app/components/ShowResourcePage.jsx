@@ -23,7 +23,7 @@ class ShowResourcePage extends React.Component {
 
   render() {
     return (
-      <div className="container is-widescreen landing-page">
+      <div className="container is-widescreen page-container">
         <Navbar />
         <H1>{this.state.resource.title}</H1>
         <div dangerouslySetInnerHTML={{ __html: this.state.resource.body }} />
