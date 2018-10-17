@@ -1,6 +1,8 @@
-@import "./navbar.scss";
-@import "./sidebar.scss";
-@import "./layout.scss";
+@import "./variables";
 
-@import "./resource_list.scss";
-@import "./resource_index_page.scss";
+@import "./navbar";
+@import "./sidebar";
+@import "./layout";
+
+@import "./resource_list";
+@import "./resource_index_page";
