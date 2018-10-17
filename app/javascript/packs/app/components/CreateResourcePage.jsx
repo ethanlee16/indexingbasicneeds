@@ -57,7 +57,7 @@ class CreateResourcePage extends React.Component {
 
   render() {
     return (
-      <div className="container is-widescreen landing-page">
+      <div className="container is-widescreen page-container">
         <Navbar />
         <H1>Create New Resource</H1>
         <FormGroup

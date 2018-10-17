@@ -6,7 +6,7 @@ import {
   Navbar,
   NavbarDivider,
   NavbarGroup,
-  NavbarHeading
+  NavbarHeading,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
@@ -25,6 +25,20 @@ export default class extends React.Component {
           <NavbarDivider />
           <Link to="/">
             <Button className={Classes.MINIMAL} icon="home" text="Home" />
+          </Link>
+          <Link to="/resources">
+            <Button
+              className={Classes.MINIMAL}
+              icon="projects"
+              text="Resources"
+            />
+          </Link>
+          <Link to="/guides">
+            <Button
+              className={Classes.MINIMAL}
+              icon="book"
+              text="Student Guides"
+            />
           </Link>
         </NavbarGroup>
       </Navbar>
