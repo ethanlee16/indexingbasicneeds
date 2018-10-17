@@ -1,0 +1,15 @@
+.about-page-who {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.about-page-who-text {
+  display: inline-block;
+  flex: 2;
+}
+
+.about-page-who-text {
+  flex: 1;
+}
