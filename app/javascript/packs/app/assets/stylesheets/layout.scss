@@ -1,3 +1,19 @@
+@import "./variables";
+
+// Colors
+
+$off-black: #4a4a4a;
+
+// Typography
+
+h1 {
+  font-family: $font-stack;
+  color: $off-black;
+  font-size: 48px;
+}
+
+// Layouts
+
 .page-container {
   padding: 50px;
 }
