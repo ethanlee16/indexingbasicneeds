@@ -46,4 +46,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default ResourceIndexPage;
+export default HomePage;
