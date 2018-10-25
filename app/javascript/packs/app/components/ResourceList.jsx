@@ -1,42 +1,28 @@
-import React from 'react';
+import React from "react";
+import { Button, Card, Elevation } from "@blueprintjs/core";
 
 class ResourceList extends React.Component {
   // class component
   renderResources() {
+    if (!this.props.resources) {
+      return null;
+    }
+
     return this.props.resources.map(resource => (
-//begin tonya
-          // this is an element
-          <div className="Resource-Info">
-            <img className="img"></img>
-            <div className="title">
-              {resource.title}
-            </div>
-            <div className="description">
-              {resource.description}
-            </div>
-            <div className="links">
-              <div className="link">
-                {resource.link}
-              </div>
-              <div className="upvotes">
-                {resource.votes}
-              </div>
-            </div>
-          
-          </div>
-    ))
-//end tonya
+      <Card
+        interactive={true}
+        elevation={Elevation.TWO}
+        key={`resource-${resource.id}`}
+        className="resource-list-card"
+      >
+        <h3>{resource.title}</h3>
+      </Card>
+    ));
   }
 
   render() {
-    // move the body of the function into render,
-    // replace props w/ this.props
-    return (
-      <div>
-        {this.renderResources()}
-      </div>
-    )
+    return <div className="resource-list">{this.renderResources()}</div>;
   }
 }
 
-export default ResourceList
+export default ResourceList;
