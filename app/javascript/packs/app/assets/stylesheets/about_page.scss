@@ -1,3 +1,5 @@
+@import "./variables";
+
 .about-page-who {
   display: flex;
   flex-flow: row wrap;
@@ -12,4 +14,46 @@
 
 .about-page-who-text {
   flex: 1;
+}
+
+.about-page-background {
+  width: 100%;
+  padding: 40px 100px;
+  background-color: rgba(185, 211, 182, 0.36);
+}
+
+.about-page-background-numbers {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+}
+
+.about-page-background-number {
+  display: inline-block;
+  max-width: 40%;
+
+  &.left {
+    align-self: flex-start;
+  }
+
+  &.right {
+    align-self: flex-end;
+  }
+}
+
+.about-page-background-number-flex {
+  display: flex;
+  flex-flow: row;
+}
+
+.about-page-background-number-num {
+  font-family: $font-stack;
+  color: $gold;
+  font-size: 140px;
+  font-weight: 900;
+}
+
+.about-page-background-number-des {
+  margin-top: 40px;
+  margin-left: 20px;
 }

@@ -36,6 +36,34 @@ class AboutPage extends React.Component {
           </p>
           <img src={OurMission} />
         </div>
+
+        <div className="about-page-background">
+          <h1>Background</h1>
+          <p>
+            UC Berkeley's Basic Needs Security Committee is made up of
+            undergraduate, graduate student, professional staff, faculty,
+            administrators, and community experts. Our areas of focus are
+          </p>
+
+          <div className="about-page-background-numbers">
+            <div className="about-page-background-number left">
+              <div className="about-page-background-number-flex">
+                <div className="about-page-background-number-num">1</div>
+                <div className="about-page-background-number-des">
+                  <h2>Basic Needs Security</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="about-page-background-number right">2</div>
+            <div className="about-page-background-number left">3</div>
+            <div className="about-page-background-number right">4</div>
+          </div>
+        </div>
       </div>
     );
   }

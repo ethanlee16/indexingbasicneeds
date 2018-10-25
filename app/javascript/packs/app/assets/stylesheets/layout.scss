@@ -1,16 +1,17 @@
 @import "./variables";
 
-// Colors
-
-$off-black: #4a4a4a;
-$dark-gray: #828282;
-
 // Typography
-
 h1 {
   font-family: $font-stack;
   color: $off-black;
   font-size: 48px;
+  font-weight: 600;
+}
+
+h2 {
+  font-family: $font-stack;
+  color: $dark-blue;
+  font-size: 36px;
   font-weight: 600;
 }
 
