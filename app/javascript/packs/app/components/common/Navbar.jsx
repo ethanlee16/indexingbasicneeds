@@ -40,6 +40,9 @@ export default class extends React.Component {
               text="Student Guides"
             />
           </Link>
+          <Link to="/about">
+            <Button className={Classes.MINIMAL} icon="people" text="About" />
+          </Link>
         </NavbarGroup>
       </Navbar>
     );

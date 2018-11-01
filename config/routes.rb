@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#root"
 
+  get '/about', to: "pages#root"
   get '/resource/new', to: "pages#root"
   get '/resources/:id', to: "pages#root"
 
