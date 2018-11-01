@@ -1,3 +1,8 @@
-@import "./navbar.scss";
-@import "./resource_list.scss";
-@import "./landing_page.scss";
+@import "./variables";
+
+@import "./navbar";
+@import "./sidebar";
+@import "./layout";
+
+@import "./resource_list";
+@import "./resource_index_page";

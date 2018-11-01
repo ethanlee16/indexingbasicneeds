@@ -8,8 +8,9 @@
 
 def create_resources
   10.times do |i|
-    Resource.create(
-      title: "Resource number #{i}"
+    Resource.create!(
+      title: "Resource number #{i}", 
+      body: "<p>Hello</p>"
     )
   end
 end
