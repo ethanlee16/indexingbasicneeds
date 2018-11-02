@@ -14,24 +14,9 @@ import CreateResourcePage from "./CreateResourcePage";
 import API from "../middleware/api";
 
 class UpdateResourcePage extends CreateResourcePage {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      formFields: {
-        title: "",
-        description: "",
-        body: "",
-      },
-      formErrors: {
-        title: [],
-        description: [],
-        body: [],
-      },
-    };
-  }
-
   async componentDidMount() {
+    await this.getResourceTags();
+
     let id = this.props.match.params.id;
     let resource = await API.ShowResource(id);
 

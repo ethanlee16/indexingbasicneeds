@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :api do
+    get 'resource_tags/index'
+  end
+
   devise_for :users
   root to: "pages#root"
 
@@ -9,5 +13,6 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: [:json, :csv] } do 
     resources :resources, only: [:index, :show, :create, :update]
+    resources :resource_tags, only: [:index]
   end
 end

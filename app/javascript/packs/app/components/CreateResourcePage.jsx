@@ -2,6 +2,7 @@ import React from "react";
 import ResourceList from "./ResourceList";
 import {
   Button,
+  Checkbox,
   FormGroup,
   H1,
   InputGroup,
@@ -32,7 +33,46 @@ class CreateResourcePage extends React.Component {
         description: [],
         body: [],
       },
+      resourceTags: {
+        student: [],
+        campus: [],
+        community: [],
+        other: [],
+      },
+      selectedResourceTags: {}, // id : category_name just for ease of use over Set
     };
+  }
+
+  async componentDidMount() {
+    await this.getResourceTags();
+    console.log(this.state);
+  }
+
+  async getResourceTags() {
+    let resourceTagsState = {
+      student: [],
+      campus: [],
+      community: [],
+      other: [],
+    };
+    let resourceTags = await API.GetResourceTags();
+    resourceTags.forEach(tag => {
+      switch (tag.category) {
+        case "student":
+          resourceTagsState.student.push(tag);
+          break;
+        case "campus":
+          resourceTagsState.campus.push(tag);
+          break;
+        case "community":
+          resourceTagsState.community.push(tag);
+          break;
+        default:
+          resourceTagsState.other.push(tag);
+          break;
+      }
+    });
+    this.setState({ resourceTags: resourceTagsState });
   }
 
   getPageTitle() {
@@ -50,6 +90,26 @@ class CreateResourcePage extends React.Component {
         formFields: { [fieldName]: { $set: event.target.value } },
       });
       this.setState(newState);
+    };
+  }
+
+  /**
+   * Checks the resource tag if unchecked and vice versa by setting the selectedResourceTags state.
+   */
+  checkResourceTagCallback(id, categoryName) {
+    return event => {
+      let newSelectedResourceTags;
+      if (this.state.selectedResourceTags.hasOwnProperty(id)) {
+        newSelectedResourceTags = update(this.state.selectedResourceTags, {
+          $unset: [id],
+        });
+      } else {
+        newSelectedResourceTags = update(this.state.selectedResourceTags, {
+          [id]: { $set: categoryName },
+        });
+      }
+      this.setState({ selectedResourceTags: newSelectedResourceTags });
+      console.log(this.state);
     };
   }
 
@@ -121,6 +181,78 @@ class CreateResourcePage extends React.Component {
               //   this.resourceBody = data;
             }}
           />
+        </FormGroup>
+
+        <FormGroup
+          label="Student Filters"
+          labelFor="text-input"
+          labelInfo={"(required)"}
+          intent={this.getIntent("description")}
+        >
+          {this.state.resourceTags.student.map(tag => {
+            return (
+              <Checkbox
+                label={tag.name}
+                checked={this.state.selectedResourceTags.hasOwnProperty(tag.id)}
+                onChange={this.checkResourceTagCallback(tag.id, tag.category)}
+                key={`resource-tag-${tag.id}`}
+              />
+            );
+          })}
+        </FormGroup>
+
+        <FormGroup
+          label="Campus Filters"
+          labelFor="text-input"
+          labelInfo={"(required)"}
+          intent={this.getIntent("description")}
+        >
+          {this.state.resourceTags.campus.map(tag => {
+            return (
+              <Checkbox
+                label={tag.name}
+                checked={this.state.selectedResourceTags.hasOwnProperty(tag.id)}
+                onChange={this.checkResourceTagCallback(tag.id, tag.category)}
+                key={`resource-tag-${tag.id}`}
+              />
+            );
+          })}
+        </FormGroup>
+
+        <FormGroup
+          label="Community Filters"
+          labelFor="text-input"
+          labelInfo={"(required)"}
+          intent={this.getIntent("description")}
+        >
+          {this.state.resourceTags.community.map(tag => {
+            return (
+              <Checkbox
+                label={tag.name}
+                checked={this.state.selectedResourceTags.hasOwnProperty(tag.id)}
+                onChange={this.checkResourceTagCallback(tag.id, tag.category)}
+                key={`resource-tag-${tag.id}`}
+              />
+            );
+          })}
+        </FormGroup>
+
+        <FormGroup
+          label="Other Filters"
+          labelFor="text-input"
+          labelInfo={"(required)"}
+          intent={this.getIntent("description")}
+        >
+          {this.state.resourceTags.other.map(tag => {
+            return (
+              <Checkbox
+                label={tag.name}
+                checked={this.state.selectedResourceTags.hasOwnProperty(tag.id)}
+                onChange={this.checkResourceTagCallback(tag.id, tag.category)}
+                key={`resource-tag-${tag.id}`}
+              />
+            );
+          })}
         </FormGroup>
 
         <Button large rightIcon="tick" text="Submit" onClick={this.submit} />
