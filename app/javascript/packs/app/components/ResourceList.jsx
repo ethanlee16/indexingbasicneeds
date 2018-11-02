@@ -2,6 +2,8 @@ import React from "react";
 import { Button, Card, Classes, Elevation } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
+import Placeholder from "images/placeholder-square.jpg";
+
 class ResourceList extends React.Component {
   renderResources() {
     if (!this.props.resources) {
@@ -21,11 +23,15 @@ class ResourceList extends React.Component {
       <Link to={`/resources/${resource.id}`} key={`resource-${resource.id}`}>
         <Card
           interactive={true}
-          elevation={Elevation.TWO}
+          elevation={Elevation.ZERO}
           className="resource-list-card"
         >
-          <h3>{resource.title}</h3>
-          <p>{resource.description}</p>
+          {/* TODO (Ken): REMOVE WHEN AWS CONNECTOR IS IN */}
+          <img src={Placeholder} className="resource-list-card-image" />
+          <div className="resource-list-card-text">
+            <div className="resource-list-card-title">{resource.title}</div>
+            <p>{resource.description}</p>
+          </div>
         </Card>
       </Link>
     ));
