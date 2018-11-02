@@ -1,0 +1,87 @@
+@import "./variables";
+
+
+.page-container {
+    width: 100%;
+    padding: 0;
+}
+
+
+.home-page-welcome {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+
+}
+
+.home-page-text {
+  display: inline-block;
+  flex: 2;
+  width: 100%;
+  padding: 40px 100px;
+}
+
+.home-page-buttons {
+    padding-top: 20px;
+}
+
+.home-page-button-1 {
+    margin-right: 40px;
+}
+
+.home-page-button-2 {
+}
+
+.home-page-button-3 {
+    margin-top: 50px;
+}
+
+.home-page-resource{
+    width: 100%;
+    padding: 40px 100px;
+    background-color: #F3FBFF;
+    align: left;
+  }
+
+.home-page-resource-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.home-page-resource-item {
+    margin: 0 auto;
+}
+
+.home-page-icon {
+   max-width: 150px;
+   max-height: 150px;
+//    padding: 10px;
+}
+
+.home-page-icon-text {
+    margin-top: -20px;
+    text-align: center;
+    font-size: 20px;
+    font-style: semi-bold; 
+}
+
+.home-page-icon-fin {
+    max-width: 150px;
+   max-height: 150px;
+   margin-top: 15px;
+}
+
+.home-page-icon-text-fin {
+    margin-top: -36px;
+    text-align: center;
+    font-size: 20px;
+    font-style: semi-bold; 
+}
+
+
+.home-page-spotlight {
+    width: 100%;
+    padding: 40px 100px;
+}

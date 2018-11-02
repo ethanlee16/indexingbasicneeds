@@ -24,24 +24,30 @@ export default class extends React.Component {
           </NavbarHeading>
           <NavbarDivider />
           <Link to="/">
-            <Button className={Classes.MINIMAL} icon="home" text="Home" />
+            <Button className={Classes.MINIMAL} icon="none" text="Home" />
           </Link>
           <Link to="/resources">
             <Button
               className={Classes.MINIMAL}
-              icon="projects"
+              icon="none"
               text="Resources"
             />
           </Link>
           <Link to="/guides">
             <Button
               className={Classes.MINIMAL}
-              icon="book"
+              icon="none"
               text="Student Guides"
             />
           </Link>
           <Link to="/about">
-            <Button className={Classes.MINIMAL} icon="people" text="About" />
+            <Button className={Classes.MINIMAL} icon="none" text="About" />
+          </Link>
+          <Link to="/getinvolved">
+            <Button className={Classes.MINIMAL} icon="none" text="Get Involved" />
+          </Link>
+          <Link to="/donate">
+            <Button className={Classes.MINIMAL} icon="none" text="Donate" />
           </Link>
         </NavbarGroup>
       </Navbar>
