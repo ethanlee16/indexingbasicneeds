@@ -10,6 +10,7 @@ def create_resources
   10.times do |i|
     Resource.create!(
       title: "Resource number #{i}", 
+      description: "This is the description for resource number #{i}", 
       body: "<p>Hello</p>"
     )
   end
