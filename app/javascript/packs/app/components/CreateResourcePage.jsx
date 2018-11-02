@@ -35,6 +35,10 @@ class CreateResourcePage extends React.Component {
     };
   }
 
+  getPageTitle() {
+    return "Create New Resource";
+  }
+
   getIntent(fieldName) {
     const errors = this.state.formErrors[fieldName];
     return !!errors && errors.length > 0 ? Intent.DANGER : Intent.NONE;
@@ -61,7 +65,7 @@ class CreateResourcePage extends React.Component {
     return (
       <div className="container is-widescreen page-container">
         <Navbar />
-        <H1>Create New Resource</H1>
+        <H1>{this.getPageTitle()}</H1>
         <FormGroup
           label="Title"
           labelFor="text-input"
@@ -73,6 +77,7 @@ class CreateResourcePage extends React.Component {
             placeholder="Enter your title here..."
             intent={this.getIntent("title")}
             onChange={this.updateFormFieldCallback("title")}
+            value={this.state.formFields.title}
             large
           />
         </FormGroup>
@@ -88,6 +93,7 @@ class CreateResourcePage extends React.Component {
             placeholder="Enter your resource description here..."
             intent={this.getIntent("description")}
             onChange={this.updateFormFieldCallback("description")}
+            value={this.state.formFields.description}
             large
           />
         </FormGroup>

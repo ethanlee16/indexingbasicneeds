@@ -26,6 +26,9 @@ class ShowResourcePage extends React.Component {
       <div className="container is-widescreen page-container">
         <Navbar />
         <H1>{this.state.resource.title}</H1>
+        <Link to={`/resources/${this.state.resource.id}/edit`}>
+          <Button large rightIcon="edit" text="Edit resource" />
+        </Link>
         <div dangerouslySetInnerHTML={{ __html: this.state.resource.body }} />
       </div>
     );

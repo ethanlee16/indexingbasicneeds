@@ -13,6 +13,12 @@ class Api::ResourcesController < ApplicationController
         render json: @resource, status: :ok
     end 
 
+    def update 
+        @resource = Resource.find(params[:id])
+        @resource.update(resource_params)
+        render json: @resource, status: :ok 
+    end
+
     private 
 
     def resource_params
