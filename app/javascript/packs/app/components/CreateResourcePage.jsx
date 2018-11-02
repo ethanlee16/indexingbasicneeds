@@ -24,10 +24,12 @@ class CreateResourcePage extends React.Component {
     this.state = {
       formFields: {
         title: "",
+        description: "",
         body: "",
       },
       formErrors: {
         title: [],
+        description: [],
         body: [],
       },
     };
@@ -68,9 +70,24 @@ class CreateResourcePage extends React.Component {
         >
           <InputGroup
             id="text-input"
-            placeholder="Placeholder text"
+            placeholder="Enter your title here..."
             intent={this.getIntent("title")}
             onChange={this.updateFormFieldCallback("title")}
+            large
+          />
+        </FormGroup>
+
+        <FormGroup
+          label="Description"
+          labelFor="text-input"
+          labelInfo={"(required)"}
+          intent={this.getIntent("description")}
+        >
+          <InputGroup
+            id="text-input"
+            placeholder="Enter your resource description here..."
+            intent={this.getIntent("description")}
+            onChange={this.updateFormFieldCallback("description")}
             large
           />
         </FormGroup>

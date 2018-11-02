@@ -16,6 +16,6 @@ class Api::ResourcesController < ApplicationController
     private 
 
     def resource_params
-        params.require(:resource).permit(:title, :body)
+        params.require(:resource).permit(:title, :description, :body)
     end
 end

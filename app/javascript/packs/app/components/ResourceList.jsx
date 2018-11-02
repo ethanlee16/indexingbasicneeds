@@ -25,6 +25,7 @@ class ResourceList extends React.Component {
           className="resource-list-card"
         >
           <h3>{resource.title}</h3>
+          <p>{resource.description}</p>
         </Card>
       </Link>
     ));
