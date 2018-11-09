@@ -1,6 +1,6 @@
 import React from "react";
 import ResourceList from "./ResourceList";
-import { Button, H1 } from "@blueprintjs/core";
+import { Button, H1, Tag } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
 import Navbar from "./common/Navbar";
@@ -18,6 +18,7 @@ class ShowResourcePage extends React.Component {
 
   async componentDidMount() {
     const resource = await API.ShowResource(this.props.match.params.id);
+    console.log(resource);
     this.setState({ resource: resource });
   }
 
@@ -30,6 +31,18 @@ class ShowResourcePage extends React.Component {
           <Button large rightIcon="edit" text="Edit resource" />
         </Link>
         <div dangerouslySetInnerHTML={{ __html: this.state.resource.body }} />
+        {!!this.state.resource.resource_tags &&
+          this.state.resource.resource_tags.map(tag => {
+            return (
+              <Tag
+                key={`tag-${tag.id}`}
+                large
+                className="resource-show-page-tag"
+              >
+                {tag.name}
+              </Tag>
+            );
+          })}
       </div>
     );
   }
