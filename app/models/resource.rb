@@ -14,4 +14,6 @@ class Resource < ApplicationRecord
 
     has_many :resource_tag_instances
     has_many :resource_tags, through: :resource_tag_instances
+
+    accepts_nested_attributes_for :resource_tag_instances
 end

@@ -114,8 +114,22 @@ class CreateResourcePage extends React.Component {
   }
 
   submit = async () => {
-    let response = await API.CreateNewResource(this.state.formFields);
-    // TODO (Ken): Add error checking
+    let resourceTagInstancesAttributes = Object.keys(
+      this.state.selectedResourceTags
+    ).map(resourceTagId => {
+      return {
+        resource_tag_id: resourceTagId,
+      };
+    });
+
+    let resource = {
+      ...this.state.formFields,
+      resource_tag_instances_attributes: resourceTagInstancesAttributes,
+    };
+
+    let response = await API.CreateNewResource(resource);
+    // TODO (Ken): Add error checking on response here
+
     this.props.history.push("/");
     let toaster = Toaster.create();
     toaster.show({ message: "Success!", intent: Intent.SUCCESS });

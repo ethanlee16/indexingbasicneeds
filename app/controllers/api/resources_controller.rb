@@ -22,6 +22,11 @@ class Api::ResourcesController < ApplicationController
     private 
 
     def resource_params
-        params.require(:resource).permit(:title, :description, :body)
+        params.require(:resource).permit(
+            :title, 
+            :description, 
+            :body, 
+            { resource_tag_instances_attributes: [:resource_tag_id] }
+        )
     end
 end
