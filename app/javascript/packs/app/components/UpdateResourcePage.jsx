@@ -20,6 +20,12 @@ class UpdateResourcePage extends CreateResourcePage {
     let id = this.props.match.params.id;
     let resource = await API.ShowResource(id);
 
+    // Prepopulate selected resoruce tags
+    let selectedResourceTags = {};
+    resource.resource_tags.forEach(tag => {
+      selectedResourceTags[tag.id] = tag.name;
+    });
+
     // Update current formFields with the values previously stored in DB
     this.setState({
       formFields: {
@@ -27,6 +33,7 @@ class UpdateResourcePage extends CreateResourcePage {
         description: resource.description,
         body: resource.body,
       },
+      selectedResourceTags: selectedResourceTags,
     });
     console.log(this.state);
   }
