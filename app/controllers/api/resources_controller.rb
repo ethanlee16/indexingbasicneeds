@@ -29,4 +29,5 @@ class Api::ResourcesController < ApplicationController
             { resource_tag_instances_attributes: [:resource_tag_id] }
         )
     end
+
 end

@@ -12,4 +12,7 @@
 class ResourceTagInstance < ApplicationRecord
   belongs_to :resource
   belongs_to :resource_tag
+
+  # No combination of resource_id and resource_tag_id should be duplicated
+  validates :resource_tag_id, uniqueness: { scope: :resource_id }
 end

@@ -43,10 +43,23 @@ class UpdateResourcePage extends CreateResourcePage {
   }
 
   submit = async () => {
+    let resourceTagInstancesAttributes = Object.keys(
+      this.state.selectedResourceTags
+    ).map(resourceTagId => {
+      return {
+        resource_tag_id: resourceTagId,
+      };
+    });
+
+    let resource = {
+      ...this.state.formFields,
+      resource_tag_instances_attributes: resourceTagInstancesAttributes,
+    };
+
     let id = this.props.match.params.id;
-    let response = await API.UpdateResource(id, this.state.formFields);
-    console.log(response);
+    let response = await API.UpdateResource(id, resource);
     // TODO (Ken): Add error checking
+
     this.props.history.push("/");
     let toaster = Toaster.create();
     toaster.show({ message: "Success!", intent: Intent.SUCCESS });
