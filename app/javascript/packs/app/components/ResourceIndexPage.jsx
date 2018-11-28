@@ -1,13 +1,6 @@
 import React from "react";
 import ResourceList from "./ResourceList";
-import {
-  Button,
-  Classes,
-  Icon,
-  ITreeNode,
-  Tooltip,
-  Tree,
-} from "@blueprintjs/core";
+import { Button } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
 import FilterSidebar from "./common/FilterSidebar";
@@ -31,12 +24,20 @@ class ResourceIndexPage extends React.Component {
     this.setState({ resources: resources, loaded: true });
   }
 
+  filterResources = async resourceTagIds => {
+    this.setState({ loaded: false });
+    let resources = await API.ResourcesIndex([...resourceTagIds]);
+    this.setState({ resources: resources, loaded: true });
+  };
+
   render() {
     return (
       <div className="container is-widescreen page-container">
         <Navbar />
         <div className="resource-index-page-sidebar">
-          <ResourceIndexFilterSidebar />
+          <ResourceIndexFilterSidebar
+            filterResourcesCallback={this.filterResources}
+          />
         </div>
         <div className="resource-index-page-main-container">
           <h2>BNS Resources</h2>

@@ -4,8 +4,7 @@ class Api::ResourcesController < ApplicationController
 
     def index
         resources = apply_scopes(Resource).all
-        puts resources
-        render json: resources.order(updated_at: :desc), status: :ok
+        render json: resources.order(updated_at: :desc).uniq, status: :ok
     end
 
     def show 

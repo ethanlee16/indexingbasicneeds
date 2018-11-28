@@ -58,7 +58,6 @@ class ResourceIndexFilterSidebar extends FilterSidebar {
       }
     });
     this.setState({ sections: sectionsState });
-    console.log(sectionsState);
   }
 
   checkResourceTagCallback = resourceTagId => {
@@ -74,6 +73,7 @@ class ResourceIndexFilterSidebar extends FilterSidebar {
         });
       }
       this.setState({ checkedResourceTagIds: newCheckedResourceTagIds });
+      this.props.filterResourcesCallback(newCheckedResourceTagIds);
     };
   };
 

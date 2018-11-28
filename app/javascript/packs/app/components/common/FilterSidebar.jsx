@@ -3,7 +3,6 @@ import { FormGroup, Checkbox } from "@blueprintjs/core";
 
 class FilterSidebar extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <div className="filter-sidebar">
         {this.props.sections.map((section, i) => {

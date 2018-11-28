@@ -45,7 +45,6 @@ class CreateResourcePage extends React.Component {
 
   async componentDidMount() {
     await this.getResourceTags();
-    console.log(this.state);
   }
 
   async getResourceTags() {
@@ -109,7 +108,6 @@ class CreateResourcePage extends React.Component {
         });
       }
       this.setState({ selectedResourceTags: newSelectedResourceTags });
-      console.log(this.state);
     };
   }
 

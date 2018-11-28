@@ -35,7 +35,6 @@ class UpdateResourcePage extends CreateResourcePage {
       },
       selectedResourceTags: selectedResourceTags,
     });
-    console.log(this.state);
   }
 
   getPageTitle() {

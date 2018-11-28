@@ -18,7 +18,6 @@ class ShowResourcePage extends React.Component {
 
   async componentDidMount() {
     const resource = await API.ShowResource(this.props.match.params.id);
-    console.log(resource);
     this.setState({ resource: resource });
   }
 

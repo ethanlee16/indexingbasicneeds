@@ -31,3 +31,10 @@ $resource-list-card-height: 150px;
   font-size: 20px;
   font-weight: 600;
 }
+
+.resource-list-empty-state-container {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
