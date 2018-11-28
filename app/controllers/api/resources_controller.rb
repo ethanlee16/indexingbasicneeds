@@ -1,6 +1,6 @@
 class Api::ResourcesController < ApplicationController
-    def index 
-        render json: Resource.all, status: :ok
+    def index
+        render json: Resource.all.order(updated_at: :desc), status: :ok
     end
 
     def show 
