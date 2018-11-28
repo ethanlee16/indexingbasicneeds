@@ -6,6 +6,7 @@ h1 {
   color: $off-black;
   font-size: 48px;
   font-weight: 600;
+  margin-top: 0px;
 }
 
 h2 {
@@ -13,13 +14,32 @@ h2 {
   color: $dark-blue;
   font-size: 36px;
   font-weight: 600;
+  margin-top: 0px;
+}
+
+h3 {
+  font-family: $font-stack;
+  color: $off-black;
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 0px;
 }
 
 p {
   font-family: $font-stack;
   color: $dark-gray;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+
+  &:hover {
+    color: inherit;
+    text-decoration: inherit;
+  }
 }
 
 // Layouts

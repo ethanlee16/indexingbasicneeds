@@ -22,12 +22,13 @@ class ResourceIndexPage extends React.Component {
 
     this.state = {
       resources: [],
+      loaded: false,
     };
   }
 
   async componentDidMount() {
     let resources = await API.ResourcesIndex();
-    this.setState({ resources: resources });
+    this.setState({ resources: resources, loaded: true });
   }
 
   render() {
@@ -38,10 +39,14 @@ class ResourceIndexPage extends React.Component {
           <ResourceIndexFilterSidebar />
         </div>
         <div className="resource-index-page-main-container">
+          <h2>BNS Resources</h2>
           <Link to="/resource/new">
             <Button large rightIcon="add" text="Add new resource" />
           </Link>
-          <ResourceList resources={this.state.resources} />
+          <ResourceList
+            resources={this.state.resources}
+            loaded={this.state.loaded}
+          />
         </div>
       </div>
     );

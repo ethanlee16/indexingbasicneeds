@@ -13,6 +13,15 @@ class API {
     const resourcePayload = { resource: resource };
     return await Requester.post("/api/resources", resourcePayload);
   }
+
+  static async UpdateResource(id, resource) {
+    const resourcePayload = { resource: resource };
+    return await Requester.patch(`/api/resources/${id}`, resourcePayload);
+  }
+
+  static async GetResourceTags() {
+    return await Requester.get("/api/resource_tags");
+  }
 }
 
 export default API;
