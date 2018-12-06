@@ -21,6 +21,13 @@ class Resource < ApplicationRecord
 
     # Filter by multiple tags on OR condition
     scope :by_tags, -> tag_ids { filter_by_tags(tag_ids) }
+    scope :ordered, -> method { order(ORDER_METHODS.fetch(method.to_sym, DEFAULT_ORDER_METHOD)) }
+
+    DEFAULT_ORDER_METHOD = { created_at: :desc }
+    ORDER_METHODS = {
+        created_asc: { created_at: :asc }, 
+        created_desc: { created_at: :desc }, 
+    }
 
     def self.filter_by_tags(tag_ids)
         joins(:resource_tag_instances)
