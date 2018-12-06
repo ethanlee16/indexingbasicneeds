@@ -1,10 +1,12 @@
 class Api::ResourcesController < ApplicationController
     before_action :parse_tag_ids, only: [:index]
+
     has_scope :by_tags, type: :array
+    has_scope :ordered
 
     def index
-        resources = apply_scopes(Resource).all
-        render json: resources.order(updated_at: :desc).uniq, status: :ok
+        resources = apply_scopes(Resource).all.uniq
+        render json: resources, status: :ok
     end
 
     def show 
