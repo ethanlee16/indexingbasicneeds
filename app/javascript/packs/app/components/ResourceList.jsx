@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Classes, Elevation } from "@blueprintjs/core";
+import { Card, Classes, Elevation, NonIdealState } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
 import Placeholder from "images/placeholder-square.jpg";
@@ -7,7 +7,7 @@ import Placeholder from "images/placeholder-square.jpg";
 class ResourceList extends React.Component {
   renderResources() {
     if (!this.props.loaded) {
-      return [0, 1, 2].map(index => (
+      return [0, 1, 2, 3, 4, 5, 6, 7].map(index => (
         <Card
           interactive={false}
           elevation={Elevation.ZERO}
@@ -26,6 +26,16 @@ class ResourceList extends React.Component {
           </div>
         </Card>
       ));
+    } else if (this.props.resources.length === 0) {
+      return (
+        <div className="resource-list-empty-state-container">
+          <NonIdealState
+            icon="search"
+            title="No search results"
+            description="No resources matched the filter you've chosen. Please try again!"
+          />
+        </div>
+      );
     }
 
     return this.props.resources.map(resource => (

@@ -1,106 +1,87 @@
 import React from "react";
 import { Classes, Icon, ITreeNode, Tooltip, Tree } from "@blueprintjs/core";
+import update from "immutability-helper";
 
 import FilterSidebar from "./common/FilterSidebar";
+
+import API from "../middleware/api";
 
 class ResourceIndexFilterSidebar extends FilterSidebar {
   constructor(props) {
     super(props);
 
     this.state = {
-      nodes: this.getInitialNodes(),
+      sections: [],
+      checkedResourceTagIds: new Set(),
     };
   }
 
-  componentDidMount() {}
+  async componentDidMount() {
+    await this.getResourceTags();
+  }
 
-  getInitialNodes() {
-    return [
+  async getResourceTags() {
+    let sectionsState = [
       {
-        id: 0,
-        hasCaret: true,
-        isExpanded: true,
-        label: "Student Filters",
+        name: "student",
+        tags: [],
       },
       {
-        id: 1,
-        hasCaret: true,
-        isExpanded: true,
-        label: "Campus Filters",
+        name: "campus",
+        tags: [],
       },
       {
-        id: 2,
-        hasCaret: true,
-        isExpanded: true,
-        label: "Student Filters",
+        name: "community",
+        tags: [],
       },
       {
-        id: 3,
-        hasCaret: true,
-        isExpanded: true,
-        label: "Level of Urgency",
-      },
-      {
-        id: 4,
-        hasCaret: true,
-        isExpanded: true,
-        label: "Community Filters",
-      },
-      {
-        id: 5,
-        icon: "folder-close",
-        isExpanded: true,
-        label: <Tooltip content="I'm a folder <3">Folder 1</Tooltip>,
-        childNodes: [
-          {
-            id: 2,
-            icon: "document",
-            label: "Item 0",
-            secondaryLabel: (
-              <Tooltip content="An eye!">
-                <Icon icon="eye-open" />
-              </Tooltip>
-            ),
-          },
-          {
-            id: 3,
-            icon: "tag",
-            label:
-              "Organic meditation gluten-free, sriracha VHS drinking vinegar beard man.",
-          },
-          {
-            id: 4,
-            hasCaret: true,
-            icon: "folder-close",
-            label: <Tooltip content="foo">Folder 2</Tooltip>,
-            childNodes: [
-              { id: 5, label: "No-Icon Item" },
-              { id: 6, icon: "tag", label: "Item 1" },
-              {
-                id: 7,
-                hasCaret: true,
-                icon: "folder-close",
-                label: "Folder 3",
-                childNodes: [
-                  { id: 8, icon: "document", label: "Item 0" },
-                  { id: 9, icon: "tag", label: "Item 1" },
-                ],
-              },
-            ],
-          },
-        ],
+        name: "other",
+        tags: [],
       },
     ];
+
+    let resourceTags = await API.GetResourceTags();
+    resourceTags.forEach(tag => {
+      switch (tag.category) {
+        case "student":
+          sectionsState[0].tags.push(tag);
+          break;
+        case "campus":
+          sectionsState[1].tags.push(tag);
+          break;
+        case "community":
+          sectionsState[2].tags.push(tag);
+          break;
+        default:
+          sectionsState[3].tags.push(tag);
+          break;
+      }
+    });
+    this.setState({ sections: sectionsState });
   }
+
+  checkResourceTagCallback = resourceTagId => {
+    return event => {
+      let newCheckedResourceTagIds;
+      if (this.state.checkedResourceTagIds.has(resourceTagId)) {
+        newCheckedResourceTagIds = update(this.state.checkedResourceTagIds, {
+          $remove: [resourceTagId],
+        });
+      } else {
+        newCheckedResourceTagIds = update(this.state.checkedResourceTagIds, {
+          $add: [resourceTagId],
+        });
+      }
+      this.setState({ checkedResourceTagIds: newCheckedResourceTagIds });
+      this.props.filterResourcesCallback(newCheckedResourceTagIds);
+    };
+  };
 
   render() {
     return (
-      <Tree
-        contents={this.state.nodes}
-        onNodeClick={this.handleNodeClick}
-        onNodeCollapse={this.handleNodeCollapse}
-        onNodeExpand={this.handleNodeExpand}
-        className={Classes.ELEVATION_1}
+      <FilterSidebar
+        sections={this.state.sections}
+        checkTagCallback={this.checkResourceTagCallback}
       />
     );
   }

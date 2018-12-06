@@ -1,6 +1,10 @@
 class Api::ResourcesController < ApplicationController
+    before_action :parse_tag_ids, only: [:index]
+    has_scope :by_tags, type: :array
+
     def index
-        render json: Resource.all.order(updated_at: :desc), status: :ok
+        resources = apply_scopes(Resource).all
+        render json: resources.order(updated_at: :desc).uniq, status: :ok
     end
 
     def show 
@@ -35,4 +39,10 @@ class Api::ResourcesController < ApplicationController
         )
     end
 
+    # Before applying scopes need to parse URL params into array
+    def parse_tag_ids
+        if params.has_key?(:by_tags)
+            params[:by_tags] = JSON.parse(params[:by_tags])
+        end
+    end
 end
