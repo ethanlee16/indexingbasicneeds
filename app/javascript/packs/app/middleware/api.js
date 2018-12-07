@@ -1,6 +1,20 @@
 import Requester from "./requester";
 
 class API {
+  static async Login(email, password) {
+    const userPayload = {
+      user: {
+        email: email,
+        password: password,
+      },
+    };
+    return await Requester.post("/users/sign_in", userPayload);
+  }
+
+  static async Logout() {
+    return await Requester.destroy("/users/sign_out");
+  }
+
   static async ResourcesIndex(tags, order_method = "updated_desc", query = "") {
     if (order_method === "") {
       order_method = "updated_desc";
