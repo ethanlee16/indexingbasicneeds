@@ -1,6 +1,6 @@
 import React from "react";
 import ResourceList from "./ResourceList";
-import { Button, HTMLSelect } from "@blueprintjs/core";
+import { Button, HTMLSelect, InputGroup } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
 import FilterSidebar from "./common/FilterSidebar";
@@ -20,6 +20,7 @@ class ResourceIndexPage extends React.Component {
 
     this.filterTagIds = [];
     this.orderMethod = "";
+    this.searchQuery = "";
   }
 
   async componentDidMount() {
@@ -32,8 +33,13 @@ class ResourceIndexPage extends React.Component {
     this.refreshResources();
   };
 
-  setOrderMethod = async event => {
+  orderResources = async event => {
     this.orderMethod = event.currentTarget.value;
+    this.refreshResources();
+  };
+
+  queryResources = async event => {
+    this.searchQuery = event.currentTarget.value;
     this.refreshResources();
   };
 
@@ -41,7 +47,8 @@ class ResourceIndexPage extends React.Component {
     this.setState({ loaded: false });
     let resources = await API.ResourcesIndex(
       this.filterTagIds,
-      this.orderMethod
+      this.orderMethod,
+      this.searchQuery
     );
     this.setState({ resources: resources, loaded: true });
   }
@@ -68,7 +75,14 @@ class ResourceIndexPage extends React.Component {
               { label: "Last Created", value: "created_desc" },
               { label: "First Created", value: "created_asc" },
             ]}
-            onChange={this.setOrderMethod}
+            onChange={this.orderResources}
+          />
+          <InputGroup
+            large
+            round
+            leftIcon="search"
+            onChange={this.queryResources}
+            placeholder="Search resources"
           />
           <ResourceList
             resources={this.state.resources}
