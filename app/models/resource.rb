@@ -38,6 +38,6 @@ class Resource < ApplicationRecord
   end
 
   def self.simple_search(query)
-    ransack(title_cont: query, description_cont: query, body_cont: query, m: "or")
+    ransack(title_cont: query, description_cont: query, body_cont: query, m: "or").result(distinct: true) 
   end
 end
