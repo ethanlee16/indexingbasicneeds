@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     get 'resource_tags/index'
   end
 
-  devise_for :users
+  # Override default users sessions controller
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+
   root to: "pages#root"
 
   get '/about', to: "pages#root"
