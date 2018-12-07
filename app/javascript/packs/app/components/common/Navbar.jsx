@@ -1,8 +1,10 @@
+import classNames from "classnames";
 import React from "react";
 import {
   Alignment,
   Button,
   Classes,
+  Dialog,
   Menu,
   MenuDivider,
   MenuItem,
@@ -10,7 +12,6 @@ import {
   NavbarDivider,
   NavbarGroup,
   NavbarHeading,
-  Overlay,
   Popover,
   Position,
   FormGroup,
@@ -42,30 +43,24 @@ export default class extends React.Component {
 
   renderLoginModal() {
     return (
-      <Overlay
-        className={Classes.OVERLAY_SCROLL_CONTAINER}
+      <Dialog
         onClose={this.handleCloseModal}
         isOpen={this.state.modalOpen === "login"}
+        title="Log In"
       >
-        <FormGroup
-          helperText="Helper text"
-          label="Email"
-          label-for="login-username"
-        >
-          <InputGroup
-            id="login-username"
-            leftIcon="user"
-            placeholder="youremail@gmail.com"
-          />
-        </FormGroup>
-        <FormGroup
-          helperText="Helper text"
-          label="Password"
-          label-for="login-password"
-        >
-          <InputGroup id="login-password" leftIcon="lock" type="password" />
-        </FormGroup>
-      </Overlay>
+        <div className={Classes.DIALOG_BODY}>
+          <FormGroup label="Email" label-for="login-username">
+            <InputGroup
+              id="login-username"
+              leftIcon="user"
+              placeholder="youremail@gmail.com"
+            />
+          </FormGroup>
+          <FormGroup label="Password" label-for="login-password">
+            <InputGroup id="login-password" leftIcon="lock" type="password" />
+          </FormGroup>
+        </div>
+      </Dialog>
     );
   }
 
