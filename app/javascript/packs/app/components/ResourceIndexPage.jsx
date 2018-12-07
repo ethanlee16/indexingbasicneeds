@@ -15,9 +15,11 @@ class ResourceIndexPage extends React.Component {
 
     this.state = {
       resources: [],
-      orderMethod: "",
       loaded: false,
     };
+
+    this.filterTagIds = [];
+    this.orderMethod = "";
   }
 
   async componentDidMount() {
@@ -26,19 +28,23 @@ class ResourceIndexPage extends React.Component {
   }
 
   filterResources = async resourceTagIds => {
-    this.setState({ loaded: false });
-    let resources = await API.ResourcesIndex(
-      [...resourceTagIds],
-      this.state.orderMethod
-    );
-    this.setState({ resources: resources, loaded: true });
+    this.filterTagIds = [...resourceTagIds];
+    this.refreshResources();
   };
 
   setOrderMethod = async event => {
-    let orderMethod = event.currentTarget.value;
-    this.setState({ loaded: false });
-    this.setState({ orderMethod: orderMethod, loaded: true });
+    this.orderMethod = event.currentTarget.value;
+    this.refreshResources();
   };
+
+  async refreshResources() {
+    this.setState({ loaded: false });
+    let resources = await API.ResourcesIndex(
+      this.filterTagIds,
+      this.orderMethod
+    );
+    this.setState({ resources: resources, loaded: true });
+  }
 
   render() {
     return (
@@ -55,7 +61,13 @@ class ResourceIndexPage extends React.Component {
             <Button large rightIcon="add" text="Add new resource" />
           </Link>
           <HTMLSelect
-            options={["created_asc", "created_desc"]}
+            large
+            options={[
+              { label: "Last Updated", value: "updated_desc" },
+              { label: "First Updated", value: "updated_asc" },
+              { label: "Last Created", value: "created_desc" },
+              { label: "First Created", value: "created_asc" },
+            ]}
             onChange={this.setOrderMethod}
           />
           <ResourceList
