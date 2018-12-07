@@ -63,27 +63,32 @@ class ResourceIndexPage extends React.Component {
           />
         </div>
         <div className="resource-index-page-main-container">
-          <h2>BNS Resources</h2>
-          <Link to="/resource/new">
-            <Button large rightIcon="add" text="Add new resource" />
-          </Link>
-          <HTMLSelect
-            large
-            options={[
-              { label: "Last Updated", value: "updated_desc" },
-              { label: "First Updated", value: "updated_asc" },
-              { label: "Last Created", value: "created_desc" },
-              { label: "First Created", value: "created_asc" },
-            ]}
-            onChange={this.orderResources}
-          />
-          <InputGroup
-            large
-            round
-            leftIcon="search"
-            onChange={this.queryResources}
-            placeholder="Search resources"
-          />
+          <div className="resource-index-page-title-container">
+            <h2>BNS Resources</h2>
+            <Link to="/resource/new">
+              <Button large rightIcon="add" text="Add new resource" />
+            </Link>
+          </div>
+          <div className="resource-index-page-sort-query-container">
+            <InputGroup
+              className="resource-index-page-searchbar"
+              large
+              round
+              leftIcon="search"
+              onChange={this.queryResources}
+              placeholder="Search resources"
+            />
+            <HTMLSelect
+              large
+              options={[
+                { label: "Last Updated", value: "updated_desc" },
+                { label: "First Updated", value: "updated_asc" },
+                { label: "Last Created", value: "created_desc" },
+                { label: "First Created", value: "created_asc" },
+              ]}
+              onChange={this.orderResources}
+            />
+          </div>
           <ResourceList
             resources={this.state.resources}
             loaded={this.state.loaded}
