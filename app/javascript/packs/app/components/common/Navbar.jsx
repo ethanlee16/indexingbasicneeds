@@ -221,6 +221,8 @@ export default class extends React.Component {
         </Menu>
       );
     }
+
+    // TODO (Ken): Temporarily blocked sign up for now. Re-enable when sign up is connected.
     return (
       <Menu>
         <MenuItem
@@ -228,11 +230,11 @@ export default class extends React.Component {
           text="Log In"
           onClick={this.handleOpenModal("login")}
         />
-        <MenuItem
+        {/* <MenuItem
           icon="new-person"
           text="Sign Up"
           onClick={this.handleOpenModal("signup")}
-        />
+        /> */}
       </Menu>
     );
   }
