@@ -66,7 +66,6 @@ export default class extends React.Component {
         loginFormFields: { [fieldName]: { $set: event.target.value } },
       });
       this.setState(newState);
-      console.log(this.state);
     };
   }
 
@@ -80,26 +79,40 @@ export default class extends React.Component {
   }
 
   login = async () => {
-    let user;
+    let toaster = Toaster.create();
     try {
-      user = await API.Login(
+      let user = await API.Login(
         this.state.loginFormFields.email,
         this.state.loginFormFields.password
       );
+      localStorage.setItem("user", JSON.stringify(user));
+      this.setState({ user: user });
+      toaster.show({
+        message: "Successfully logged in",
+        intent: Intent.SUCCESS,
+      });
     } catch (error) {
       console.error(error);
-      let toaster = Toaster.create();
-      toaster.show({ message: "Error", intent: Intent.DANGER });
-      return;
+      toaster.show({ message: "Error when logging in", intent: Intent.DANGER });
     }
-    localStorage.setItem("user", JSON.stringify(user));
   };
 
   logout = async () => {
+    let toaster = Toaster.create();
     try {
       await API.Logout();
+      localStorage.removeItem("user");
+      this.setState({ user: null });
+      toaster.show({
+        message: "Successfully logged out",
+        intent: Intent.SUCCESS,
+      });
     } catch (error) {
       console.error(error);
+      toaster.show({
+        message: "Error when logging out",
+        intent: Intent.DANGER,
+      });
     }
   };
 
@@ -220,7 +233,6 @@ export default class extends React.Component {
           text="Sign Up"
           onClick={this.handleOpenModal("signup")}
         />
-        <MenuItem icon="log-out" text="Log Out" onClick={this.logout} />
       </Menu>
     );
   }
@@ -260,7 +272,11 @@ export default class extends React.Component {
         <NavbarGroup align={Alignment.RIGHT}>
           <NavbarDivider />
           <Popover content={this.renderLoginMenu()} position={Position.BOTTOM}>
-            <Button className={Classes.MINIMAL} icon="user" />
+            <Button
+              className={Classes.MINIMAL}
+              icon="user"
+              text={!!this.state.user ? this.state.user.email : null}
+            />
           </Popover>
         </NavbarGroup>
       </Navbar>
