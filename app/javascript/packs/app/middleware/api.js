@@ -1,16 +1,20 @@
 import Requester from "./requester";
 
 class API {
-  static async ResourcesIndex(tags, order_method = "updated_desc") {
+  static async ResourcesIndex(tags, order_method = "updated_desc", query = "") {
     if (order_method === "") {
       order_method = "updated_desc";
     }
+    let URI;
     if (!tags || tags.length === 0) {
-      return await Requester.get(`/api/resources?ordered=${order_method}`);
+      URI = `/api/resources?ordered=${order_method}`;
+    } else {
+      URI = `/api/resources?by_tags=[${tags}]&ordered=${order_method}`;
     }
-    return await Requester.get(
-      `/api/resources?by_tags=[${tags}]&ordered=${order_method}`
-    );
+    if (query !== "") {
+      URI += `&with_query=${query}`;
+    }
+    return await Requester.get(URI);
   }
 
   static async ShowResource(id) {

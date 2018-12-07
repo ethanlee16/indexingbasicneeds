@@ -14,3 +14,19 @@ $sidebar-width: 300px;
 .resource-index-page-main-container {
   margin-left: $sidebar-width;
 }
+
+.resource-index-page-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.resource-index-page-sort-query-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.resource-index-page-searchbar {
+  flex-grow: 1;
+  margin-right: 40px;
+}

@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'active_model_serializers', '~> 0.10.8'
 gem 'has_scope', '~> 0.7.2'
+gem 'ransack', '~> 2.1.1'
 
 
 group :development, :test do
@@ -56,6 +57,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rb-readline'
+  gem 'rubocop', '~> 0.61.1', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

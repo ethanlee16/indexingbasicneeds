@@ -1,6 +1,6 @@
 import React from "react";
 import ResourceList from "./ResourceList";
-import { Button, HTMLSelect } from "@blueprintjs/core";
+import { Button, HTMLSelect, InputGroup } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
 import FilterSidebar from "./common/FilterSidebar";
@@ -20,6 +20,7 @@ class ResourceIndexPage extends React.Component {
 
     this.filterTagIds = [];
     this.orderMethod = "";
+    this.searchQuery = "";
   }
 
   async componentDidMount() {
@@ -32,8 +33,13 @@ class ResourceIndexPage extends React.Component {
     this.refreshResources();
   };
 
-  setOrderMethod = async event => {
+  orderResources = async event => {
     this.orderMethod = event.currentTarget.value;
+    this.refreshResources();
+  };
+
+  queryResources = async event => {
+    this.searchQuery = event.currentTarget.value;
     this.refreshResources();
   };
 
@@ -41,7 +47,8 @@ class ResourceIndexPage extends React.Component {
     this.setState({ loaded: false });
     let resources = await API.ResourcesIndex(
       this.filterTagIds,
-      this.orderMethod
+      this.orderMethod,
+      this.searchQuery
     );
     this.setState({ resources: resources, loaded: true });
   }
@@ -56,20 +63,32 @@ class ResourceIndexPage extends React.Component {
           />
         </div>
         <div className="resource-index-page-main-container">
-          <h2>BNS Resources</h2>
-          <Link to="/resource/new">
-            <Button large rightIcon="add" text="Add new resource" />
-          </Link>
-          <HTMLSelect
-            large
-            options={[
-              { label: "Last Updated", value: "updated_desc" },
-              { label: "First Updated", value: "updated_asc" },
-              { label: "Last Created", value: "created_desc" },
-              { label: "First Created", value: "created_asc" },
-            ]}
-            onChange={this.setOrderMethod}
-          />
+          <div className="resource-index-page-title-container">
+            <h2>BNS Resources</h2>
+            <Link to="/resource/new">
+              <Button large rightIcon="add" text="Add new resource" />
+            </Link>
+          </div>
+          <div className="resource-index-page-sort-query-container">
+            <InputGroup
+              className="resource-index-page-searchbar"
+              large
+              round
+              leftIcon="search"
+              onChange={this.queryResources}
+              placeholder="Search resources"
+            />
+            <HTMLSelect
+              large
+              options={[
+                { label: "Last Updated", value: "updated_desc" },
+                { label: "First Updated", value: "updated_asc" },
+                { label: "Last Created", value: "created_desc" },
+                { label: "First Created", value: "created_asc" },
+              ]}
+              onChange={this.orderResources}
+            />
+          </div>
           <ResourceList
             resources={this.state.resources}
             loaded={this.state.loaded}
