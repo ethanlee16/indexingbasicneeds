@@ -1,6 +1,6 @@
 import React from "react";
 import ResourceList from "./ResourceList";
-import { Button } from "@blueprintjs/core";
+import { Button, HTMLSelect } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
 import FilterSidebar from "./common/FilterSidebar";
@@ -17,6 +17,9 @@ class ResourceIndexPage extends React.Component {
       resources: [],
       loaded: false,
     };
+
+    this.filterTagIds = [];
+    this.orderMethod = "";
   }
 
   async componentDidMount() {
@@ -25,10 +28,23 @@ class ResourceIndexPage extends React.Component {
   }
 
   filterResources = async resourceTagIds => {
-    this.setState({ loaded: false });
-    let resources = await API.ResourcesIndex([...resourceTagIds]);
-    this.setState({ resources: resources, loaded: true });
+    this.filterTagIds = [...resourceTagIds];
+    this.refreshResources();
   };
+
+  setOrderMethod = async event => {
+    this.orderMethod = event.currentTarget.value;
+    this.refreshResources();
+  };
+
+  async refreshResources() {
+    this.setState({ loaded: false });
+    let resources = await API.ResourcesIndex(
+      this.filterTagIds,
+      this.orderMethod
+    );
+    this.setState({ resources: resources, loaded: true });
+  }
 
   render() {
     return (
@@ -44,6 +60,16 @@ class ResourceIndexPage extends React.Component {
           <Link to="/resource/new">
             <Button large rightIcon="add" text="Add new resource" />
           </Link>
+          <HTMLSelect
+            large
+            options={[
+              { label: "Last Updated", value: "updated_desc" },
+              { label: "First Updated", value: "updated_asc" },
+              { label: "Last Created", value: "created_desc" },
+              { label: "First Created", value: "created_asc" },
+            ]}
+            onChange={this.setOrderMethod}
+          />
           <ResourceList
             resources={this.state.resources}
             loaded={this.state.loaded}
