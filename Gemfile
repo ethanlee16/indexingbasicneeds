@@ -39,6 +39,8 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'active_model_serializers', '~> 0.10.8'
 gem 'has_scope', '~> 0.7.2'
 gem 'ransack', '~> 2.1.1'
+gem 'acts_as_votable', '~> 0.12.0'
+
 
 
 group :development, :test do
