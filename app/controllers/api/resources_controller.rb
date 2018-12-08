@@ -1,5 +1,6 @@
 class Api::ResourcesController < ApplicationController
   before_action :parse_tag_ids, only: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   has_scope :by_tags, type: :array
   has_scope :ordered
@@ -29,6 +30,12 @@ class Api::ResourcesController < ApplicationController
       @resource.update(resource_params)
     end
     render json: @resource, status: :ok
+  end
+
+  def upvote
+    @resource = Resource.find(params[:id])
+    @resource.liked_by current_user
+    render json: nil, status: :ok 
   end
 
   private
