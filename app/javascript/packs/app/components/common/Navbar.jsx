@@ -138,6 +138,7 @@ export default class extends React.Component {
             <FormGroup label="Email" label-for="login-email">
               <InputGroup
                 large
+                autoFocus
                 id="login-email"
                 leftIcon="user"
                 placeholder="youremail@gmail.com"
@@ -182,6 +183,7 @@ export default class extends React.Component {
           <FormGroup label="Email" label-for="signup-email">
             <InputGroup
               large
+              autoFocus
               id="signup-email"
               leftIcon="user"
               placeholder="youremail@gmail.com"

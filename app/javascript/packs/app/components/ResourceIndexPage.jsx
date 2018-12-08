@@ -1,6 +1,6 @@
 import React from "react";
 import ResourceList from "./ResourceList";
-import { Button, HTMLSelect, InputGroup } from "@blueprintjs/core";
+import { Button, HTMLSelect, InputGroup, Intent } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
 import FilterSidebar from "./common/FilterSidebar";
@@ -66,7 +66,12 @@ class ResourceIndexPage extends React.Component {
           <div className="resource-index-page-title-container">
             <h2>BNS Resources</h2>
             <Link to="/resource/new">
-              <Button large rightIcon="add" text="Add new resource" />
+              <Button
+                large
+                intent={Intent.PRIMARY}
+                rightIcon="add"
+                text="Add new resource"
+              />
             </Link>
           </div>
           <div className="resource-index-page-sort-query-container">
