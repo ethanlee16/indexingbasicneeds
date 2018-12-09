@@ -24,6 +24,16 @@ $resource-list-card-height: 150px;
   padding: 16px 24px;
 }
 
+.resource-list-card-control {
+  padding-right: 18px;
+  padding-bottom: 12px;
+  height: $resource-list-card-height;
+  min-width: 100px;
+  display: flex;
+  flex-flow: column-reverse;
+  align-items: flex-end;
+}
+
 .resource-list-card-title {
   margin-top: 10px;
   margin-bottom: 5px;
