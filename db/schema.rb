@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181211023739) do
+ActiveRecord::Schema.define(version: 20181211220916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "resource_tag_instances", force: :cascade do |t|
     t.bigint "resource_id"
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20181211023739) do
     t.datetime "updated_at", null: false
     t.text "body"
     t.text "description"
+    t.hstore "address"
   end
 
   create_table "users", force: :cascade do |t|
