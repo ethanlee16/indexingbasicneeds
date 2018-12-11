@@ -43,6 +43,14 @@ class API {
     return await Requester.patch(`/api/resources/${id}`, resourcePayload);
   }
 
+  static async UpvoteResource(id) {
+    return await Requester.post(`/api/resources/${id}/upvote`);
+  }
+
+  static async UnupvoteResource(id) {
+    return await Requester.post(`/api/resources/${id}/unupvote`);
+  }
+
   static async GetResourceTags() {
     return await Requester.get("/api/resource_tags");
   }
