@@ -1,3 +1,10 @@
+/**
+ * Navbar handling login/logout.
+ *
+ * @prop {function} onLogin: callback after successful login
+ * @prop {function} onLogout: callback after successful logout
+ */
+
 import classNames from "classnames";
 import update from "immutability-helper";
 import React from "react";
@@ -81,41 +88,51 @@ export default class extends React.Component {
 
   login = async () => {
     let toaster = Toaster.create();
+    let json, headers;
     try {
-      let { json, headers } = await API.Login(
+      ({ json, headers } = await API.Login(
         this.state.loginFormFields.email,
         this.state.loginFormFields.password
-      );
-      let user = json.data;
-      cacheUserSession(user, headers);
-      this.setState({ user: user });
-      toaster.show({
-        message: "Successfully logged in",
-        intent: Intent.SUCCESS,
-      });
+      ));
     } catch (error) {
       console.error(error);
       toaster.show({ message: "Error when logging in", intent: Intent.DANGER });
+      return;
     }
+
+    let user = json.data;
+    cacheUserSession(user, headers);
+    this.setState({ user: user });
+    toaster.show({
+      message: "Successfully logged in",
+      intent: Intent.SUCCESS,
+    });
+    this.handleCloseModal();
+
+    this.props.onLogin && this.props.onLogin();
   };
 
   logout = async () => {
     let toaster = Toaster.create();
     try {
       await API.Logout();
-      removeUserSession();
-      this.setState({ user: null });
-      toaster.show({
-        message: "Successfully logged out",
-        intent: Intent.SUCCESS,
-      });
     } catch (error) {
       console.error(error);
       toaster.show({
         message: "Error when logging out",
         intent: Intent.DANGER,
       });
+      return;
     }
+
+    removeUserSession();
+    this.setState({ user: null });
+    toaster.show({
+      message: "Successfully logged out",
+      intent: Intent.SUCCESS,
+    });
+
+    this.props.onLogout && this.props.onLogout();
   };
 
   handleOpenModal = (type = "login") => {

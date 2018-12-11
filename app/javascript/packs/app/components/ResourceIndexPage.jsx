@@ -44,7 +44,7 @@ class ResourceIndexPage extends React.Component {
     this.refreshResources();
   };
 
-  async refreshResources() {
+  refreshResources = async () => {
     this.setState({ loaded: false });
     let { json, headers } = await API.ResourcesIndex(
       this.filterTagIds,
@@ -53,12 +53,12 @@ class ResourceIndexPage extends React.Component {
     );
     let resources = json;
     this.setState({ resources: resources, loaded: true });
-  }
+  };
 
   render() {
     return (
       <div className="container is-widescreen page-container">
-        <Navbar />
+        <Navbar onLogin={this.refreshResources} />
         <div className="resource-index-page-sidebar">
           <ResourceIndexFilterSidebar
             filterResourcesCallback={this.filterResources}
