@@ -1,3 +1,12 @@
+function checkUserSignedIn() {
+  // TODO (Ken): In the future, it would be good to also check for
+  // expiry here and handle expiry client side
+  return (
+    localStorage.hasOwnProperty("user") &&
+    localStorage.hasOwnProperty("access-token")
+  );
+}
+
 function cacheUserSession(user, headers) {
   localStorage.setItem("user", JSON.stringify(user));
   localStorage.setItem("client", headers.get("client"));
@@ -36,6 +45,7 @@ function getAuthRequestHeaders() {
 }
 
 export {
+  checkUserSignedIn,
   cacheUserSession,
   removeUserSession,
   refreshAccessToken,

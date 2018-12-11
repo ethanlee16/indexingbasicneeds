@@ -1,6 +1,6 @@
 class Api::ResourcesController < ApplicationController
   before_action :parse_tag_ids, only: [:index]
-  before_action :authenticate_api_user!
+  before_action :authenticate_api_user!, except: [:index, :show]
 
   has_scope :by_tags, type: :array
   has_scope :ordered

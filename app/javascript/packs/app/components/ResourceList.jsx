@@ -20,10 +20,14 @@ import {
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
+import { checkUserSignedIn } from "../utils/session";
+
 import Placeholder from "images/placeholder-square.jpg";
 
 class ResourceList extends React.Component {
   renderResources() {
+    let userSignedIn = checkUserSignedIn();
+
     if (!this.props.loaded) {
       return [0, 1, 2, 3, 4, 5, 6, 7].map(index => (
         <Card
@@ -80,6 +84,7 @@ class ResourceList extends React.Component {
               intent={likeIntent}
               className="resource-list-card-tag"
               text={resource.num_likes}
+              disabled={!userSignedIn}
               onClick={
                 resource.liked_by_user
                   ? this.props.unupvoteResource(resource.id, index)
