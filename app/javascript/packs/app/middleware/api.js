@@ -3,16 +3,14 @@ import Requester from "./requester";
 class API {
   static async Login(email, password) {
     const userPayload = {
-      user: {
-        email: email,
-        password: password,
-      },
+      email: email,
+      password: password,
     };
-    return await Requester.post("/users/sign_in", userPayload);
+    return await Requester.post("/api/auth/sign_in", userPayload);
   }
 
   static async Logout() {
-    return await Requester.destroy("/users/sign_out");
+    return await Requester.destroy("/api/auth/sign_out");
   }
 
   static async ResourcesIndex(tags, order_method = "updated_desc", query = "") {
@@ -43,6 +41,14 @@ class API {
   static async UpdateResource(id, resource) {
     const resourcePayload = { resource: resource };
     return await Requester.patch(`/api/resources/${id}`, resourcePayload);
+  }
+
+  static async UpvoteResource(id) {
+    return await Requester.post(`/api/resources/${id}/upvote`);
+  }
+
+  static async UnupvoteResource(id) {
+    return await Requester.post(`/api/resources/${id}/unupvote`);
   }
 
   static async GetResourceTags() {

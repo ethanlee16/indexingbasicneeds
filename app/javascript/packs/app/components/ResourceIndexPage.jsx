@@ -1,7 +1,8 @@
 import React from "react";
 import ResourceList from "./ResourceList";
-import { Button, HTMLSelect, InputGroup } from "@blueprintjs/core";
+import { Button, HTMLSelect, InputGroup, Intent } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
+import update from "immutability-helper";
 
 import FilterSidebar from "./common/FilterSidebar";
 import ResourceIndexFilterSidebar from "./ResourceIndexFilterSidebar";
@@ -24,7 +25,8 @@ class ResourceIndexPage extends React.Component {
   }
 
   async componentDidMount() {
-    let resources = await API.ResourcesIndex();
+    let { json, headers } = await API.ResourcesIndex();
+    let resources = json;
     this.setState({ resources: resources, loaded: true });
   }
 
@@ -43,20 +45,54 @@ class ResourceIndexPage extends React.Component {
     this.refreshResources();
   };
 
-  async refreshResources() {
+  refreshResources = async () => {
     this.setState({ loaded: false });
-    let resources = await API.ResourcesIndex(
+    let { json, headers } = await API.ResourcesIndex(
       this.filterTagIds,
       this.orderMethod,
       this.searchQuery
     );
+    let resources = json;
     this.setState({ resources: resources, loaded: true });
-  }
+  };
+
+  upvoteResource = (id, index) => {
+    return () => {
+      let newState = update(this.state, {
+        resources: {
+          [index]: {
+            liked_by_user: { $set: true },
+            num_likes: likes => likes + 1,
+          },
+        },
+      });
+      this.setState(newState);
+      return API.UpvoteResource(id);
+    };
+  };
+
+  unupvoteResource = (id, index) => {
+    return () => {
+      let newState = update(this.state, {
+        resources: {
+          [index]: {
+            liked_by_user: { $set: false },
+            num_likes: likes => likes - 1,
+          },
+        },
+      });
+      this.setState(newState);
+      return API.UnupvoteResource(id);
+    };
+  };
 
   render() {
     return (
       <div className="container is-widescreen page-container">
-        <Navbar />
+        <Navbar
+          onLogin={this.refreshResources}
+          onLogout={this.refreshResources}
+        />
         <div className="resource-index-page-sidebar">
           <ResourceIndexFilterSidebar
             filterResourcesCallback={this.filterResources}
@@ -66,7 +102,12 @@ class ResourceIndexPage extends React.Component {
           <div className="resource-index-page-title-container">
             <h2>BNS Resources</h2>
             <Link to="/resource/new">
-              <Button large rightIcon="add" text="Add new resource" />
+              <Button
+                large
+                intent={Intent.PRIMARY}
+                rightIcon="add"
+                text="Add new resource"
+              />
             </Link>
           </div>
           <div className="resource-index-page-sort-query-container">
@@ -92,6 +133,8 @@ class ResourceIndexPage extends React.Component {
           <ResourceList
             resources={this.state.resources}
             loaded={this.state.loaded}
+            upvoteResource={this.upvoteResource}
+            unupvoteResource={this.unupvoteResource}
           />
         </div>
       </div>

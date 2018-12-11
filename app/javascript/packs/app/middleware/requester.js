@@ -7,6 +7,8 @@
  * @param {object} params: object containing payload body
  */
 
+import { getAuthRequestHeaders, refreshAccessToken } from "../utils/session";
+
 class BaseRequester {
   /**
    * GET request on endpoint.
@@ -41,40 +43,35 @@ class BaseRequester {
    * fetch.
    */
   static async _request(method, endpoint, params, urlParams) {
-    const headers = this._getHeaders();
+    const requestHeaders = this._getHeaders();
 
     let payload = {
       method: method,
-      headers: headers,
+      headers: requestHeaders,
     };
 
     if (method != "GET") {
       payload.body = JSON.stringify(params);
     }
 
+    let json, headers;
     endpoint = this._encodeUrlParams(endpoint, urlParams);
+    try {
+      let response = await fetch(endpoint, payload);
+      if (!response.ok) {
+        throw response;
+      }
+      headers = response.headers;
+      refreshAccessToken(headers);
+      json = response.status === 204 ? {} : await response.json();
+    } catch (error) {
+      if (!error.json) {
+        throw error;
+      }
+      throw await error.json();
+    }
 
-    return fetch(endpoint, payload)
-      .then(response => {
-        if (!response.ok) {
-          throw response;
-        }
-        if (response.status === 204) {
-          return {};
-        }
-        return response.json();
-      })
-      .then(json => {
-        return json;
-      })
-      .catch(error => {
-        if (!error.json) {
-          throw error;
-        }
-        return error.json().then(json => {
-          throw json;
-        });
-      });
+    return { json, headers };
   }
 
   /**
@@ -84,6 +81,8 @@ class BaseRequester {
     let headers = {
       Accept: "application/json",
       "Content-Type": "application/json",
+      "token-type": "Bearer",
+      ...getAuthRequestHeaders(),
     };
 
     const csrfHeader = document.querySelector('meta[name="csrf-token"]');

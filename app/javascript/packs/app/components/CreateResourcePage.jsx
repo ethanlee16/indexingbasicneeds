@@ -1,5 +1,4 @@
 import React from "react";
-import ResourceList from "./ResourceList";
 import {
   Button,
   Checkbox,
@@ -54,7 +53,9 @@ class CreateResourcePage extends React.Component {
       community: [],
       other: [],
     };
-    let resourceTags = await API.GetResourceTags();
+
+    let { json, headers } = await API.GetResourceTags();
+    let resourceTags = json;
     resourceTags.forEach(tag => {
       switch (tag.category) {
         case "student":
@@ -125,7 +126,7 @@ class CreateResourcePage extends React.Component {
       resource_tag_instances_attributes: resourceTagInstancesAttributes,
     };
 
-    let response = await API.CreateNewResource(resource);
+    let { json, headers } = await API.CreateNewResource(resource);
     // TODO (Ken): Add error checking on response here
 
     this.props.history.push("/");

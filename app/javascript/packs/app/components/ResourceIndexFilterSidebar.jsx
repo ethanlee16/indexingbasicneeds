@@ -40,7 +40,8 @@ class ResourceIndexFilterSidebar extends FilterSidebar {
       },
     ];
 
-    let resourceTags = await API.GetResourceTags();
+    let { json, headers } = await API.GetResourceTags();
+    let resourceTags = json;
     resourceTags.forEach(tag => {
       switch (tag.category) {
         case "student":

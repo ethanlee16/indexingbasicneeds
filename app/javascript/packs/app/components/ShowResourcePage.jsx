@@ -1,5 +1,4 @@
 import React from "react";
-import ResourceList from "./ResourceList";
 import { Button, H1, Tag } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
@@ -17,7 +16,8 @@ class ShowResourcePage extends React.Component {
   }
 
   async componentDidMount() {
-    const resource = await API.ShowResource(this.props.match.params.id);
+    let { json, headers } = await API.ShowResource(this.props.match.params.id);
+    const resource = json;
     this.setState({ resource: resource });
   }
 

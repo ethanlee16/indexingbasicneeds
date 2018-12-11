@@ -24,7 +24,8 @@ class HomePage extends React.Component {
   }
 
   async componentDidMount() {
-    let resources = await API.ResourcesIndex();
+    let { json, headers } = await API.ResourcesIndex();
+    let resources = json;
     this.setState({ resources: resources });
   }
 

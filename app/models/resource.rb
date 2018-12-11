@@ -19,6 +19,8 @@ class Resource < ApplicationRecord
 
   accepts_nested_attributes_for :resource_tag_instances, allow_destroy: true
 
+  acts_as_votable
+
   # Filter by multiple tags on OR condition
   scope :by_tags, -> tag_ids { filter_by_tags(tag_ids) }
   scope :ordered, -> method { order(ORDER_METHODS.fetch(method.to_sym, DEFAULT_ORDER_METHOD)) }

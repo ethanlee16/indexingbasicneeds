@@ -1,3 +1,10 @@
+/**
+ * Navbar handling login/logout.
+ *
+ * @prop {function} onLogin: callback after successful login
+ * @prop {function} onLogout: callback after successful logout
+ */
+
 import classNames from "classnames";
 import update from "immutability-helper";
 import React from "react";
@@ -23,6 +30,7 @@ import {
 import { Link } from "react-router-dom";
 
 import API from "../../middleware/api";
+import { cacheUserSession, removeUserSession } from "../../utils/session";
 
 import Logo from "images/bns-logo.svg";
 
@@ -80,40 +88,51 @@ export default class extends React.Component {
 
   login = async () => {
     let toaster = Toaster.create();
+    let json, headers;
     try {
-      let user = await API.Login(
+      ({ json, headers } = await API.Login(
         this.state.loginFormFields.email,
         this.state.loginFormFields.password
-      );
-      localStorage.setItem("user", JSON.stringify(user));
-      this.setState({ user: user });
-      toaster.show({
-        message: "Successfully logged in",
-        intent: Intent.SUCCESS,
-      });
+      ));
     } catch (error) {
       console.error(error);
       toaster.show({ message: "Error when logging in", intent: Intent.DANGER });
+      return;
     }
+
+    let user = json.data;
+    cacheUserSession(user, headers);
+    this.setState({ user: user });
+    toaster.show({
+      message: "Successfully logged in",
+      intent: Intent.SUCCESS,
+    });
+    this.handleCloseModal();
+
+    this.props.onLogin && this.props.onLogin();
   };
 
   logout = async () => {
     let toaster = Toaster.create();
     try {
       await API.Logout();
-      localStorage.removeItem("user");
-      this.setState({ user: null });
-      toaster.show({
-        message: "Successfully logged out",
-        intent: Intent.SUCCESS,
-      });
     } catch (error) {
       console.error(error);
       toaster.show({
         message: "Error when logging out",
         intent: Intent.DANGER,
       });
+      return;
     }
+
+    removeUserSession();
+    this.setState({ user: null });
+    toaster.show({
+      message: "Successfully logged out",
+      intent: Intent.SUCCESS,
+    });
+
+    this.props.onLogout && this.props.onLogout();
   };
 
   handleOpenModal = (type = "login") => {
@@ -138,6 +157,7 @@ export default class extends React.Component {
             <FormGroup label="Email" label-for="login-email">
               <InputGroup
                 large
+                autoFocus
                 id="login-email"
                 leftIcon="user"
                 placeholder="youremail@gmail.com"
@@ -182,6 +202,7 @@ export default class extends React.Component {
           <FormGroup label="Email" label-for="signup-email">
             <InputGroup
               large
+              autoFocus
               id="signup-email"
               leftIcon="user"
               placeholder="youremail@gmail.com"
