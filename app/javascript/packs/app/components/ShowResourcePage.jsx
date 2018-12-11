@@ -1,5 +1,4 @@
 import React from "react";
-import ResourceList from "./ResourceList";
 import { Button, H1, Tag } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 

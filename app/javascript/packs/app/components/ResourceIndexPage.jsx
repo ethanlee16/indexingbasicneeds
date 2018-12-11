@@ -2,6 +2,7 @@ import React from "react";
 import ResourceList from "./ResourceList";
 import { Button, HTMLSelect, InputGroup, Intent } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
+import update from "immutability-helper";
 
 import FilterSidebar from "./common/FilterSidebar";
 import ResourceIndexFilterSidebar from "./ResourceIndexFilterSidebar";
@@ -55,6 +56,26 @@ class ResourceIndexPage extends React.Component {
     this.setState({ resources: resources, loaded: true });
   };
 
+  upvoteResource = (id, index) => {
+    return () => {
+      let newState = update(this.state, {
+        resources: { [index]: { liked_by_user: { $set: true } } },
+      });
+      this.setState(newState);
+      return API.UpvoteResource(id);
+    };
+  };
+
+  unupvoteResource = (id, index) => {
+    return () => {
+      let newState = update(this.state, {
+        resources: { [index]: { liked_by_user: { $set: false } } },
+      });
+      this.setState(newState);
+      return API.UnupvoteResource(id);
+    };
+  };
+
   render() {
     return (
       <div className="container is-widescreen page-container">
@@ -99,6 +120,8 @@ class ResourceIndexPage extends React.Component {
           <ResourceList
             resources={this.state.resources}
             loaded={this.state.loaded}
+            upvoteResource={this.upvoteResource}
+            unupvoteResource={this.unupvoteResource}
           />
         </div>
       </div>

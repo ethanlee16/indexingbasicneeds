@@ -42,6 +42,10 @@ $resource-list-card-height: 150px;
   font-weight: 600;
 }
 
+.resource-list-card-tag {
+  z-index: 2;
+}
+
 .resource-list-empty-state-container {
   height: 60vh;
   display: flex;

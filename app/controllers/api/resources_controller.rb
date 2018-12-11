@@ -1,6 +1,4 @@
 class Api::ResourcesController < ApplicationController
-  include DeviseTokenAuth::Concerns::SetUserByToken
-
   before_action :parse_tag_ids, only: [:index]
   before_action :authenticate_api_user!
 
@@ -16,38 +14,38 @@ class Api::ResourcesController < ApplicationController
   end
 
   def show
-    @resource = Resource.find(params[:id])
-    render json: @resource, status: :ok, scope: {
+    resource = Resource.find(params[:id])
+    render json: resource, status: :ok, scope: {
       current_user: current_api_user,
     }
   end
 
   def create
-    @resource = Resource.create(resource_params)
-    render json: @resource, status: :ok
+    resource = Resource.create(resource_params)
+    render json: resource, status: :ok
   end
 
   # Right now for simplicity we simply remove all tag instances and recreate them
   # Consider a tagging library for the future: https://github.com/mbleigh/acts-as-taggable-on/
   def update
-    @resource = Resource.find(params[:id])
-    @resource.transaction do
-      @resource.resource_tag_instances.destroy_all
-      @resource.update(resource_params)
+    resource = Resource.find(params[:id])
+    resource.transaction do
+      resource.resource_tag_instances.destroy_all
+      resource.update(resource_params)
     end
-    render json: @resource, status: :ok
+    render json: resource, status: :ok
   end
 
   def upvote
-    @resource = Resource.find(params[:id])
-    @resource.liked_by current_api_user
+    resource = Resource.find(params[:id])
+    resource.liked_by current_api_user
     render json: nil, status: :ok
   end
 
   def unupvote
-    @resource = Resource.find(params[:id])
-    if current_api_user.liked? @resource
-      @resource.unliked_by current_api_user
+    resource = Resource.find(params[:id])
+    if current_api_user.liked? resource
+      resource.unliked_by current_api_user
     end
     render json: nil, status: :ok
   end

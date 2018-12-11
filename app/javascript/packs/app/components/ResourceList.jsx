@@ -1,5 +1,15 @@
+/**
+ * Resource list display.
+ *
+ * @prop {Array} resources
+ * @prop {boolean} loaded
+ * @prop {function} upvoteResource: callback to upvote this resource
+ * @prop {function} unupvoteResource: callback to unupvote this resource
+ */
+
 import React from "react";
 import {
+  Button,
   Card,
   Classes,
   Elevation,
@@ -46,7 +56,7 @@ class ResourceList extends React.Component {
       );
     }
 
-    return this.props.resources.map(resource => {
+    return this.props.resources.map((resource, index) => {
       let likeIntent = resource.liked_by_user ? Intent.PRIMARY : Intent.NONE;
       return (
         <Link to={`/resources/${resource.id}`} key={`resource-${resource.id}`}>
@@ -62,15 +72,18 @@ class ResourceList extends React.Component {
               <p>{resource.description}</p>
             </div>
             <div className="resource-list-card-control">
-              <Tag
-                large
+              <Button
                 minimal={!resource.liked_by_user}
                 icon={<Icon icon="symbol-triangle-up" intent={likeIntent} />}
                 intent={likeIntent}
                 className="resource-list-card-tag"
-              >
-                {resource.num_likes}
-              </Tag>
+                text={resource.num_likes}
+                onClick={
+                  resource.liked_by_user
+                    ? this.props.unupvoteResource(resource.id, index)
+                    : this.props.upvoteResource(resource.id, index)
+                }
+              />
             </div>
           </Card>
         </Link>
