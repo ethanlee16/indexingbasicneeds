@@ -8,6 +8,12 @@
 #  updated_at  :datetime         not null
 #  body        :text
 #  description :text
+#  address     :hstore
+#  phone       :string
+#  cost        :decimal(8, 2)
+#  link        :string
+#  eligibility :text
+#  notes       :text
 #
 
 require 'test_helper'
