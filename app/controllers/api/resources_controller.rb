@@ -44,6 +44,14 @@ class Api::ResourcesController < ApplicationController
     render json: nil, status: :ok
   end
 
+  def unupvote
+    @resource = Resource.find(params[:id])
+    if current_api_user.liked? @resource
+      @resource.unliked_by current_api_user
+    end
+    render json: nil, status: :ok
+  end
+
   private
 
   def resource_params
