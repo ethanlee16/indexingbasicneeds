@@ -59,7 +59,12 @@ class ResourceIndexPage extends React.Component {
   upvoteResource = (id, index) => {
     return () => {
       let newState = update(this.state, {
-        resources: { [index]: { liked_by_user: { $set: true } } },
+        resources: {
+          [index]: {
+            liked_by_user: { $set: true },
+            num_likes: likes => likes + 1,
+          },
+        },
       });
       this.setState(newState);
       return API.UpvoteResource(id);
@@ -69,7 +74,12 @@ class ResourceIndexPage extends React.Component {
   unupvoteResource = (id, index) => {
     return () => {
       let newState = update(this.state, {
-        resources: { [index]: { liked_by_user: { $set: false } } },
+        resources: {
+          [index]: {
+            liked_by_user: { $set: false },
+            num_likes: likes => likes - 1,
+          },
+        },
       });
       this.setState(newState);
       return API.UnupvoteResource(id);

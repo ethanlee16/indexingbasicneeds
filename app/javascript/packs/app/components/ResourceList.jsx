@@ -59,34 +59,35 @@ class ResourceList extends React.Component {
     return this.props.resources.map((resource, index) => {
       let likeIntent = resource.liked_by_user ? Intent.PRIMARY : Intent.NONE;
       return (
-        <Link to={`/resources/${resource.id}`} key={`resource-${resource.id}`}>
-          <Card
-            interactive={true}
-            elevation={Elevation.ZERO}
-            className="resource-list-card"
-          >
-            {/* TODO (Ken): REMOVE WHEN AWS CONNECTOR IS IN */}
-            <img src={Placeholder} className="resource-list-card-image" />
-            <div className="resource-list-card-text">
+        <Card
+          interactive={false}
+          elevation={Elevation.ZERO}
+          className="resource-list-card"
+          key={`resource-${resource.id}`}
+        >
+          {/* TODO (Ken): REMOVE WHEN AWS CONNECTOR IS IN */}
+          <img src={Placeholder} className="resource-list-card-image" />
+          <div className="resource-list-card-text">
+            <Link to={`/resources/${resource.id}`}>
               <div className="resource-list-card-title">{resource.title}</div>
-              <p>{resource.description}</p>
-            </div>
-            <div className="resource-list-card-control">
-              <Button
-                minimal={!resource.liked_by_user}
-                icon={<Icon icon="symbol-triangle-up" intent={likeIntent} />}
-                intent={likeIntent}
-                className="resource-list-card-tag"
-                text={resource.num_likes}
-                onClick={
-                  resource.liked_by_user
-                    ? this.props.unupvoteResource(resource.id, index)
-                    : this.props.upvoteResource(resource.id, index)
-                }
-              />
-            </div>
-          </Card>
-        </Link>
+            </Link>
+            <p>{resource.description}</p>
+          </div>
+          <div className="resource-list-card-control">
+            <Button
+              minimal
+              icon={<Icon icon="symbol-triangle-up" intent={likeIntent} />}
+              intent={likeIntent}
+              className="resource-list-card-tag"
+              text={resource.num_likes}
+              onClick={
+                resource.liked_by_user
+                  ? this.props.unupvoteResource(resource.id, index)
+                  : this.props.upvoteResource(resource.id, index)
+              }
+            />
+          </div>
+        </Card>
       );
     });
   }

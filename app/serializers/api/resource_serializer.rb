@@ -13,6 +13,6 @@ class Api::ResourceSerializer < ActiveModel::Serializer
   end
 
   def liked_by_user
-    object.liked_by scope[:current_user]
+    scope[:current_user].liked? object
   end
 end
