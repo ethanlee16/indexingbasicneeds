@@ -14,6 +14,15 @@ function removeUserSession() {
   localStorage.removeItem("expiry");
 }
 
+function refreshAccessToken(headers) {
+  // Don't refresh if the response headers do not contain a new token
+  if (!headers.has("access-token") || !headers.get("access-token")) {
+    return;
+  }
+  localStorage.setItem("access-token", headers.get("access-token"));
+  localStorage.setItem("expiry", headers.get("expiry"));
+}
+
 function getAuthRequestHeaders() {
   if (!localStorage.hasOwnProperty("user")) {
     return {};
@@ -26,4 +35,9 @@ function getAuthRequestHeaders() {
   };
 }
 
-export { cacheUserSession, removeUserSession };
+export {
+  cacheUserSession,
+  removeUserSession,
+  refreshAccessToken,
+  getAuthRequestHeaders,
+};

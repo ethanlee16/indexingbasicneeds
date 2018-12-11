@@ -11,14 +11,14 @@ class Api::ResourcesController < ApplicationController
   def index
     resources = apply_scopes(Resource).all.uniq
     render json: resources, status: :ok, scope: {
-      current_user: current_user,
+      current_user: current_api_user,
     }
   end
 
   def show
     @resource = Resource.find(params[:id])
     render json: @resource, status: :ok, scope: {
-      current_user: current_user,
+      current_user: current_api_user,
     }
   end
 
@@ -40,7 +40,7 @@ class Api::ResourcesController < ApplicationController
 
   def upvote
     @resource = Resource.find(params[:id])
-    @resource.liked_by current_user
+    @resource.liked_by current_api_user
     render json: nil, status: :ok
   end
 
