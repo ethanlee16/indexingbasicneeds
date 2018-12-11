@@ -7,6 +7,8 @@
  * @param {object} params: object containing payload body
  */
 
+import { getAuthRequestHeaders } from "../utils/session";
+
 class BaseRequester {
   /**
    * GET request on endpoint.
@@ -60,6 +62,7 @@ class BaseRequester {
         throw response;
       }
       json = response.status === 204 ? {} : await response.json();
+      headers = response.headers;
     } catch (error) {
       if (!error.json) {
         throw error;
@@ -77,6 +80,7 @@ class BaseRequester {
     let headers = {
       Accept: "application/json",
       "Content-Type": "application/json",
+      ...getAuthRequestHeaders(),
     };
 
     const csrfHeader = document.querySelector('meta[name="csrf-token"]');

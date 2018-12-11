@@ -23,6 +23,7 @@ import {
 import { Link } from "react-router-dom";
 
 import API from "../../middleware/api";
+import { cacheUserSession, removeUserSession } from "../../utils/session";
 
 import Logo from "images/bns-logo.svg";
 
@@ -85,8 +86,8 @@ export default class extends React.Component {
         this.state.loginFormFields.email,
         this.state.loginFormFields.password
       );
-      let user = json;
-      localStorage.setItem("user", JSON.stringify(user));
+      let user = json.data;
+      cacheUserSession(user, headers);
       this.setState({ user: user });
       toaster.show({
         message: "Successfully logged in",
@@ -102,7 +103,7 @@ export default class extends React.Component {
     let toaster = Toaster.create();
     try {
       await API.Logout();
-      localStorage.removeItem("user");
+      removeUserSession();
       this.setState({ user: null });
       toaster.show({
         message: "Successfully logged out",
@@ -162,7 +163,7 @@ export default class extends React.Component {
               <Button
                 large
                 intent="primary"
-                type="submit"
+                type="button"
                 text="Submit"
                 onClick={this.login}
               />
