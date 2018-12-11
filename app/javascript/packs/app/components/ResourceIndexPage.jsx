@@ -89,7 +89,10 @@ class ResourceIndexPage extends React.Component {
   render() {
     return (
       <div className="container is-widescreen page-container">
-        <Navbar onLogin={this.refreshResources} />
+        <Navbar
+          onLogin={this.refreshResources}
+          onLogout={this.refreshResources}
+        />
         <div className="resource-index-page-sidebar">
           <ResourceIndexFilterSidebar
             filterResourcesCallback={this.filterResources}

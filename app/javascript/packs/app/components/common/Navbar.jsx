@@ -180,7 +180,7 @@ export default class extends React.Component {
               <Button
                 large
                 intent="primary"
-                type="button"
+                type="submit"
                 text="Submit"
                 onClick={this.login}
               />

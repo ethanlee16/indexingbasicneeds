@@ -16,7 +16,6 @@ import {
   Icon,
   Intent,
   NonIdealState,
-  Tag,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
@@ -82,7 +81,9 @@ class ResourceList extends React.Component {
               minimal
               icon={<Icon icon="symbol-triangle-up" intent={likeIntent} />}
               intent={likeIntent}
-              className="resource-list-card-tag"
+              className={`resource-list-card-tag ${
+                resource.liked_by_user ? "liked" : ""
+              }`}
               text={resource.num_likes}
               disabled={!userSignedIn}
               onClick={
