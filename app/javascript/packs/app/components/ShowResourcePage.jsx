@@ -17,7 +17,8 @@ class ShowResourcePage extends React.Component {
   }
 
   async componentDidMount() {
-    const resource = await API.ShowResource(this.props.match.params.id);
+    let { json, headers } = await API.ShowResource(this.props.match.params.id);
+    const resource = json;
     this.setState({ resource: resource });
   }
 

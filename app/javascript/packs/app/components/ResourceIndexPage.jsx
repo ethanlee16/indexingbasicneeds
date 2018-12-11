@@ -24,7 +24,8 @@ class ResourceIndexPage extends React.Component {
   }
 
   async componentDidMount() {
-    let resources = await API.ResourcesIndex();
+    let { json, headers } = await API.ResourcesIndex();
+    let resources = json;
     this.setState({ resources: resources, loaded: true });
   }
 
@@ -45,11 +46,12 @@ class ResourceIndexPage extends React.Component {
 
   async refreshResources() {
     this.setState({ loaded: false });
-    let resources = await API.ResourcesIndex(
+    let { json, headers } = await API.ResourcesIndex(
       this.filterTagIds,
       this.orderMethod,
       this.searchQuery
     );
+    let resources = json;
     this.setState({ resources: resources, loaded: true });
   }
 

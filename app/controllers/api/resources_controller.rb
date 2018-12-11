@@ -1,6 +1,8 @@
 class Api::ResourcesController < ApplicationController
+  include DeviseTokenAuth::Concerns::SetUserByToken
+
   before_action :parse_tag_ids, only: [:index]
-  before_action :authenticate_user!
+  before_action :authenticate_api_user!
 
   has_scope :by_tags, type: :array
   has_scope :ordered

@@ -81,10 +81,11 @@ export default class extends React.Component {
   login = async () => {
     let toaster = Toaster.create();
     try {
-      let user = await API.Login(
+      let { json, headers } = await API.Login(
         this.state.loginFormFields.email,
         this.state.loginFormFields.password
       );
+      let user = json;
       localStorage.setItem("user", JSON.stringify(user));
       this.setState({ user: user });
       toaster.show({

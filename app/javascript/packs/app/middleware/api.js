@@ -3,16 +3,14 @@ import Requester from "./requester";
 class API {
   static async Login(email, password) {
     const userPayload = {
-      user: {
-        email: email,
-        password: password,
-      },
+      email: email,
+      password: password,
     };
-    return await Requester.post("/users/sign_in", userPayload);
+    return await Requester.post("/api/auth/sign_in", userPayload);
   }
 
   static async Logout() {
-    return await Requester.destroy("/users/sign_out");
+    return await Requester.destroy("/api/auth/sign_out");
   }
 
   static async ResourcesIndex(tags, order_method = "updated_desc", query = "") {

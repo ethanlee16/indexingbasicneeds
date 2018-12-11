@@ -18,7 +18,8 @@ class UpdateResourcePage extends CreateResourcePage {
     await this.getResourceTags();
 
     let id = this.props.match.params.id;
-    let resource = await API.ShowResource(id);
+    let { json, headers } = await API.ShowResource(id);
+    let resource = json;
 
     // Prepopulate selected resoruce tags
     let selectedResourceTags = {};
@@ -56,7 +57,7 @@ class UpdateResourcePage extends CreateResourcePage {
     };
 
     let id = this.props.match.params.id;
-    let response = await API.UpdateResource(id, resource);
+    let { json, headers } = await API.UpdateResource(id, resource);
     // TODO (Ken): Add error checking
 
     this.props.history.push("/");
