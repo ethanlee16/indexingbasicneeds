@@ -5,6 +5,7 @@
  * @prop {boolean} loaded
  * @prop {function} upvoteResource: callback to upvote this resource
  * @prop {function} unupvoteResource: callback to unupvote this resource
+ * @prop {function} onClickResource: function to open this resource's modal
  */
 
 import React from "react";
@@ -91,6 +92,11 @@ class ResourceList extends React.Component {
                   ? this.props.unupvoteResource(resource.id, index)
                   : this.props.upvoteResource(resource.id, index)
               }
+            />
+            <Button
+              minimal
+              icon="document-open"
+              onClick={this.props.onClickResource(index)}
             />
           </div>
         </Card>

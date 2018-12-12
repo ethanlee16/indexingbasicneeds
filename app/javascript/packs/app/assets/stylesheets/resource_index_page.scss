@@ -30,3 +30,41 @@ $sidebar-width: 300px;
   flex-grow: 1;
   margin-right: 40px;
 }
+
+// Resource modal
+.resource-modal-dialog {
+  width: 840px;
+}
+
+.resource-modal-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.resource-modal-image {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.resource-modal-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.resource-modal-text {
+}
+
+.resource-modal-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 200px;
+  height: 100%;
+}

@@ -1,6 +1,13 @@
 import React from "react";
 import ResourceList from "./ResourceList";
-import { Button, HTMLSelect, InputGroup, Intent } from "@blueprintjs/core";
+import {
+  Button,
+  Classes,
+  Dialog,
+  HTMLSelect,
+  InputGroup,
+  Intent,
+} from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
 
@@ -10,6 +17,8 @@ import Navbar from "./common/Navbar";
 
 import API from "../middleware/api";
 
+import Placeholder from "images/placeholder-square.jpg";
+
 class ResourceIndexPage extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +26,8 @@ class ResourceIndexPage extends React.Component {
     this.state = {
       resources: [],
       loaded: false,
+      isModalOpen: false,
+      openResourceIndex: null,
     };
 
     this.filterTagIds = [];
@@ -86,6 +97,61 @@ class ResourceIndexPage extends React.Component {
     };
   };
 
+  openResourceModal = index => {
+    return () => {
+      this.setState({ isModalOpen: true, openResourceIndex: index });
+    };
+  };
+
+  closeResourceModal = () => {
+    this.setState({ isModalOpen: false });
+  };
+
+  renderResourceModal() {
+    if (!this.state.isModalOpen) return;
+    let index = this.state.openResourceIndex;
+    let resource = this.state.resources[index];
+    return (
+      <Dialog
+        onClose={this.closeResourceModal}
+        isOpen={this.state.isModalOpen}
+        className="resource-modal-dialog"
+      >
+        <div className={`${Classes.DIALOG_BODY} resource-modal-body`}>
+          <div className="resource-modal-details">
+            <img
+              src={Placeholder}
+              alt="placeholder"
+              className="resource-modal-image"
+            />
+            <div className="resource-modal-text">
+              <h3>{resource.title}</h3>
+              <p>{resource.description}</p>
+              <p>{resource.eligibility}</p>
+              <p>{resource.notes}</p>
+            </div>
+          </div>
+          <div className="resource-modal-control">
+            <Button
+              large
+              fill
+              icon="symbol-triangle-up"
+              intent={Intent.PRIMARY}
+              text={`${resource.liked_by_user ? "Unupvote" : "Upvote"} ${
+                resource.num_likes
+              }`}
+              onClick={
+                resource.liked_by_user
+                  ? this.unupvoteResource(resource.id, index)
+                  : this.upvoteResource(resource.id, index)
+              }
+            />
+          </div>
+        </div>
+      </Dialog>
+    );
+  }
+
   render() {
     return (
       <div className="container is-widescreen page-container">
@@ -93,6 +159,7 @@ class ResourceIndexPage extends React.Component {
           onLogin={this.refreshResources}
           onLogout={this.refreshResources}
         />
+        {this.renderResourceModal()}
         <div className="resource-index-page-sidebar">
           <ResourceIndexFilterSidebar
             filterResourcesCallback={this.filterResources}
@@ -135,6 +202,7 @@ class ResourceIndexPage extends React.Component {
             loaded={this.state.loaded}
             upvoteResource={this.upvoteResource}
             unupvoteResource={this.unupvoteResource}
+            onClickResource={this.openResourceModal}
           />
         </div>
       </div>
