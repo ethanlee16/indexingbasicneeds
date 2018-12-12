@@ -6,8 +6,6 @@ h1 {
   color: $off-black;
   font-size: 48px;
   font-weight: 600;
-  margin-top: 0px;
-  margin-bottom: 24px;
 }
 
 h2 {
@@ -15,8 +13,8 @@ h2 {
   color: $dark-blue;
   font-size: 36px;
   font-weight: 600;
-  margin-top: 0px;
-  margin-bottom: 18px;
+  margin-top: 32px;
+  margin-bottom: 24px;
 }
 
 h3 {
@@ -24,8 +22,17 @@ h3 {
   color: $off-black;
   font-size: 28px;
   font-weight: 600;
-  margin-top: 0px;
-  margin-bottom: 14px;
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+
+h4 {
+  font-family: $font-stack;
+  color: $off-black;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 18px;
+  margin-bottom: 12px;
 }
 
 p {
@@ -33,6 +40,7 @@ p {
   color: $dark-gray;
   font-size: 18px;
   font-weight: 400;
+  line-height: 1.5em;
 }
 
 a {

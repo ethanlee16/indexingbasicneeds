@@ -9,19 +9,30 @@
 def create_resources
   10.times do |i|
     Resource.create!(
-      title: "Resource number #{i}", 
-      description: "This is the description for resource number #{i}", 
-      body: "<p>Hello</p>"
+      title: FFaker::Book.title,
+      description: FFaker::Book.description,
+      body: FFaker::HTMLIpsum.body,
+      address: {
+        street: FFaker::AddressUS.street_address,
+        city: FFaker::AddressUS.city,
+        state: FFaker::AddressUS.state,
+        zip: FFaker::AddressUS.state_abbr,
+        phone: FFaker::PhoneNumber.short_phone_number,
+      },
+      cost: 12.34,
+      link: FFaker::Internet.http_url,
+      eligibility: FFaker::Tweet.tweet,
+      notes: FFaker::Company.catch_phrase,
     )
   end
 end
 
-def create_resource_tags 
-  # Student filters 
+def create_resource_tags
+  # Student filters
   ResourceTag.create(name: "Undergraduate", category: ResourceTag::CATEGORIES[:student])
   ResourceTag.create(name: "Graduate", category: ResourceTag::CATEGORIES[:student])
 
-  # Campus filters 
+  # Campus filters
   ResourceTag.create(name: "On-Campus", category: ResourceTag::CATEGORIES[:campus])
   ResourceTag.create(name: "Off-Campus", category: ResourceTag::CATEGORIES[:campus])
 
@@ -40,5 +51,23 @@ def create_resource_tags
   ResourceTag.create(name: "SSWANA Students", category: ResourceTag::CATEGORIES[:community])
 end
 
+def create_users
+  User.create(
+    first_name: "Ken",
+    last_name: "Chen",
+    email: "lbkchen@gmail.com",
+    uid: "lbkchen@gmail.com",
+    provider: "email", 
+    password: "password",
+    password_confirmation: "password",
+  )
+end
+
+puts "Seeding resources."
 create_resources
+
+puts "Seeding default resource tags."
 create_resource_tags
+
+puts "Seeding test admin user."
+create_users
