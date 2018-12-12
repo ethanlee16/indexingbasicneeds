@@ -56,6 +56,8 @@ def create_users
     first_name: "Ken",
     last_name: "Chen",
     email: "lbkchen@gmail.com",
+    uid: "lbkchen@gmail.com",
+    provider: "email", 
     password: "password",
     password_confirmation: "password",
   )
