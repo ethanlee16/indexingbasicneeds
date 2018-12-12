@@ -9,6 +9,10 @@ class Api::ResourceSerializer < ActiveModel::Serializer
 
   has_many :resource_tags
 
+  def updated_at
+    object.updated_at.strftime("%F, %H:%M")
+  end
+
   def num_likes
     object.get_likes.size
   end

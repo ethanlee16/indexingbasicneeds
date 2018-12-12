@@ -129,10 +129,21 @@ class ResourceIndexPage extends React.Component {
               <p>{resource.description}</p>
               <p>{resource.eligibility}</p>
               <p>{resource.notes}</p>
-              <div className="resource-modal-text-body">
-                <div dangerouslySetInnerHTML={{ __html: resource.body }} />
-              </div>
-              <p>{resource.updated_at}</p>
+              <div
+                dangerouslySetInnerHTML={{ __html: resource.body }}
+                className="resource-modal-text-body"
+              />
+              <Link to={`/resources/${resource.id}`}>
+                <Button
+                  large
+                  fill
+                  minimal
+                  intent={Intent.PRIMARY}
+                  text="Read more"
+                  className="resource-modal-read-more"
+                />
+              </Link>
+              <p>{`Last updated: ${resource.updated_at}`}</p>
             </div>
           </div>
           <div className="resource-modal-control">

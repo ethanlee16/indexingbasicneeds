@@ -83,6 +83,10 @@ $sidebar-width: 300px;
   }
 }
 
+.resource-modal-read-more {
+  border: 1px solid rgba(16, 107, 163, 0.2);
+}
+
 .resource-modal-control {
   display: flex;
   flex-direction: column;
