@@ -11,11 +11,11 @@ import {
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
 
-import FilterSidebar from "./common/FilterSidebar";
 import ResourceIndexFilterSidebar from "./ResourceIndexFilterSidebar";
 import Navbar from "./common/Navbar";
 
 import API from "../middleware/api";
+import { checkUserSignedIn } from "../utils/session";
 
 import Placeholder from "images/placeholder-square.jpg";
 
@@ -111,6 +111,8 @@ class ResourceIndexPage extends React.Component {
     if (!this.state.isModalOpen) return;
     let index = this.state.openResourceIndex;
     let resource = this.state.resources[index];
+    let userSignedIn = checkUserSignedIn();
+
     return (
       <Dialog
         onClose={this.closeResourceModal}
@@ -125,10 +127,16 @@ class ResourceIndexPage extends React.Component {
               className="resource-modal-image"
             />
             <div className="resource-modal-text">
-              <h3>{resource.title}</h3>
+              <h3 style={{ marginTop: "0px" }}>{resource.title}</h3>
               <p>{resource.description}</p>
+
+              <h4>Eligibility</h4>
               <p>{resource.eligibility}</p>
+
+              <h4>Notes</h4>
               <p>{resource.notes}</p>
+
+              <h4>Preview</h4>
               <div
                 dangerouslySetInnerHTML={{ __html: resource.body }}
                 className="resource-modal-text-body"
@@ -155,12 +163,25 @@ class ResourceIndexPage extends React.Component {
               text={`${resource.liked_by_user ? "Unupvote" : "Upvote"} ${
                 resource.num_likes
               }`}
+              disabled={!userSignedIn}
               onClick={
                 resource.liked_by_user
                   ? this.unupvoteResource(resource.id, index)
                   : this.upvoteResource(resource.id, index)
               }
             />
+            {resource.link && (
+              <a href={resource.link} target="_blank" style={{ width: "100%" }}>
+                <Button
+                  large
+                  minimal
+                  fill
+                  icon="link"
+                  intent={Intent.PRIMARY}
+                  text={resource.link}
+                />
+              </a>
+            )}
           </div>
         </div>
       </Dialog>
@@ -169,7 +190,7 @@ class ResourceIndexPage extends React.Component {
 
   render() {
     return (
-      <div className="container is-widescreen page-container">
+      <div className="container is-widescreen">
         <Navbar
           onLogin={this.refreshResources}
           onLogout={this.refreshResources}
@@ -182,7 +203,7 @@ class ResourceIndexPage extends React.Component {
         </div>
         <div className="resource-index-page-main-container">
           <div className="resource-index-page-title-container">
-            <h2>BNS Resources</h2>
+            <h2 style={{ marginTop: "0px" }}>BNS Resources</h2>
             <Link to="/resource/new">
               <Button
                 large

@@ -72,10 +72,14 @@ class ResourceList extends React.Component {
           {/* TODO (Ken): REMOVE WHEN AWS CONNECTOR IS IN */}
           <img src={Placeholder} className="resource-list-card-image" />
           <div className="resource-list-card-text">
-            <Link to={`/resources/${resource.id}`}>
-              <div className="resource-list-card-title">{resource.title}</div>
-            </Link>
-            <p>{resource.description}</p>
+            <div className="resource-list-card-text-inner">
+              <Link to={`/resources/${resource.id}`}>
+                <div className="resource-list-card-title">{resource.title}</div>
+              </Link>
+              <p className="resource-list-card-description">
+                {resource.description}
+              </p>
+            </div>
           </div>
           <div className="resource-list-card-control">
             <Button

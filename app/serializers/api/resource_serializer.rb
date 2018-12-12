@@ -5,7 +5,13 @@ class Api::ResourceSerializer < ActiveModel::Serializer
              :description,
              :body,
              :num_likes,
-             :liked_by_user
+             :liked_by_user,
+             :address,
+             :phone,
+             :cost,
+             :link,
+             :eligibility,
+             :notes
 
   has_many :resource_tags
 

@@ -8,7 +8,7 @@ class FilterSidebar extends React.Component {
         {this.props.sections.map((section, i) => {
           return (
             <div key={`section-${i}`}>
-              <h3>{section.name}</h3>
+              <h3 className="filter-sidebar-header">{section.name}</h3>
               <FormGroup>
                 {section.tags.map(tag => {
                   return (
