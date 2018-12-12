@@ -1,5 +1,6 @@
 class Api::ResourceSerializer < ActiveModel::Serializer
   attributes :id,
+             :updated_at,
              :title,
              :description,
              :body,
@@ -14,7 +15,7 @@ class Api::ResourceSerializer < ActiveModel::Serializer
 
   def liked_by_user
     unless scope[:current_user]
-      return false 
+      return false
     end
     scope[:current_user].liked? object
   end
