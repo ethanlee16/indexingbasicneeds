@@ -6,7 +6,7 @@
     "@blueprintjs/icons": "^3.1.0",
     "@ckeditor/ckeditor5-build-classic": "^11.0.1",
     "@ckeditor/ckeditor5-react": "^1.0.0-beta.1",
-    "@rails/webpacker": "^3.5.5",
+    "@rails/webpacker": "https://github.com/rails/webpacker",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "bulma": "^0.7.1",
@@ -27,7 +27,7 @@
     "babel-preset-env": "^1.7.0",
     "postcss-loader": "^2.1.6",
     "sass-loader": "^7.1.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^3.1.14"
   },
   "scripts": {
     "start": "foreman start -f Procfile.dev -p 3000"
