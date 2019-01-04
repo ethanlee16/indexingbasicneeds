@@ -22,7 +22,9 @@ class Api::ResourcesController < ApplicationController
 
   def create
     resource = Resource.create(resource_params)
-    render json: resource, status: :ok
+    render json: resource, status: :ok, scope: {
+      current_user: current_api_user,
+    }
   end
 
   # Right now for simplicity we simply remove all tag instances and recreate them
@@ -33,7 +35,9 @@ class Api::ResourcesController < ApplicationController
       resource.resource_tag_instances.destroy_all
       resource.update(resource_params)
     end
-    render json: resource, status: :ok
+    render json: resource, status: :ok, scope: {
+      current_user: current_api_user,
+    }
   end
 
   def upvote

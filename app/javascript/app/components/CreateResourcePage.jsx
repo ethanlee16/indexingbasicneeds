@@ -11,6 +11,7 @@ import {
 import { withRouter } from "react-router";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "./common/Editor";
+
 // import ClassicEditor from "ClassicEditor";
 // import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import update from "immutability-helper";
@@ -137,8 +138,6 @@ class CreateResourcePage extends React.Component {
   };
 
   render() {
-    console.log(ClassicEditor);
-    console.log(window.ClassicEditor);
     return (
       <div className="container is-widescreen page-container">
         <Navbar />
@@ -190,6 +189,8 @@ class CreateResourcePage extends React.Component {
               console.log("Editor is ready to use!", editor);
             }}
             onChange={(event, editor) => {
+              console.log(event);
+              console.log(editor);
               const data = editor.getData();
               const newState = update(this.state, {
                 formFields: { body: { $set: data } },
