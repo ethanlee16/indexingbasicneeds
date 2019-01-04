@@ -23,6 +23,7 @@ import { Link } from "react-router-dom";
 import { checkUserSignedIn } from "../utils/session";
 
 import Placeholder from "images/placeholder-square.jpg";
+import "../assets/stylesheets/resource_list.scss";
 
 class ResourceList extends React.Component {
   renderResources() {

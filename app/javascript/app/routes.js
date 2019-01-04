@@ -6,6 +6,8 @@ import UpdateResourcePage from "./components/UpdateResourcePage";
 import ShowResourcePage from "./components/ShowResourcePage";
 import AboutPage from "./components/AboutPage";
 
+import "./assets/stylesheets/app";
+
 const App = props => (
   <Router>
     <div>

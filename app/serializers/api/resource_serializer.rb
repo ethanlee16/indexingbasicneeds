@@ -24,6 +24,8 @@ class Api::ResourceSerializer < ActiveModel::Serializer
   end
 
   def liked_by_user
+    puts scope
+    puts "hi"
     unless scope[:current_user]
       return false
     end
