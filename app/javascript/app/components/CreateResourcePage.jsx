@@ -10,7 +10,9 @@ import {
 } from "@blueprintjs/core";
 import { withRouter } from "react-router";
 import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import ClassicEditor from "./common/Editor";
+// import ClassicEditor from "ClassicEditor";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import update from "immutability-helper";
 
 import Navbar from "./common/Navbar";
@@ -135,6 +137,8 @@ class CreateResourcePage extends React.Component {
   };
 
   render() {
+    console.log(ClassicEditor);
+    console.log(window.ClassicEditor);
     return (
       <div className="container is-widescreen page-container">
         <Navbar />
@@ -179,7 +183,7 @@ class CreateResourcePage extends React.Component {
           intent={this.getIntent("body")}
         >
           <CKEditor
-            editor={ClassicEditor}
+            editor={window.ClassicEditor}
             data={this.state.formFields.body}
             onInit={editor => {
               // You can store the "editor" and use when it's needed.
@@ -190,6 +194,7 @@ class CreateResourcePage extends React.Component {
               const newState = update(this.state, {
                 formFields: { body: { $set: data } },
               });
+              console.log(this.state);
               this.setState(newState);
               //   this.resourceBody = data;
             }}

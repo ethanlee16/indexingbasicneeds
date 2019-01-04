@@ -10,7 +10,7 @@ default: &default
 
   # Additional paths webpack should lookup modules
   # ['app/assets', 'engine/foo/app/assets']
-  resolved_paths: []
+  resolved_paths: ["app/assets"]
 
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
@@ -33,8 +33,13 @@ default: &default
     - .woff2
 
   extensions:
+    - .coffee
+    - .erb
     - .mjs
     - .js
+    - .jsx
+    - .json
+    - .ts
     - .sass
     - .scss
     - .css
@@ -69,10 +74,9 @@ development:
     use_local_ip: false
     quiet: false
     headers:
-      'Access-Control-Allow-Origin': '*'
+      "Access-Control-Allow-Origin": "*"
     watch_options:
       ignored: /node_modules/
-
 
 test:
   <<: *default
