@@ -8,12 +8,7 @@ import {
   Intent,
   Toaster,
 } from "@blueprintjs/core";
-import { withRouter } from "react-router";
 import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "./common/Editor";
-
-// import ClassicEditor from "ClassicEditor";
-// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import update from "immutability-helper";
 
 import Navbar from "./common/Navbar";
@@ -189,15 +184,11 @@ class CreateResourcePage extends React.Component {
               console.log("Editor is ready to use!", editor);
             }}
             onChange={(event, editor) => {
-              console.log(event);
-              console.log(editor);
               const data = editor.getData();
               const newState = update(this.state, {
                 formFields: { body: { $set: data } },
               });
-              console.log(this.state);
               this.setState(newState);
-              //   this.resourceBody = data;
             }}
           />
         </FormGroup>
