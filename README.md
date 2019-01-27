@@ -1,5 +1,7 @@
 # Indexing Basic Needs
 
+We're live! Check out the site: https://indexing-basic-needs.herokuapp.com/.
+
 ## Dev Setup
 
 ### Ruby and Rails
