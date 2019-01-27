@@ -42,6 +42,7 @@ gem 'has_scope', '~> 0.7.2'
 gem 'ransack', '~> 2.1.1'
 gem 'acts_as_votable', '~> 0.12.0'
 gem 'devise_token_auth', '~> 1.0.0'
+gem 'ffaker', '~> 2.10.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,7 +50,6 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'ffaker', '~> 2.10.0'
 end
 
 group :development do
