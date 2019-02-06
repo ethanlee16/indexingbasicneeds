@@ -1,5 +1,11 @@
 {
   "name": "indexingbasicneeds",
+  "description": "indexing basic needs resources for UC Berkeley",
+  "version": "1.0.0",
+  "engines": {
+    "node": "11.8.0",
+    "yarn": "1.13.0"
+  },
   "private": true,
   "dependencies": {
     "@blueprintjs/core": "^3.4.0",
