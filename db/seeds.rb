@@ -31,6 +31,7 @@ def create_resource_tags
   # Student filters
   ResourceTag.create(name: "Undergraduate", category: ResourceTag::CATEGORIES[:student])
   ResourceTag.create(name: "Graduate", category: ResourceTag::CATEGORIES[:student])
+  ResourceTag.create(name: "Service Workers/Staff", category: ResourceTag::CATEGORIES[:student])
 
   # Campus filters
   ResourceTag.create(name: "On-Campus", category: ResourceTag::CATEGORIES[:campus])

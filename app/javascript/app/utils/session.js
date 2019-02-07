@@ -16,6 +16,7 @@ function cacheUserSession(user, headers) {
 }
 
 function removeUserSession() {
+  console.warn("User session removed!");
   localStorage.removeItem("user");
   localStorage.removeItem("client");
   localStorage.removeItem("uid");
