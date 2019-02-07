@@ -41,6 +41,7 @@ function getAuthRequestHeaders() {
     uid: localStorage.getItem("uid"),
     "access-token": localStorage.getItem("access-token"),
     expiry: localStorage.getItem("expiry"),
+    "token-type": "Bearer",
   };
 }
 

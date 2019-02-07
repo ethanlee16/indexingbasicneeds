@@ -86,22 +86,21 @@ export default class extends React.Component {
     };
   }
 
-  login = async () => {
+  login = async e => {
+    e.preventDefault();
     let toaster = Toaster.create();
-    let json, headers;
+    let user;
     try {
-      ({ json, headers } = await API.Login(
+      user = await API.Login(
         this.state.loginFormFields.email,
         this.state.loginFormFields.password
-      ));
+      );
     } catch (error) {
       console.error(error);
       toaster.show({ message: "Error when logging in", intent: Intent.DANGER });
-      return;
+      throw error;
     }
 
-    let user = json.data;
-    cacheUserSession(user, headers);
     this.setState({ user: user });
     toaster.show({
       message: "Successfully logged in",
@@ -298,7 +297,7 @@ export default class extends React.Component {
             <Button
               className={Classes.MINIMAL}
               icon="user"
-              text={!!this.state.user ? this.state.user.email : null}
+              text={this.state.user ? this.state.user.email : null}
             />
           </Popover>
         </NavbarGroup>
