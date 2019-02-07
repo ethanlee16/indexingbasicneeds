@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint(8)        not null, primary key
 #  first_name             :string
 #  last_name              :string
 #  is_admin               :boolean          default(FALSE)

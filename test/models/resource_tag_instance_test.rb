@@ -2,9 +2,9 @@
 #
 # Table name: resource_tag_instances
 #
-#  id              :integer          not null, primary key
-#  resource_id     :integer
-#  resource_tag_id :integer
+#  id              :bigint(8)        not null, primary key
+#  resource_id     :bigint(8)
+#  resource_tag_id :bigint(8)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
