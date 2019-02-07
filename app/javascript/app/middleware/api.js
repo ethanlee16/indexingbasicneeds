@@ -1,4 +1,5 @@
 import Requester from "./requester";
+import { cacheUserSession, removeUserSession } from "../utils/session";
 
 class API {
   static async Login(email, password) {
@@ -6,7 +7,19 @@ class API {
       email: email,
       password: password,
     };
-    return await Requester.post("/api/auth/sign_in", userPayload);
+    let json, headers;
+    try {
+      ({ json, headers } = await Requester.post(
+        "/api/auth/sign_in",
+        userPayload
+      ));
+    } catch (error) {
+      removeUserSession();
+      throw error;
+    }
+    json = json.data;
+    cacheUserSession(json, headers);
+    return json;
   }
 
   static async Logout() {

@@ -81,7 +81,6 @@ class BaseRequester {
     let headers = {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "token-type": "Bearer",
       ...getAuthRequestHeaders(),
     };
 
