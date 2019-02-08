@@ -124,12 +124,15 @@ class CreateResourcePage extends React.Component {
       resource_tag_instances_attributes: resourceTagInstancesAttributes,
     };
 
-    let { json, headers } = await API.CreateNewResource(resource);
-    // TODO (Ken): Add error checking on response here
-
-    this.props.history.push("/");
     let toaster = Toaster.create();
-    toaster.show({ message: "Success!", intent: Intent.SUCCESS });
+    try {
+      await API.CreateNewResource(resource);
+      toaster.show({ message: "Success!", intent: Intent.SUCCESS });
+      this.props.history.push("/");
+    } catch (error) {
+      toaster.show({ message: `Error: ${error}`, intent: Intent.DANGER });
+      console.error(error);
+    }
   };
 
   render() {
