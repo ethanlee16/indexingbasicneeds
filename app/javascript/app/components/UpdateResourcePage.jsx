@@ -56,13 +56,16 @@ class UpdateResourcePage extends CreateResourcePage {
       resource_tag_instances_attributes: resourceTagInstancesAttributes,
     };
 
-    let id = this.props.match.params.id;
-    let { json, headers } = await API.UpdateResource(id, resource);
-    // TODO (Ken): Add error checking
-
-    this.props.history.push("/");
     let toaster = Toaster.create();
-    toaster.show({ message: "Success!", intent: Intent.SUCCESS });
+    let id = this.props.match.params.id;
+    try {
+      await API.UpdateResource(id, resource);
+      toaster.show({ message: "Success!", intent: Intent.SUCCESS });
+      this.props.history.push("/");
+    } catch (error) {
+      toaster.show({ message: `Error: ${error}`, intent: Intent.DANGER });
+      console.error(error);
+    }
   };
 }
 

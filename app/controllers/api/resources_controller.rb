@@ -22,6 +22,7 @@ class Api::ResourcesController < ApplicationController
 
   def create
     resource = Resource.create(resource_params)
+    authorize resource
     render json: resource, status: :ok, scope: {
       current_user: current_api_user,
     }
@@ -31,6 +32,7 @@ class Api::ResourcesController < ApplicationController
   # Consider a tagging library for the future: https://github.com/mbleigh/acts-as-taggable-on/
   def update
     resource = Resource.find(params[:id])
+    authorize resource
     resource.transaction do
       resource.resource_tag_instances.destroy_all
       resource.update(resource_params)
