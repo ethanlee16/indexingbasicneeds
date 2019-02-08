@@ -10,6 +10,7 @@ import {
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
+import { debounce } from "debounce";
 
 import ResourceIndexFilterSidebar from "./ResourceIndexFilterSidebar";
 import Navbar from "./common/Navbar";
@@ -56,7 +57,7 @@ class ResourceIndexPage extends React.Component {
     this.refreshResources();
   };
 
-  refreshResources = async () => {
+  refreshResources = debounce(async () => {
     this.setState({ loaded: false });
     let { json, headers } = await API.ResourcesIndex(
       this.filterTagIds,
@@ -65,7 +66,7 @@ class ResourceIndexPage extends React.Component {
     );
     let resources = json;
     this.setState({ resources: resources, loaded: true });
-  };
+  }, 300);
 
   upvoteResource = (id, index) => {
     return () => {
