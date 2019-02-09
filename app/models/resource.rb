@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: resources
@@ -23,29 +25,31 @@ class Resource < ApplicationRecord
   has_many :resource_tag_instances
   has_many :resource_tags, through: :resource_tag_instances
 
+  has_and_belongs_to_many :resource_categories
+
   accepts_nested_attributes_for :resource_tag_instances, allow_destroy: true
 
   acts_as_votable
 
   # Filter by multiple tags on OR condition
-  scope :by_tags, -> tag_ids { filter_by_tags(tag_ids) }
-  scope :ordered, -> method { order(ORDER_METHODS.fetch(method.to_sym, DEFAULT_ORDER_METHOD)) }
-  scope :with_query, -> query { simple_search(query) }
+  scope :by_tags, ->(tag_ids) { filter_by_tags(tag_ids) }
+  scope :ordered, ->(method) { order(ORDER_METHODS.fetch(method.to_sym, DEFAULT_ORDER_METHOD)) }
+  scope :with_query, ->(query) { simple_search(query) }
 
   ORDER_METHODS = {
-    created_asc: {created_at: :asc},
-    created_desc: {created_at: :desc},
-    updated_asc: {updated_at: :asc},
-    updated_desc: {updated_at: :desc},
-  }
+    created_asc: { created_at: :asc },
+    created_desc: { created_at: :desc },
+    updated_asc: { updated_at: :asc },
+    updated_desc: { updated_at: :desc }
+  }.freeze
   DEFAULT_ORDER_METHOD = ORDER_METHODS[:updated_desc]
 
   def self.filter_by_tags(tag_ids)
     joins(:resource_tag_instances)
-      .where(resource_tag_instances: {resource_tag_id: tag_ids})
+      .where(resource_tag_instances: { resource_tag_id: tag_ids })
   end
 
   def self.simple_search(query)
-    ransack(title_cont: query, description_cont: query, body_cont: query, m: "or").result(distinct: true) 
+    ransack(title_cont: query, description_cont: query, body_cont: query, m: 'or').result(distinct: true)
   end
 end
