@@ -2,6 +2,7 @@ import React from "react";
 import {
   Button,
   Checkbox,
+  Classes,
   FormGroup,
   H1,
   InputGroup,
@@ -30,6 +31,8 @@ class CreateResourcePage extends React.Component {
         description: [],
         body: [],
       },
+      resourceCategories: [],
+      selectedResourceCategories: {}, // id : category_name just for ease of use over Set
       resourceTags: {
         student: [],
         campus: [],
@@ -41,7 +44,14 @@ class CreateResourcePage extends React.Component {
   }
 
   async componentDidMount() {
-    await this.getResourceTags();
+    this.getResourceCategories();
+    this.getResourceTags();
+  }
+
+  async getResourceCategories() {
+    let { json, headers } = await API.GetResourceCategories();
+    this.setState({ resourceCategories: json });
+    console.warn(json);
   }
 
   async getResourceTags() {
@@ -92,6 +102,29 @@ class CreateResourcePage extends React.Component {
   }
 
   /**
+   * Checks the resource category if unchecked and vice versa by setting the selectedResourceTags state.
+   */
+  checkResourceCategoryCallback(id, categoryName) {
+    return event => {
+      let newSelectedResourceCategories;
+      if (this.state.selectedResourceCategories.hasOwnProperty(id)) {
+        newSelectedResourceCategories = update(
+          this.state.selectedResourceCategories,
+          { $unset: [id] }
+        );
+      } else {
+        newSelectedResourceCategories = update(
+          this.state.selectedResourceCategories,
+          { [id]: { $set: categoryName } }
+        );
+      }
+      this.setState({
+        selectedResourceCategories: newSelectedResourceCategories,
+      });
+    };
+  }
+
+  /**
    * Checks the resource tag if unchecked and vice versa by setting the selectedResourceTags state.
    */
   checkResourceTagCallback(id, categoryName) {
@@ -111,6 +144,12 @@ class CreateResourcePage extends React.Component {
   }
 
   submit = async () => {
+    let resourceCategoriesResourcesAttributes = Object.keys(
+      this.state.selectedResourceCategories
+    ).map(resourceCategoryId => {
+      return { resource_category_id: resourceCategoryId };
+    });
+
     let resourceTagInstancesAttributes = Object.keys(
       this.state.selectedResourceTags
     ).map(resourceTagId => {
@@ -122,6 +161,7 @@ class CreateResourcePage extends React.Component {
     let resource = {
       ...this.state.formFields,
       resource_tag_instances_attributes: resourceTagInstancesAttributes,
+      resource_categories_resources_attributes: resourceCategoriesResourcesAttributes,
     };
 
     let toaster = Toaster.create();
@@ -197,6 +237,32 @@ class CreateResourcePage extends React.Component {
         </FormGroup>
 
         <FormGroup
+          helperText={
+            "What category does your post belong to? If none are selected, then your post will only show up under 'All Categories'."
+          }
+          label="Category"
+          labelFor="text-input"
+          labelInfo={"(required)"}
+          intent={this.getIntent("description")}
+        >
+          {this.state.resourceCategories.map(category => {
+            return (
+              <Checkbox
+                label={category.name}
+                checked={this.state.selectedResourceCategories.hasOwnProperty(
+                  category.id
+                )}
+                onChange={this.checkResourceCategoryCallback(
+                  category.id,
+                  category.name
+                )}
+                key={`resource-category-${category.id}`}
+              />
+            );
+          })}
+        </FormGroup>
+
+        <FormGroup
           label="Student Filters"
           labelFor="text-input"
           labelInfo={"(required)"}
@@ -235,7 +301,6 @@ class CreateResourcePage extends React.Component {
         <FormGroup
           label="Community Filters"
           labelFor="text-input"
-          labelInfo={"(required)"}
           intent={this.getIntent("description")}
         >
           {this.state.resourceTags.community.map(tag => {
@@ -253,7 +318,6 @@ class CreateResourcePage extends React.Component {
         <FormGroup
           label="Other Filters"
           labelFor="text-input"
-          labelInfo={"(required)"}
           intent={this.getIntent("description")}
         >
           {this.state.resourceTags.other.map(tag => {

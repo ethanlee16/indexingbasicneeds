@@ -67,6 +67,10 @@ class API {
   static async GetResourceTags() {
     return await Requester.get("/api/resource_tags");
   }
+
+  static async GetResourceCategories() {
+    return await Requester.get("/api/resource_categories");
+  }
 }
 
 export default API;
