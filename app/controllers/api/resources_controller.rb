@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Api::ResourcesController < ApplicationController
   before_action :parse_tag_ids, only: [:index]
-  before_action :authenticate_api_user!, except: [:index, :show]
+  before_action :authenticate_api_user!, except: %i[index show]
 
   has_scope :by_tags, type: :array
   has_scope :ordered
@@ -9,14 +11,14 @@ class Api::ResourcesController < ApplicationController
   def index
     resources = apply_scopes(Resource).all.uniq
     render json: resources, status: :ok, scope: {
-      current_user: current_api_user,
+      current_user: current_api_user
     }
   end
 
   def show
     resource = Resource.find(params[:id])
     render json: resource, status: :ok, scope: {
-      current_user: current_api_user,
+      current_user: current_api_user
     }
   end
 
@@ -24,7 +26,7 @@ class Api::ResourcesController < ApplicationController
     resource = Resource.create(resource_params)
     authorize resource
     render json: resource, status: :ok, scope: {
-      current_user: current_api_user,
+      current_user: current_api_user
     }
   end
 
@@ -38,7 +40,7 @@ class Api::ResourcesController < ApplicationController
       resource.update(resource_params)
     end
     render json: resource, status: :ok, scope: {
-      current_user: current_api_user,
+      current_user: current_api_user
     }
   end
 
@@ -50,9 +52,7 @@ class Api::ResourcesController < ApplicationController
 
   def unupvote
     resource = Resource.find(params[:id])
-    if current_api_user.liked? resource
-      resource.unliked_by current_api_user
-    end
+    resource.unliked_by current_api_user if current_api_user.liked? resource
     render json: nil, status: :ok
   end
 
@@ -63,14 +63,13 @@ class Api::ResourcesController < ApplicationController
       :title,
       :description,
       :body,
-      {resource_tag_instances_attributes: [:resource_tag_id]}
+      { resource_tag_instances_attributes: [:resource_tag_id] },
+      { resource_categories_resources_attributes: [:resource_category_id] }
     )
   end
 
   # Before applying scopes need to parse URL params into array
   def parse_tag_ids
-    if params.has_key?(:by_tags)
-      params[:by_tags] = JSON.parse(params[:by_tags])
-    end
+    params[:by_tags] = JSON.parse(params[:by_tags]) if params.key?(:by_tags)
   end
 end

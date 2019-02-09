@@ -24,10 +24,11 @@ class Resource < ApplicationRecord
 
   has_many :resource_tag_instances
   has_many :resource_tags, through: :resource_tag_instances
-
-  has_and_belongs_to_many :resource_categories
-
   accepts_nested_attributes_for :resource_tag_instances, allow_destroy: true
+
+  has_many :resource_categories_resources
+  has_many :resource_categories, through: :resource_categories_resources
+  accepts_nested_attributes_for :resource_categories_resources, allow_destroy: true
 
   acts_as_votable
 

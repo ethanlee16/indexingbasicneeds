@@ -11,5 +11,6 @@
 #
 
 class ResourceCategory < ApplicationRecord
-  has_and_belongs_to_many :resources
+  has_many :resource_categories_resources
+  has_many :resources, through: :resource_categories_resources
 end
