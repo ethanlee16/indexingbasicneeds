@@ -51,7 +51,6 @@ class CreateResourcePage extends React.Component {
   async getResourceCategories() {
     let { json, headers } = await API.GetResourceCategories();
     this.setState({ resourceCategories: json });
-    console.warn(json);
   }
 
   async getResourceTags() {

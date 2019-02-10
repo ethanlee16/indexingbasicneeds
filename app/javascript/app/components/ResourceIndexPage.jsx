@@ -31,8 +31,9 @@ class ResourceIndexPage extends React.Component {
       loaded: false,
       isModalOpen: false,
       openResourceIndex: null,
-      selectedTabId: "all",
+      selectedTabId: 0,
       animateTabs: false, // Need this because of BPJS bug
+      resourceCategories: [],
     };
 
     this.filterTagIds = [];
@@ -46,8 +47,14 @@ class ResourceIndexPage extends React.Component {
     this.setState({
       resources: resources,
       loaded: true,
-      animateTabs: true,
     });
+    await this.getResourceCategories();
+    this.setState({ animateTabs: true });
+  }
+
+  async getResourceCategories() {
+    let { json, headers } = await API.GetResourceCategories();
+    this.setState({ resourceCategories: json });
   }
 
   filterResources = async resourceTagIds => {
@@ -65,9 +72,15 @@ class ResourceIndexPage extends React.Component {
     this.refreshResources();
   };
 
+  handleTabChange = (newId, oldId, event) => {
+    this.setState({ selectedTabId: newId });
+    this.refreshResources();
+  };
+
   refreshResources = debounce(async () => {
     this.setState({ loaded: false });
     let { json, headers } = await API.ResourcesIndex(
+      this.state.selectedTabId,
       this.filterTagIds,
       this.orderMethod,
       this.searchQuery
@@ -114,10 +127,6 @@ class ResourceIndexPage extends React.Component {
 
   closeResourceModal = () => {
     this.setState({ isModalOpen: false });
-  };
-
-  handleTabChange = (newId, oldId) => {
-    this.setState({ selectedTabId: newId });
   };
 
   renderResourceModal() {
@@ -237,12 +246,16 @@ class ResourceIndexPage extends React.Component {
               onChange={this.handleTabChange}
               selectedTabId={this.state.selectedTabId}
             >
-              <Tab id="all" title="All Resources" />
-              <Tab id="food" title="Food Support" />
-              <Tab id="housing" title="Housing Support" />
-              <Tab id="economic" title="Economic Support" />
-              <Tab id="emergency" title="Emergency Support" />
-              <Tab id="holistic" title="Holistic Support" />
+              <Tab id={0} title="All Resources" />
+              {this.state.resourceCategories.map((category, i) => {
+                return (
+                  <Tab
+                    id={category.id}
+                    title={category.name}
+                    key={`category-tab-${i}`}
+                  />
+                );
+              })}
             </Tabs>
           </div>
 

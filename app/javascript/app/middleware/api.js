@@ -26,15 +26,22 @@ class API {
     return await Requester.destroy("/api/auth/sign_out");
   }
 
-  static async ResourcesIndex(tags, order_method = "updated_desc", query = "") {
+  static async ResourcesIndex(
+    category,
+    tags,
+    order_method = "updated_desc",
+    query = ""
+  ) {
     if (order_method === "") {
       order_method = "updated_desc";
     }
-    let URI;
-    if (!tags || tags.length === 0) {
-      URI = `/api/resources?ordered=${order_method}`;
-    } else {
-      URI = `/api/resources?by_tags=[${tags}]&ordered=${order_method}`;
+    let URI = `/api/resources?ordered=${order_method}`;
+
+    if (category && category != 0) {
+      URI += `&by_category=${category}`;
+    }
+    if (tags && tags.length > 0) {
+      URI += `&by_tags=[${tags}]`;
     }
     if (query !== "") {
       URI += `&with_query=${query}`;
