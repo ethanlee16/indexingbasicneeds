@@ -5,6 +5,7 @@ class Api::ResourcesController < ApplicationController
   before_action :authenticate_api_user!, except: %i[index show]
 
   has_scope :by_tags, type: :array
+  has_scope :by_category
   has_scope :ordered
   has_scope :with_query
 

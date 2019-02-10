@@ -34,6 +34,7 @@ class Resource < ApplicationRecord
 
   # Filter by multiple tags on OR condition
   scope :by_tags, ->(tag_ids) { filter_by_tags(tag_ids) }
+  scope :by_category, ->(category_id) { filter_by_category(category_id) }
   scope :ordered, ->(method) { order(ORDER_METHODS.fetch(method.to_sym, DEFAULT_ORDER_METHOD)) }
   scope :with_query, ->(query) { simple_search(query) }
 
@@ -48,6 +49,11 @@ class Resource < ApplicationRecord
   def self.filter_by_tags(tag_ids)
     joins(:resource_tag_instances)
       .where(resource_tag_instances: { resource_tag_id: tag_ids })
+  end
+
+  def self.filter_by_category(category_id)
+    joins(:resource_categories_resources)
+      .where(resource_categories_resources: { resource_category_id: category_id })
   end
 
   def self.simple_search(query)
