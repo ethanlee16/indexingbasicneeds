@@ -143,7 +143,7 @@ class CreateResourcePage extends React.Component {
     };
   }
 
-  submit = async () => {
+  buildResourceForSubmit() {
     let resourceCategoriesResourcesAttributes = Object.keys(
       this.state.selectedResourceCategories
     ).map(resourceCategoryId => {
@@ -164,6 +164,11 @@ class CreateResourcePage extends React.Component {
       resource_categories_resources_attributes: resourceCategoriesResourcesAttributes,
     };
 
+    return resource;
+  }
+
+  submit = async () => {
+    let resource = this.buildResourceForSubmit();
     let toaster = Toaster.create();
     try {
       await API.CreateNewResource(resource);
