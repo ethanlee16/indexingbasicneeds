@@ -35,10 +35,13 @@ class Api::ResourcesController < ApplicationController
   def update
     resource = Resource.find(params[:id])
     authorize resource
+
     resource.transaction do
       resource.resource_tag_instances.destroy_all
+      resource.resource_categories_resources.destroy_all
       resource.update(resource_params)
     end
+
     render json: resource, status: :ok, scope: {
       current_user: current_api_user
     }
