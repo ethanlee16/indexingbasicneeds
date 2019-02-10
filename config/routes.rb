@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :api do
-    get "resource_tags/index"
-  end
-
   # Override default users sessions controller
   # devise_for :users, controllers: {
   #   sessions: 'users/sessions'
@@ -24,5 +20,6 @@ Rails.application.routes.draw do
       end
     end
     resources :resource_tags, only: [:index]
+    resources :resource_categories, only: [:index]
   end
 end

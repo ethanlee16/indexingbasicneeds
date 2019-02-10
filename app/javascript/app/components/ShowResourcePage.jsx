@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, H1, Tag } from "@blueprintjs/core";
+import { Button, H1, Tag, Intent } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
 import Navbar from "./common/Navbar";
@@ -21,6 +21,35 @@ class ShowResourcePage extends React.Component {
     this.setState({ resource: resource });
   }
 
+  renderResourceCategories() {
+    if (!!this.state.resource.resource_categories) {
+      return this.state.resource.resource_categories.map(category => {
+        return (
+          <Tag
+            key={`category-${category.id}`}
+            large
+            className="resource-show-page-tag"
+            intent={Intent.PRIMARY}
+          >
+            {category.name}
+          </Tag>
+        );
+      });
+    }
+  }
+
+  renderResourceTags() {
+    if (!!this.state.resource.resource_tags) {
+      return this.state.resource.resource_tags.map(tag => {
+        return (
+          <Tag key={`tag-${tag.id}`} className="resource-show-page-tag">
+            {tag.name}
+          </Tag>
+        );
+      });
+    }
+  }
+
   render() {
     return (
       <div className="container is-widescreen page-container">
@@ -30,18 +59,8 @@ class ShowResourcePage extends React.Component {
           <Button large rightIcon="edit" text="Edit resource" />
         </Link>
         <div dangerouslySetInnerHTML={{ __html: this.state.resource.body }} />
-        {!!this.state.resource.resource_tags &&
-          this.state.resource.resource_tags.map(tag => {
-            return (
-              <Tag
-                key={`tag-${tag.id}`}
-                large
-                className="resource-show-page-tag"
-              >
-                {tag.name}
-              </Tag>
-            );
-          })}
+        {this.renderResourceCategories()}
+        {this.renderResourceTags()}
       </div>
     );
   }

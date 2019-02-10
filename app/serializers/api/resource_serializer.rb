@@ -13,6 +13,7 @@ class Api::ResourceSerializer < ActiveModel::Serializer
              :eligibility,
              :notes
 
+  has_many :resource_categories
   has_many :resource_tags
 
   def updated_at

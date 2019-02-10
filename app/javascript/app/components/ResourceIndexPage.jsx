@@ -7,6 +7,8 @@ import {
   HTMLSelect,
   InputGroup,
   Intent,
+  Tabs,
+  Tab,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
@@ -29,6 +31,9 @@ class ResourceIndexPage extends React.Component {
       loaded: false,
       isModalOpen: false,
       openResourceIndex: null,
+      selectedTabId: 0,
+      animateTabs: false, // Need this because of BPJS bug
+      resourceCategories: [],
     };
 
     this.filterTagIds = [];
@@ -39,7 +44,17 @@ class ResourceIndexPage extends React.Component {
   async componentDidMount() {
     let { json, headers } = await API.ResourcesIndex();
     let resources = json;
-    this.setState({ resources: resources, loaded: true });
+    this.setState({
+      resources: resources,
+      loaded: true,
+    });
+    await this.getResourceCategories();
+    this.setState({ animateTabs: true });
+  }
+
+  async getResourceCategories() {
+    let { json, headers } = await API.GetResourceCategories();
+    this.setState({ resourceCategories: json });
   }
 
   filterResources = async resourceTagIds => {
@@ -57,9 +72,15 @@ class ResourceIndexPage extends React.Component {
     this.refreshResources();
   };
 
+  handleTabChange = (newId, oldId, event) => {
+    this.setState({ selectedTabId: newId });
+    this.refreshResources();
+  };
+
   refreshResources = debounce(async () => {
     this.setState({ loaded: false });
     let { json, headers } = await API.ResourcesIndex(
+      this.state.selectedTabId,
       this.filterTagIds,
       this.orderMethod,
       this.searchQuery
@@ -204,7 +225,9 @@ class ResourceIndexPage extends React.Component {
         </div>
         <div className="resource-index-page-main-container">
           <div className="resource-index-page-title-container">
-            <h2 style={{ marginTop: "0px" }}>BNS Resources</h2>
+            <h2 style={{ marginTop: "0px", marginBottom: "0px" }}>
+              BNS Resources
+            </h2>
             <Link to="/resource/new">
               <Button
                 large
@@ -214,6 +237,28 @@ class ResourceIndexPage extends React.Component {
               />
             </Link>
           </div>
+
+          <div className="resource-index-page-tabs-container">
+            <Tabs
+              id="resource-category-tab"
+              large
+              animate={this.state.animateTabs}
+              onChange={this.handleTabChange}
+              selectedTabId={this.state.selectedTabId}
+            >
+              <Tab id={0} title="All Resources" />
+              {this.state.resourceCategories.map((category, i) => {
+                return (
+                  <Tab
+                    id={category.id}
+                    title={category.name}
+                    key={`category-tab-${i}`}
+                  />
+                );
+              })}
+            </Tabs>
+          </div>
+
           <div className="resource-index-page-sort-query-container">
             <InputGroup
               className="resource-index-page-searchbar"

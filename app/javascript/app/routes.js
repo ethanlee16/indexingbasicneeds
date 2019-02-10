@@ -18,6 +18,7 @@ const App = props => (
         <Route path="/resource/new" component={CreateResourcePage} />
         <Route path={`/resources/:id/edit`} component={UpdateResourcePage} />
         <Route path={`/resources/:id`} component={ShowResourcePage} />
+        <Route path="/resources" component={ResourceIndexPage} />
       </Switch>
     </div>
   </Router>

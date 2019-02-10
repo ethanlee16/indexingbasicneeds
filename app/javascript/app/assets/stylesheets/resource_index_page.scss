@@ -13,7 +13,7 @@ $sidebar-width: 300px;
 
 .resource-index-page-main-container {
   margin-left: $sidebar-width;
-  padding: 40px;
+  padding: 20px 40px;
 }
 
 .resource-index-page-title-container {
@@ -21,6 +21,10 @@ $sidebar-width: 300px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.resource-index-page-tabs-container {
+  margin: 20px 0px;
 }
 
 .resource-index-page-sort-query-container {

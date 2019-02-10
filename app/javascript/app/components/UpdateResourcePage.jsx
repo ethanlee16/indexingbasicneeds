@@ -15,11 +15,17 @@ import API from "../middleware/api";
 
 class UpdateResourcePage extends CreateResourcePage {
   async componentDidMount() {
-    await this.getResourceTags();
+    await Promise.all([this.getResourceCategories(), this.getResourceTags()]);
 
     let id = this.props.match.params.id;
     let { json, headers } = await API.ShowResource(id);
     let resource = json;
+
+    // Prepopulate selected resource categories
+    let selectedResourceCategories = {};
+    resource.resource_categories.forEach(category => {
+      selectedResourceCategories[category.id] = category.name;
+    });
 
     // Prepopulate selected resoruce tags
     let selectedResourceTags = {};
@@ -34,6 +40,7 @@ class UpdateResourcePage extends CreateResourcePage {
         description: resource.description,
         body: resource.body,
       },
+      selectedResourceCategories: selectedResourceCategories,
       selectedResourceTags: selectedResourceTags,
     });
   }
@@ -43,19 +50,7 @@ class UpdateResourcePage extends CreateResourcePage {
   }
 
   submit = async () => {
-    let resourceTagInstancesAttributes = Object.keys(
-      this.state.selectedResourceTags
-    ).map(resourceTagId => {
-      return {
-        resource_tag_id: resourceTagId,
-      };
-    });
-
-    let resource = {
-      ...this.state.formFields,
-      resource_tag_instances_attributes: resourceTagInstancesAttributes,
-    };
-
+    let resource = this.buildResourceForSubmit();
     let toaster = Toaster.create();
     let id = this.props.match.params.id;
     try {

@@ -54,6 +54,14 @@ def create_resource_tags
   ResourceTag.create(name: 'SSWANA Students', category: ResourceTag::CATEGORIES[:community])
 end
 
+def create_resource_categories
+  ResourceCategory.create!(name: 'Food Support')
+  ResourceCategory.create!(name: 'Housing Support')
+  ResourceCategory.create!(name: 'Economic Support')
+  ResourceCategory.create!(name: 'Emergency Support')
+  ResourceCategory.create!(name: 'Holistic Support')
+end
+
 def create_users
   User.create(
     first_name: 'Ken',
@@ -72,6 +80,9 @@ create_resources
 
 puts 'Seeding default resource tags.'
 create_resource_tags
+
+puts 'Seeding default resource categories.'
+create_resource_categories
 
 puts 'Seeding test admin user.'
 create_users
