@@ -7,6 +7,8 @@ import {
   HTMLSelect,
   InputGroup,
   Intent,
+  Tabs,
+  Tab,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
@@ -29,6 +31,8 @@ class ResourceIndexPage extends React.Component {
       loaded: false,
       isModalOpen: false,
       openResourceIndex: null,
+      selectedTabId: "all",
+      animateTabs: false, // Need this because of BPJS bug
     };
 
     this.filterTagIds = [];
@@ -39,7 +43,11 @@ class ResourceIndexPage extends React.Component {
   async componentDidMount() {
     let { json, headers } = await API.ResourcesIndex();
     let resources = json;
-    this.setState({ resources: resources, loaded: true });
+    this.setState({
+      resources: resources,
+      loaded: true,
+      animateTabs: true,
+    });
   }
 
   filterResources = async resourceTagIds => {
@@ -106,6 +114,10 @@ class ResourceIndexPage extends React.Component {
 
   closeResourceModal = () => {
     this.setState({ isModalOpen: false });
+  };
+
+  handleTabChange = (newId, oldId) => {
+    this.setState({ selectedTabId: newId });
   };
 
   renderResourceModal() {
@@ -204,7 +216,9 @@ class ResourceIndexPage extends React.Component {
         </div>
         <div className="resource-index-page-main-container">
           <div className="resource-index-page-title-container">
-            <h2 style={{ marginTop: "0px" }}>BNS Resources</h2>
+            <h2 style={{ marginTop: "0px", marginBottom: "0px" }}>
+              BNS Resources
+            </h2>
             <Link to="/resource/new">
               <Button
                 large
@@ -214,6 +228,24 @@ class ResourceIndexPage extends React.Component {
               />
             </Link>
           </div>
+
+          <div className="resource-index-page-tabs-container">
+            <Tabs
+              id="resource-category-tab"
+              large
+              animate={this.state.animateTabs}
+              onChange={this.handleTabChange}
+              selectedTabId={this.state.selectedTabId}
+            >
+              <Tab id="all" title="All Resources" />
+              <Tab id="food" title="Food Support" />
+              <Tab id="housing" title="Housing Support" />
+              <Tab id="economic" title="Economic Support" />
+              <Tab id="emergency" title="Emergency Support" />
+              <Tab id="holistic" title="Holistic Support" />
+            </Tabs>
+          </div>
+
           <div className="resource-index-page-sort-query-container">
             <InputGroup
               className="resource-index-page-searchbar"
