@@ -7,8 +7,10 @@ import {
   HTMLSelect,
   InputGroup,
   Intent,
+  Position,
   Tabs,
   Tab,
+  Tooltip,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
@@ -249,11 +251,14 @@ class ResourceIndexPage extends React.Component {
               <Tab id={0} title="All Resources" />
               {this.state.resourceCategories.map((category, i) => {
                 return (
-                  <Tab
-                    id={category.id}
-                    title={category.name}
-                    key={`category-tab-${i}`}
-                  />
+                  <Tab id={category.id} key={`category-tab-${i}`}>
+                    <Tooltip
+                      position={Position.TOP}
+                      content="This tooltip will be populated with a help description for this section."
+                    >
+                      {category.name}
+                    </Tooltip>
+                  </Tab>
                 );
               })}
             </Tabs>
