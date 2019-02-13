@@ -346,4 +346,4 @@ class AboutPage extends React.Component {
   }
 }
 
-export default AboutPage;
+export default TestimoniesPage;

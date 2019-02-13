@@ -5,6 +5,35 @@
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: flex-start;
+  width: 70%;
+  padding: 30px 100px;
+  
+}
+
+
+.about-page-mission {
+  width: 90%;
+  padding: 30px 100px;
+}
+
+.about-heading {
+  line-height: 1.6;
+}
+
+.about-underline {
+  text-decoration: none;
+  position: relative;
+}
+
+.about-underline:after {
+  position: absolute;
+  content: " ";
+  z-index: -1;
+  height: 9px;
+  width: 300px;
+  background-color: #B7E2DA;
+  left: 0;
+  bottom: 15px;
 }
 
 .about-page-who-text {
@@ -22,6 +51,10 @@
   background-color: rgba(185, 211, 182, 0.36);
 }
 
+.row {
+  padding-bottom: 5%;
+}
+
 .about-page-background-numbers {
   display: flex;
   flex-flow: column;
@@ -34,6 +67,7 @@
 
   &.left {
     align-self: flex-start;
+    margin-right: 20%;
   }
 
   &.right {
@@ -56,4 +90,18 @@
 .about-page-background-number-des {
   margin-top: 40px;
   margin-left: 20px;
+}
+
+.about-page-team {
+  width: 100%;
+  padding: 40px 100px;
+  background-color: white;
+  display: flex;
+}
+
+.about-fit {
+  margin-left: 0;
+  padding-top: 5%;
+  padding-bottom: 10%;
+  max-width: 100px;
 }

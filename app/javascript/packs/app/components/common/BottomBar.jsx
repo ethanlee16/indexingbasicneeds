@@ -14,10 +14,6 @@ class BottomeBar extends React.Component {
 
                         </div>
 
-
-
-
-
                     </div>
                 </div>
 

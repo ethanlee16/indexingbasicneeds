@@ -16,65 +16,104 @@ class HomePage extends React.Component {
         <Navbar />
         <div className="home-page-welcome">
           <div className="home-page-text">
-            <h1>From the Basic Needs Center – Welcome!</h1>
+            <h1>Basic Needs Center</h1>
             <p>
-              The Basic Needs Center supports the food, housing, and economic justice of those in our campus community. Founded in Spring 2019, we are here as a resource and haven for all.
+              Founded in Spring 2019, the Basic Needs Center serves as a physical resource hub for basic needs resources. The Basic Needs Committee supports the food, housing, and economic justice of those in our campus community.
             </p>
             <div className="home-page-buttons">
-              <button className="home-page-button-1"> Come Visit!</button>
-              <button className="home-page-button-2"> Book Appointment</button>
+
+              <button className="home-page-button-1">Our Resource Index</button>
+              <button className="home-page-button-2">Frequently Asked Questions</button>
             </div>
 
           </div>
           <img src={WhoWeAre} />
         </div>
 
-        <div className="home-page-resource">
-          <h1>Our Resouce Index</h1>
+        <div className="home-page-mission">
+          <h1>Our Vision, Our Mission, Our Values</h1>
           <p>
-            We know that navigating the Berkeley community can be overwhelming. That’s why we’ve consolidated all resources into a single place, so you can focus on your wellbeing first. Here are some of the areas of focus:
+            Basic Needs Security refers to the food, housing, and wellness security of our community. We understand that basic needs have a direct impact on the wellness, mental-emotional-physical health, academic performance, professional development, and holistic success of our students.
+
+            UC Berkeley's Basic Needs Security Committee is fully dedicated to leading the transformation of UC Berkeley into a basic needs secure institution of higher education.
+          </p>
+          <button className="home-page-button-3">Meet the BNS Village</button>
+        </div>
+
+        <div className="home-page-resource">
+          <h1>Our Resource Index</h1>
+          <p>Find resources, guides, and materials through our Resources index
+            to help you better navigate the Berkeley community. </p>
+
+
+          <button className="home-page-button-4">Search all resources</button>
+        </div>
+
+        <div className="home-page-center">
+          <h1>Our Center</h1>
+          <p>Location: 12345 MLK Way, Berkeley, CA. Open Hours: Monday - Friday, 9 AM - 9 PM </p>
+          <p>The Basic Needs Center serves as a physical resource hub for basic needs resources. The Basic Needs Committee supports food, housing, and economic justice of those in our campus community.
+
+          Feel free to walk in or book an appointment with the Basic Needs Case Manager, the Basic Needs Financial Aid Assitance, or with County Workers.
           </p>
 
-          <div className="home-page-resource-row">
-            <div className="home-page-resource-item">
-              <img className="home-page-icon-fin" src={Financial} />
-              <div className="home-page-icon-text-fin">Financial Security</div>
-            </div>
-            <div className="home-page-resource-item">
-              <img className="home-page-icon" src={Food} />
-              <div className="home-page-icon-text">Food Security</div>
-            </div>
-            <div className="home-page-resource-item">
-              <img className="home-page-icon" src={Housing} />
-              <div className="home-page-icon-text">Housing Security</div>
-            </div>
-            <div className="home-page-resource-item"
-            ><img className="home-page-icon" src={Crisis} />
-              <div className="home-page-icon-text">Crisis Resolution</div>
-            </div>
 
-          </div>
-
-          <div className="home-page-resource-row">
-            <button className="home-page-button-3">See Resources</button>
-          </div>
-
-
-
-
-
+          <button className="home-page-button-5">Book Appointment</button>
         </div>
 
 
 
-        <div className="home-page-spotlight">
-          <h1>Spotlight Resources</h1>
-          <div className="home-page-spotlight-row">
-            {/* <img className="spotlight_img" src={""} />
-            <img className="spotlight_img" src={""} />
-            <img className="spotlight_img" src={""} /> */}
-          </div>
+        <div className="home-page-updates">
+          <h1>Community Updates</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dsint occaecat cupidatat non proident</p>
+          <div className="home-page-media">
+            Media here</div>
+
         </div>
+
+        <div className="home-page-testimonies">
+          <h1>Student Testimonies</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dsint occaecat cupidatat non proident</p>
+          <div className="home-page-media"></div>
+
+        </div>
+
+        <div className="home-page-donate">
+
+          <p>Your contribution will go to help transform UC Berkeley into a basic needs secure institution.</p>
+          <button className="home-page-button-6"> Donate Online</button>
+
+          <div className="home-page-donate-row">
+            <div className="donate-left">
+              Donate by Mail
+          </div>
+            <div className="donate-left">
+              Check to:
+          </div>
+            <div className="donate-left">
+              Memo:
+          </div>
+            <div className="donate-left">
+              Address
+          </div>
+
+            <div className="donate-right">
+              UC Berkeley Foundation
+          </div>
+
+            <div className="donate-right">
+              Basic Needs Security
+          </div>
+
+            <div className="donate-right">
+              University of California, Berkeley, Gift Services, 1995 University Ave, Ste 400Berkeley, CA 94704-1070
+          </div>
+
+          </div>
+
+        </div>
+
+
 
 
       </div>
