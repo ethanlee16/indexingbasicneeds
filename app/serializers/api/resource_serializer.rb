@@ -12,8 +12,7 @@ class Api::ResourceSerializer < ActiveModel::Serializer
              :eligibility,
              :cost,
              :cost_description, 
-             :link, # TODO: NEED TO DEPRECATE ONE
-             :website_url, # TODO: NEED TO DEPRECATE ONE
+             :link,
              :deadlines, 
              :admin_note
 

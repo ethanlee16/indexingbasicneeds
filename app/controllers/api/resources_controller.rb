@@ -71,7 +71,6 @@ class Api::ResourcesController < ApplicationController
       :cost, 
       :cost_description, 
       :link, 
-      :website_url, 
       :eligibility, 
       :hours_of_operation, 
       :deadlines, 
