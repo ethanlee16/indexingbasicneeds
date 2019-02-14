@@ -21,16 +21,8 @@ class CreateResourcePage extends React.Component {
     super(props);
 
     this.state = {
-      formFields: {
-        title: "",
-        description: "",
-        body: "",
-      },
-      formErrors: {
-        title: [],
-        description: [],
-        body: [],
-      },
+      formFields: this.getInitialFormFields(),
+      formErrors: this.getInitialFormErrors(),
       resourceCategories: [],
       selectedResourceCategories: {}, // id : category_name just for ease of use over Set
       resourceTags: {
@@ -80,6 +72,36 @@ class CreateResourcePage extends React.Component {
       }
     });
     this.setState({ resourceTags: resourceTagsState });
+  }
+
+  getInitialFormFields() {
+    return {
+      title: "",
+      description: "",
+      streetAddress: "",
+      city: "",
+      state: "",
+      zip: "",
+      contactInfo: "",
+      hours: "",
+      eligibility: "",
+      cost: 0,
+      costDescription: "",
+      deadlines: "",
+      body: "",
+      adminNote: "",
+    };
+  }
+
+  getInitialFormErrors() {
+    const pairs = Object.keys(this.getInitialFormFields()).map(key => {
+      return [key, []];
+    });
+    const formErrors = Object.assign(
+      ...pairs.map(pair => ({ [pair[0]]: pair[1] }))
+    );
+    console.log(formErrors);
+    return formErrors;
   }
 
   getPageTitle() {
