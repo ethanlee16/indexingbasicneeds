@@ -8,6 +8,8 @@ import {
   InputGroup,
   Intent,
   Toaster,
+  TextArea,
+  NumericInput,
 } from "@blueprintjs/core";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import update from "immutability-helper";
@@ -78,18 +80,19 @@ class CreateResourcePage extends React.Component {
     return {
       title: "",
       description: "",
-      streetAddress: "",
+      street_address: "",
       city: "",
       state: "",
       zip: "",
-      contactInfo: "",
+      contact_info: "",
       hours: "",
       eligibility: "",
       cost: 0,
-      costDescription: "",
+      cost_description: "",
       deadlines: "",
+      website_url: "",
       body: "",
-      adminNote: "",
+      admin_note: "",
     };
   }
 
@@ -117,6 +120,15 @@ class CreateResourcePage extends React.Component {
     return event => {
       const newState = update(this.state, {
         formFields: { [fieldName]: { $set: event.target.value } },
+      });
+      this.setState(newState);
+    };
+  }
+
+  updateNumericFormFieldCallback(fieldName) {
+    return value => {
+      const newState = update(this.state, {
+        formFields: { [fieldName]: { $set: value } },
       });
       this.setState(newState);
     };
@@ -239,10 +251,166 @@ class CreateResourcePage extends React.Component {
         </FormGroup>
 
         <FormGroup
-          helperText={"What is your post about?"}
-          label="Body"
+          label="Address"
           labelFor="text-input"
           labelInfo={"(required)"}
+          intent={this.getIntent("address")} // FIXME
+        >
+          <InputGroup
+            id="text-input"
+            placeholder="Street Address"
+            intent={this.getIntent("street_address")}
+            onChange={this.updateFormFieldCallback("street_address")}
+            value={this.state.formFields.street_address}
+            large
+          />
+          <InputGroup
+            id="text-input"
+            placeholder="City"
+            intent={this.getIntent("city")}
+            onChange={this.updateFormFieldCallback("city")}
+            value={this.state.formFields.city}
+            large
+          />
+          <InputGroup
+            id="text-input"
+            placeholder="State"
+            intent={this.getIntent("state")}
+            onChange={this.updateFormFieldCallback("state")}
+            value={this.state.formFields.state}
+            large
+          />
+          <InputGroup
+            id="text-input"
+            placeholder="Zip"
+            intent={this.getIntent("zip")}
+            onChange={this.updateFormFieldCallback("zip")}
+            value={this.state.formFields.zip}
+            large
+          />
+        </FormGroup>
+
+        <FormGroup
+          label="Contact Info"
+          labelFor="text-input"
+          intent={this.getIntent("contact_info")}
+        >
+          <TextArea
+            id="text-input"
+            intent={this.getIntent("contact_info")}
+            onChange={this.updateFormFieldCallback("contact_info")}
+            value={this.state.formFields.contact_info}
+            large
+          />
+        </FormGroup>
+
+        <FormGroup
+          label="Hours of Operation"
+          labelFor="text-input"
+          intent={this.getIntent("hours")}
+        >
+          <TextArea
+            id="text-input"
+            intent={this.getIntent("hours")}
+            onChange={this.updateFormFieldCallback("hours")}
+            value={this.state.formFields.hours}
+            large
+          />
+        </FormGroup>
+
+        <FormGroup
+          label="Eligibility Information"
+          labelFor="text-input"
+          intent={this.getIntent("eligibility")}
+        >
+          <TextArea
+            id="text-input"
+            intent={this.getIntent("eligibility")}
+            onChange={this.updateFormFieldCallback("eligibility")}
+            value={this.state.formFields.eligibility}
+            large
+          />
+        </FormGroup>
+
+        <FormGroup
+          label="Cost"
+          labelFor="numeric-input"
+          intent={this.getIntent("cost")}
+        >
+          <NumericInput
+            id="numeric-input"
+            intent={this.getIntent("cost")}
+            onValueChange={this.updateNumericFormFieldCallback("cost")}
+            value={this.state.formFields.cost}
+            leftIcon="dollar"
+            large
+          />
+        </FormGroup>
+
+        <FormGroup
+          helperText="Add any additional details about the cost here."
+          label="Cost Description"
+          labelFor="text-input"
+          intent={this.getIntent("cost_description")}
+        >
+          <TextArea
+            id="text-input"
+            intent={this.getIntent("cost_description")}
+            onChange={this.updateFormFieldCallback("cost_description")}
+            value={this.state.formFields.cost_description}
+            large
+          />
+        </FormGroup>
+
+        <FormGroup
+          label="Website Link"
+          labelFor="text-input"
+          intent={this.getIntent("website_url")}
+        >
+          <InputGroup
+            id="text-input"
+            intent={this.getIntent("website_url")}
+            onChange={this.updateFormFieldCallback("website_url")}
+            value={this.state.formFields.website_url}
+            leftIcon="link"
+            large
+          />
+        </FormGroup>
+
+        <FormGroup
+          helperText="Add any information about deadlines here."
+          label="Deadlines"
+          labelFor="text-input"
+          intent={this.getIntent("deadlines")}
+        >
+          <TextArea
+            id="text-input"
+            intent={this.getIntent("deadlines")}
+            onChange={this.updateFormFieldCallback("deadlines")}
+            value={this.state.formFields.deadlines}
+            large
+          />
+        </FormGroup>
+
+        <FormGroup
+          helperText="THE CONTENT HERE WILL ONLY BE VIEWABLE TO ADMINISTRATORS."
+          label="Admin Note"
+          labelFor="text-input"
+          intent={this.getIntent("admin_note")}
+        >
+          <TextArea
+            id="text-input"
+            intent={this.getIntent("admin_note")}
+            onChange={this.updateFormFieldCallback("admin_note")}
+            value={this.state.formFields.admin_note}
+            large
+          />
+        </FormGroup>
+
+        <FormGroup
+          helperText={"What is your post about?"}
+          label="Additional Notes"
+          labelFor="text-input"
           intent={this.getIntent("body")}
         >
           <CKEditor
