@@ -80,12 +80,14 @@ class CreateResourcePage extends React.Component {
     return {
       title: "",
       description: "",
-      street_address: "",
-      city: "",
-      state: "",
-      zip: "",
+      address: {
+        street_address: "",
+        city: "",
+        state: "",
+        zip: "",
+      },
       contact_info: "",
-      hours: "",
+      hours_of_operation: "",
       eligibility: "",
       cost: 0,
       cost_description: "",
@@ -129,6 +131,17 @@ class CreateResourcePage extends React.Component {
     return value => {
       const newState = update(this.state, {
         formFields: { [fieldName]: { $set: value } },
+      });
+      this.setState(newState);
+    };
+  }
+
+  updateAddressFormFieldCallback(fieldName) {
+    return event => {
+      const newState = update(this.state, {
+        formFields: {
+          address: { [fieldName]: { $set: event.target.value } },
+        },
       });
       this.setState(newState);
     };
@@ -260,32 +273,32 @@ class CreateResourcePage extends React.Component {
             id="text-input"
             placeholder="Street Address"
             intent={this.getIntent("street_address")}
-            onChange={this.updateFormFieldCallback("street_address")}
-            value={this.state.formFields.street_address}
+            onChange={this.updateAddressFormFieldCallback("street_address")}
+            value={this.state.formFields.address.street_address}
             large
           />
           <InputGroup
             id="text-input"
             placeholder="City"
             intent={this.getIntent("city")}
-            onChange={this.updateFormFieldCallback("city")}
-            value={this.state.formFields.city}
+            onChange={this.updateAddressFormFieldCallback("city")}
+            value={this.state.formFields.address.city}
             large
           />
           <InputGroup
             id="text-input"
             placeholder="State"
             intent={this.getIntent("state")}
-            onChange={this.updateFormFieldCallback("state")}
-            value={this.state.formFields.state}
+            onChange={this.updateAddressFormFieldCallback("state")}
+            value={this.state.formFields.address.state}
             large
           />
           <InputGroup
             id="text-input"
             placeholder="Zip"
             intent={this.getIntent("zip")}
-            onChange={this.updateFormFieldCallback("zip")}
-            value={this.state.formFields.zip}
+            onChange={this.updateAddressFormFieldCallback("zip")}
+            value={this.state.formFields.address.zip}
             large
           />
         </FormGroup>
@@ -307,13 +320,13 @@ class CreateResourcePage extends React.Component {
         <FormGroup
           label="Hours of Operation"
           labelFor="text-input"
-          intent={this.getIntent("hours")}
+          intent={this.getIntent("hours_of_operation")}
         >
           <TextArea
             id="text-input"
-            intent={this.getIntent("hours")}
-            onChange={this.updateFormFieldCallback("hours")}
-            value={this.state.formFields.hours}
+            intent={this.getIntent("hours_of_operation")}
+            onChange={this.updateFormFieldCallback("hours_of_operation")}
+            value={this.state.formFields.hours_of_operation}
             large
           />
         </FormGroup>
