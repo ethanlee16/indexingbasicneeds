@@ -92,7 +92,7 @@ class CreateResourcePage extends React.Component {
       cost: 0,
       cost_description: "",
       deadlines: "",
-      website_url: "",
+      link: "",
       body: "",
       admin_note: "",
     };
@@ -378,13 +378,13 @@ class CreateResourcePage extends React.Component {
         <FormGroup
           label="Website Link"
           labelFor="text-input"
-          intent={this.getIntent("website_url")}
+          intent={this.getIntent("link")}
         >
           <InputGroup
             id="text-input"
-            intent={this.getIntent("website_url")}
-            onChange={this.updateFormFieldCallback("website_url")}
-            value={this.state.formFields.website_url}
+            intent={this.getIntent("link")}
+            onChange={this.updateFormFieldCallback("link")}
+            value={this.state.formFields.link}
             leftIcon="link"
             large
           />

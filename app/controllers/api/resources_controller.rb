@@ -70,6 +70,7 @@ class Api::ResourcesController < ApplicationController
       :contact_info, 
       :cost, 
       :cost_description, 
+      :link, 
       :website_url, 
       :eligibility, 
       :hours_of_operation, 
