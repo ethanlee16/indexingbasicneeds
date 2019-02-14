@@ -105,7 +105,6 @@ class CreateResourcePage extends React.Component {
     const formErrors = Object.assign(
       ...pairs.map(pair => ({ [pair[0]]: pair[1] }))
     );
-    console.log(formErrors);
     return formErrors;
   }
 

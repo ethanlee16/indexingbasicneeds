@@ -34,12 +34,15 @@ class UpdateResourcePage extends CreateResourcePage {
     });
 
     // Update current formFields with the values previously stored in DB
+    const initialFormFields = this.getInitialFormFields();
+    const pairs = Object.keys(initialFormFields).map(key => {
+      return [key, resource[key] || initialFormFields[key]];
+    });
+    const newFormFields = Object.assign(
+      ...pairs.map(pair => ({ [pair[0]]: pair[1] }))
+    );
     this.setState({
-      formFields: {
-        title: resource.title,
-        description: resource.description,
-        body: resource.body,
-      },
+      formFields: newFormFields,
       selectedResourceCategories: selectedResourceCategories,
       selectedResourceTags: selectedResourceTags,
     });
