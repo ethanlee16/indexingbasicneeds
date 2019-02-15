@@ -67,6 +67,15 @@ class Api::ResourcesController < ApplicationController
       :title,
       :description,
       :body,
+      :contact_info, 
+      :cost, 
+      :cost_description, 
+      :link, 
+      :eligibility, 
+      :hours_of_operation, 
+      :deadlines, 
+      :admin_note, 
+      { address: [:street_address, :city, :state, :zip] },  
       { resource_tag_instances_attributes: [:resource_tag_id] },
       { resource_categories_resources_attributes: [:resource_category_id] }
     )

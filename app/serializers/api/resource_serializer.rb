@@ -7,11 +7,14 @@ class Api::ResourceSerializer < ActiveModel::Serializer
              :num_likes,
              :liked_by_user,
              :address,
-             :phone,
-             :cost,
-             :link,
+             :contact_info,
+             :hours_of_operation, 
              :eligibility,
-             :notes
+             :cost,
+             :cost_description, 
+             :link,
+             :deadlines, 
+             :admin_note
 
   has_many :resource_categories
   has_many :resource_tags
