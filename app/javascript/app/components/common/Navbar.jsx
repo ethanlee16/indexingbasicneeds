@@ -32,7 +32,7 @@ import { Link } from "react-router-dom";
 import API from "../../middleware/api";
 import { cacheUserSession, removeUserSession } from "../../utils/session";
 
-import Logo from "images/bns-logo.svg";
+import Logo from "images/bnc-logo-white.png";
 
 export default class extends React.Component {
   constructor(props) {
@@ -261,7 +261,7 @@ export default class extends React.Component {
 
   render() {
     return (
-      <Navbar fixedToTop>
+      <Navbar fixedToTop className="bns-navbar bp3-dark">
         {this.renderLoginModal()}
         <NavbarGroup align={Alignment.LEFT}>
           <NavbarHeading>
@@ -270,24 +270,24 @@ export default class extends React.Component {
             </Link>
           </NavbarHeading>
           <NavbarDivider />
-          <Link to="/">
+          <Link to="/" className="bns-navbar-item">
             <Button className={Classes.MINIMAL} icon="home" text="Home" />
           </Link>
-          <Link to="/resources">
+          <Link to="/resources" className="bns-navbar-item">
             <Button
               className={Classes.MINIMAL}
               icon="projects"
               text="Resources"
             />
           </Link>
-          <Link to="/guides">
+          <Link to="/guides" className="bns-navbar-item">
             <Button
               className={Classes.MINIMAL}
               icon="book"
               text="Student Guides"
             />
           </Link>
-          <Link to="/about">
+          <Link to="/about" className="bns-navbar-item">
             <Button className={Classes.MINIMAL} icon="people" text="About" />
           </Link>
         </NavbarGroup>

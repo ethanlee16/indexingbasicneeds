@@ -13,3 +13,8 @@
 @import "./resource_index_page";
 @import "./resource_show_page";
 @import "./about_page";
+
+body {
+  margin: 0px;
+  padding-top: $pt-navbar-height;
+}
