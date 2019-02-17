@@ -63,13 +63,28 @@ def create_resource_categories
 end
 
 def create_users
-  unless User.where(email: 'lbkchen@gmail.com').exists?
+  # Create admin
+  unless User.where(email: 'admin@gmail.com').exists?
     User.create(
-      first_name: 'Ken',
-      last_name: 'Chen',
+      first_name: 'Admin',
+      last_name: 'User',
       is_admin: true,
-      email: 'lbkchen@gmail.com',
-      uid: 'lbkchen@gmail.com',
+      email: 'admin@gmail.com',
+      uid: 'admin@gmail.com',
+      provider: 'email',
+      password: 'password',
+      password_confirmation: 'password'
+    )
+  end
+
+  # Create non-admin
+  unless User.where(email: 'user@gmail.com').exists?
+    User.create(
+      first_name: 'Regular',
+      last_name: 'User',
+      is_admin: false,
+      email: 'user@gmail.com',
+      uid: 'user@gmail.com',
       provider: 'email',
       password: 'password',
       password_confirmation: 'password'

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Navbar from "./common/Navbar";
 
 import API from "../middleware/api";
+import { checkUserIsAdmin } from "../utils/session";
 
 class ShowResourcePage extends React.Component {
   constructor(props) {
@@ -54,10 +55,20 @@ class ShowResourcePage extends React.Component {
     return (
       <div className="container is-widescreen page-container">
         <Navbar />
-        <H1>{this.state.resource.title}</H1>
-        <Link to={`/resources/${this.state.resource.id}/edit`}>
-          <Button large rightIcon="edit" text="Edit resource" />
-        </Link>
+        <div className="resource-show-page-title-container">
+          <H1>{this.state.resource.title}</H1>
+          {checkUserIsAdmin() && (
+            <Link to={`/resources/${this.state.resource.id}/edit`}>
+              <Button
+                large
+                className="button-primary"
+                intent={Intent.PRIMARY}
+                rightIcon="edit"
+                text="Edit resource"
+              />
+            </Link>
+          )}
+        </div>
         <div dangerouslySetInnerHTML={{ __html: this.state.resource.body }} />
         {this.renderResourceCategories()}
         {this.renderResourceTags()}
