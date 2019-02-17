@@ -74,9 +74,12 @@ class ResourceList extends React.Component {
           <img src={Placeholder} className="resource-list-card-image" />
           <div className="resource-list-card-text">
             <div className="resource-list-card-text-inner">
-              <Link to={`/resources/${resource.id}`}>
-                <div className="resource-list-card-title">{resource.title}</div>
-              </Link>
+              <div
+                className="resource-list-card-title"
+                onClick={this.props.onClickResource(index)}
+              >
+                {resource.title}
+              </div>
               <p className="resource-list-card-description">
                 {resource.description}
               </p>
@@ -98,11 +101,9 @@ class ResourceList extends React.Component {
                   : this.props.upvoteResource(resource.id, index)
               }
             />
-            <Button
-              minimal
-              icon="document-open"
-              onClick={this.props.onClickResource(index)}
-            />
+            <Link to={`/resources/${resource.id}`}>
+              <Button minimal icon="document-open" />
+            </Link>
           </div>
         </Card>
       );
