@@ -26,6 +26,7 @@ import {
   FormGroup,
   InputGroup,
   Toaster,
+  Tag,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
@@ -259,6 +260,20 @@ export default class extends React.Component {
     );
   }
 
+  renderUserString() {
+    if (!this.state.user) return null;
+    return (
+      <span>
+        {this.state.user.email}
+        {this.state.user.is_admin && (
+          <Tag round className="navbar-admin-tag">
+            ADMIN
+          </Tag>
+        )}
+      </span>
+    );
+  }
+
   render() {
     return (
       <Navbar fixedToTop className="bns-navbar bp3-dark">
@@ -308,7 +323,7 @@ export default class extends React.Component {
             <Button
               className={Classes.MINIMAL}
               icon="user"
-              text={this.state.user ? this.state.user.email : null}
+              text={this.renderUserString()}
             />
           </Popover>
         </NavbarGroup>

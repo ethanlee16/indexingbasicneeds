@@ -5,6 +5,14 @@
   height: 45px;
 }
 
+.navbar-admin-tag {
+  font-weight: 700;
+  margin-left: 10px;
+  background-color: #f5f8fa !important;
+  color: $berkeley-blue !important;
+  letter-spacing: 0.5px;
+}
+
 $navbar-height: 60px;
 .bns-navbar.bp3-navbar {
   height: $navbar-height;
