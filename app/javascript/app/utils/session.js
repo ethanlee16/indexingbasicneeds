@@ -7,6 +7,18 @@ function checkUserSignedIn() {
   );
 }
 
+function checkUserIsAdmin() {
+  if (!checkUserSignedIn()) {
+    return false;
+  }
+  try {
+    const user = JSON.parse(localStorage.getItem("user"));
+    return user.is_admin || false;
+  } catch (error) {
+    return false;
+  }
+}
+
 function cacheUserSession(user, headers) {
   localStorage.setItem("user", JSON.stringify(user));
   localStorage.setItem("client", headers.get("client"));
@@ -48,6 +60,7 @@ function getAuthRequestHeaders() {
 
 export {
   checkUserSignedIn,
+  checkUserIsAdmin,
   cacheUserSession,
   removeUserSession,
   refreshAccessToken,

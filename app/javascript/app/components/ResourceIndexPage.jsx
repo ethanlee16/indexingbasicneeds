@@ -20,7 +20,7 @@ import ResourceIndexFilterSidebar from "./ResourceIndexFilterSidebar";
 import Navbar from "./common/Navbar";
 
 import API from "../middleware/api";
-import { checkUserSignedIn } from "../utils/session";
+import { checkUserSignedIn, checkUserIsAdmin } from "../utils/session";
 
 import Placeholder from "images/placeholder-square.jpg";
 
@@ -230,15 +230,17 @@ class ResourceIndexPage extends React.Component {
             <h2 style={{ marginTop: "0px", marginBottom: "0px" }}>
               BNS Resources
             </h2>
-            <Link to="/resource/new">
-              <Button
-                large
-                className="button-primary"
-                intent={Intent.PRIMARY}
-                rightIcon="add"
-                text="Add new resource"
-              />
-            </Link>
+            {checkUserIsAdmin() && (
+              <Link to="/resource/new">
+                <Button
+                  large
+                  className="button-primary"
+                  intent={Intent.PRIMARY}
+                  rightIcon="add"
+                  text="Add new resource"
+                />
+              </Link>
+            )}
           </div>
 
           <div className="resource-index-page-tabs-container">
