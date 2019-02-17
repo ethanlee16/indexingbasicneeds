@@ -7,11 +7,13 @@ $sidebar-width: 300px;
   position: fixed;
   width: $sidebar-width;
   left: 0px;
+  padding: 40px;
+  padding-bottom: 100px;
 }
 
 .resource-index-page-main-container {
   margin-left: $sidebar-width;
-  padding: 20px 40px;
+  padding: 40px;
 }
 
 .resource-index-page-title-container {

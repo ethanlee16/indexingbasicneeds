@@ -23,19 +23,19 @@ class ResourceIndexFilterSidebar extends FilterSidebar {
   async getResourceTags() {
     let sectionsState = [
       {
-        name: "student",
+        name: "Population Filters",
         tags: [],
       },
       {
-        name: "campus",
+        name: "Campus Filters",
         tags: [],
       },
       {
-        name: "community",
+        name: "Community Filters",
         tags: [],
       },
       {
-        name: "other",
+        name: "Other Filters",
         tags: [],
       },
     ];

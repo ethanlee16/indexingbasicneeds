@@ -59,6 +59,10 @@ a {
   font-weight: 600;
 }
 
+.bp3-tab-list > *:not(:last-child) {
+  margin-right: 32px;
+}
+
 // Layouts
 
 .page-container {
