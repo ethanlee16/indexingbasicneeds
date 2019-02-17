@@ -17,6 +17,8 @@ import {
   Icon,
   Intent,
   NonIdealState,
+  Tooltip,
+  Position,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
@@ -101,8 +103,10 @@ class ResourceList extends React.Component {
                   : this.props.upvoteResource(resource.id, index)
               }
             />
-            <Link to={`/resources/${resource.id}`}>
-              <Button minimal icon="document-open" />
+            <Link to={`/resources/${resource.id}`} target="_blank">
+              <Tooltip position={Position.LEFT} content="Open in new tab">
+                <Button minimal icon="document-open" />
+              </Tooltip>
             </Link>
           </div>
         </Card>

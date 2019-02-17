@@ -165,7 +165,7 @@ class ResourceIndexPage extends React.Component {
                 dangerouslySetInnerHTML={{ __html: resource.body }}
                 className="resource-modal-text-body"
               />
-              <Link to={`/resources/${resource.id}`}>
+              <Link to={`/resources/${resource.id}`} target="_blank">
                 <Button
                   large
                   fill
