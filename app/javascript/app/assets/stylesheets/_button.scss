@@ -1,0 +1,12 @@
+@import "./variables";
+
+.button-primary.bp3-button.bp3-intent-primary {
+  background-color: $rose-garden;
+
+  &:hover {
+    background-color: $rose-garden-light;
+  }
+  &:active {
+    background-color: $rose-garden-dark;
+  }
+}

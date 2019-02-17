@@ -13,7 +13,6 @@
     "@ckeditor/ckeditor5-build-classic": "^11.2.0",
     "@ckeditor/ckeditor5-react": "^1.1.0",
     "@rails/webpacker": "^4.0.0-rc.2",
-    "bulma": "^0.7.1",
     "classnames": "^2.2.6",
     "coffeescript": "1.12.7",
     "debounce": "^1.2.0",

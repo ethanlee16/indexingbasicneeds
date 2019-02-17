@@ -233,6 +233,7 @@ class ResourceIndexPage extends React.Component {
             <Link to="/resource/new">
               <Button
                 large
+                className="button-primary"
                 intent={Intent.PRIMARY}
                 rightIcon="add"
                 text="Add new resource"
@@ -253,7 +254,7 @@ class ResourceIndexPage extends React.Component {
                 return (
                   <Tab id={category.id} key={`category-tab-${i}`}>
                     <Tooltip
-                      position={Position.TOP}
+                      position={Position.BOTTOM}
                       content="This tooltip will be populated with a help description for this section."
                     >
                       {category.name}

@@ -7,9 +7,15 @@ Rails.application.routes.draw do
   root to: "pages#root"
 
   get "/about", to: "pages#root"
+  get "/get_involved", to: "pages#root"
+  get "/calendar", to: "pages#root"
+
+  get "/guides", to: "pages#root" 
+
   get "/resource/new", to: "pages#root"
   get "/resources/:id", to: "pages#root"
   get "/resources/:id/edit", to: "pages#root"
+  get "/resources", to: "pages#root"
 
   namespace :api, defaults: {format: [:json, :csv]} do
     mount_devise_token_auth_for "User", at: "auth"

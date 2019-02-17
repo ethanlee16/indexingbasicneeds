@@ -1,3 +1,24 @@
+@import "./variables";
+
 .navbar-image {
-  height: 30px;
+  display: block;
+  height: 45px;
+}
+
+$navbar-height: 60px;
+.bns-navbar.bp3-navbar {
+  height: $navbar-height;
+  background-color: $berkeley-blue;
+}
+
+.bns-navbar.bp3-navbar > .bp3-navbar-group {
+  height: $navbar-height;
+}
+
+.bns-navbar-item {
+  margin: 0px 16px;
+}
+
+.bp3-navbar.bp3-dark a {
+  color: white;
 }
