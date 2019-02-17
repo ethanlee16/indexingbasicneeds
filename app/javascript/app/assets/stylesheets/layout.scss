@@ -53,18 +53,7 @@ a {
   }
 }
 
-// Overrides
-
-.bp3-button.bp3-intent-primary {
-  background-color: $rose-garden;
-
-  &:hover {
-    background-color: $rose-garden-light;
-  }
-  &:active {
-    background-color: $rose-garden-dark;
-  }
-}
+// Overrides: Keep as few as possible
 
 .bp3-tab[aria-selected="true"] {
   color: $rose-garden;
