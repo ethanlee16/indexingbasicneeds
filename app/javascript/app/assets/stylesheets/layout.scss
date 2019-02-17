@@ -55,6 +55,31 @@ a {
 
 // Overrides
 
+.bp3-button.bp3-intent-primary {
+  background-color: $rose-garden;
+
+  &:hover {
+    background-color: $rose-garden-light;
+  }
+  &:active {
+    background-color: $rose-garden-dark;
+  }
+}
+
+.bp3-tab[aria-selected="true"] {
+  color: $rose-garden;
+  box-shadow: inset 0 -3px 0 $rose-garden;
+}
+
+.bp3-tab[aria-selected="true"],
+.bp3-tab:not([aria-disabled="true"]):hover {
+  color: $rose-garden;
+}
+
+.bp3-tab-indicator-wrapper .bp3-tab-indicator {
+  background-color: $rose-garden;
+}
+
 .bp3-label {
   font-weight: 600;
 }
