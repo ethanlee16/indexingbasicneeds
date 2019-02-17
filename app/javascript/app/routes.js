@@ -7,12 +7,19 @@ import ShowResourcePage from "./components/ShowResourcePage";
 import AboutPage from "./components/AboutPage";
 
 import "./assets/stylesheets/app";
+import WorkInProgressPage from "./components/WorkInProgressPage";
 
 const App = props => (
   <Router>
     <div>
       <Route exact path="/" component={ResourceIndexPage} />
       <Route path="/about" component={AboutPage} />
+      <Route path="/get_involved" component={WorkInProgressPage} />
+      <Route path="/calendar" component={WorkInProgressPage} />
+
+      <Switch>
+        <Route path="/guides" component={WorkInProgressPage} />
+      </Switch>
 
       <Switch>
         <Route path="/resource/new" component={CreateResourcePage} />
