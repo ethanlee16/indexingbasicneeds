@@ -10,7 +10,7 @@ const App = props => (
   <Router>
     <div>
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/resources" component={ResourceIndexPage} />
+      <Route exact path="/resourcesz" component={ResourceIndexPage} />
       <Route path="/resource/new" component={CreateResourcePage} />
       <Route path={`/resources/:id`} component={ShowResourcePage} />
       <Route path="/about" component={AboutPage} />

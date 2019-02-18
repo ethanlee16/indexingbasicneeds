@@ -24,7 +24,7 @@ export default class extends React.Component {
           </NavbarHeading>
           <NavbarDivider />
           <Link to="/">
-            <Button className={Classes.MINIMAL} icon="none" text="About" />
+            <Button className={Classes.MINIMAL} icon="none" text="Home" />
           </Link>
           <Link to="/about">
             <Button
