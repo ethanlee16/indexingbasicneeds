@@ -24,7 +24,7 @@ import { Link } from "react-router-dom";
 
 import { checkUserSignedIn, checkUserIsAdmin } from "../utils/session";
 
-import Placeholder from "images/placeholder-square.jpg";
+import Placeholder from "images/bear.png";
 import "../assets/stylesheets/resource_list.scss";
 
 class ResourceList extends React.Component {

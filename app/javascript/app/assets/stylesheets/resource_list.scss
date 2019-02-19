@@ -15,8 +15,11 @@ $resource-list-card-height: 150px;
 }
 
 .resource-list-card-image {
-  height: $resource-list-card-height;
-  width: $resource-list-card-height;
+  display: block;
+  margin: 20px;
+  width: 110px;
+  height: 110px;
+  object-fit: scale-down;
 }
 
 .resource-list-card-text {
