@@ -38,8 +38,10 @@ $sidebar-width: 300px;
 }
 
 // Resource modal
+$resource-modal-bg-color: $off-white;
 .resource-modal-dialog {
   width: 1000px;
+  background-color: $resource-modal-bg-color;
 }
 
 .resource-modal-body {
@@ -72,11 +74,52 @@ $sidebar-width: 300px;
   }
 }
 
+.resource-modal-table {
+  margin: 12px 0px;
+  h4 {
+    margin: 0px;
+  }
+  td {
+    vertical-align: middle !important;
+    &.cell-fixed-width {
+      width: 50px;
+    }
+  }
+  > thead {
+    th {
+      padding-left: 0px;
+    }
+  }
+  > tbody {
+    border-color: rgba(0, 0, 0, 0);
+    p {
+      margin: 0px !important;
+    }
+  }
+}
+
 .resource-modal-text-body {
   position: relative;
-  height: 160px;
+  max-height: 160px;
   overflow-y: hidden;
 
+  // Make segments closer to each other in preview
+  // (TODO: Move into compressed styles)
+  h2 {
+    margin-top: 16px;
+    margin-bottom: 12px;
+  }
+  h3 {
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+  h4 {
+    margin-top: 8px;
+    margin-bottom: 6px;
+  }
+  p {
+    margin-bottom: 4px;
+  }
   // Fade bottom edge
   &::after {
     content: "";
@@ -88,7 +131,7 @@ $sidebar-width: 300px;
     background-image: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0),
-      #ebf1f5
+      $resource-modal-bg-color
     );
     width: 100%;
     height: 40px;

@@ -12,6 +12,8 @@ import {
   Tab,
   Tooltip,
   Callout,
+  HTMLTable,
+  Icon,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
@@ -162,13 +164,57 @@ class ResourceIndexPage extends React.Component {
                 </Callout>
               )}
 
-              <h4>Eligibility</h4>
-              <p>{resource.eligibility}</p>
+              <HTMLTable small interactive className="resource-modal-table">
+                <thead>
+                  <tr>
+                    <th colSpan={2}>
+                      <h4>Quick Facts</h4>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <Icon icon="map-marker" iconSize={16} />
+                    </td>
+                    <td>
+                      <p>{resource.address}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Icon icon="phone" iconSize={16} />
+                    </td>
+                    <td>
+                      <p>{resource.contact_info}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Icon icon="time" iconSize={16} />
+                    </td>
+                    <td>
+                      <p>{resource.hours_of_operation}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Icon icon="dollar" iconSize={16} />
+                    </td>
+                    <td>
+                      <p>{resource.cost}</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </HTMLTable>
 
-              {/* <h4>Notes</h4>
-              <p>{resource.notes}</p> */}
+              {resource.eligibility && (
+                <Callout title="Eligibility" intent={Intent.PRIMARY}>
+                  {resource.eligibility}
+                </Callout>
+              )}
 
-              <h4>Preview</h4>
+              <h4>Additional Notes</h4>
               <div
                 dangerouslySetInnerHTML={{ __html: resource.body }}
                 className="resource-modal-text-body"
