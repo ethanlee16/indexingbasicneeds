@@ -24,6 +24,7 @@ import { Link } from "react-router-dom";
 
 import { checkUserSignedIn, checkUserIsAdmin } from "../utils/session";
 
+import LoadingPlaceholder from "images/placeholder-square.jpg";
 import Placeholder from "images/bear.png";
 import "../assets/stylesheets/resource_list.scss";
 
@@ -40,7 +41,7 @@ class ResourceList extends React.Component {
           className={`resource-list-card`}
         >
           <img
-            src={Placeholder}
+            src={LoadingPlaceholder}
             className={`resource-list-card-image ${Classes.SKELETON}`}
           />
           <div className={`resource-list-card-text`}>
