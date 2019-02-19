@@ -22,7 +22,7 @@ import Navbar from "./common/Navbar";
 import API from "../middleware/api";
 import { checkUserSignedIn, checkUserIsAdmin } from "../utils/session";
 
-import Placeholder from "images/placeholder-square.jpg";
+import Placeholder from "images/bear.png";
 
 class ResourceIndexPage extends React.Component {
   constructor(props) {
