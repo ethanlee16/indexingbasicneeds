@@ -33,4 +33,11 @@ class Api::ResourceSerializer < ActiveModel::Serializer
     end
     scope[:current_user].liked? object
   end
+
+  def address
+    if object.address.present?
+      return "#{object.address["street_address"]}, #{object.address["city"]}, #{object.address["state"]} #{object.address["zip"]}"
+    end
+    return "N/A"
+  end
 end

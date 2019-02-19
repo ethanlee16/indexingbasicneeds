@@ -11,6 +11,9 @@ import {
   Tabs,
   Tab,
   Tooltip,
+  Callout,
+  HTMLTable,
+  Icon,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
@@ -23,6 +26,7 @@ import API from "../middleware/api";
 import { checkUserSignedIn, checkUserIsAdmin } from "../utils/session";
 
 import Placeholder from "images/bear.png";
+import { intentClass } from "@blueprintjs/core/lib/esm/common/classes";
 
 class ResourceIndexPage extends React.Component {
   constructor(props) {
@@ -154,13 +158,63 @@ class ResourceIndexPage extends React.Component {
               <h3 style={{ marginTop: "0px" }}>{resource.title}</h3>
               <p>{resource.description}</p>
 
-              <h4>Eligibility</h4>
-              <p>{resource.eligibility}</p>
+              {resource.deadlines && (
+                <Callout title="Deadlines Notice" intent={Intent.WARNING}>
+                  {resource.deadlines}
+                </Callout>
+              )}
 
-              <h4>Notes</h4>
-              <p>{resource.notes}</p>
+              <HTMLTable small interactive className="resource-modal-table">
+                <thead>
+                  <tr>
+                    <th colSpan={2}>
+                      <h4>Quick Facts</h4>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <Icon icon="map-marker" iconSize={16} />
+                    </td>
+                    <td>
+                      <p>{resource.address}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Icon icon="phone" iconSize={16} />
+                    </td>
+                    <td>
+                      <p>{resource.contact_info}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Icon icon="time" iconSize={16} />
+                    </td>
+                    <td>
+                      <p>{resource.hours_of_operation}</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <Icon icon="dollar" iconSize={16} />
+                    </td>
+                    <td>
+                      <p>{resource.cost}</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </HTMLTable>
 
-              <h4>Preview</h4>
+              {resource.eligibility && (
+                <Callout title="Eligibility" intent={Intent.PRIMARY}>
+                  {resource.eligibility}
+                </Callout>
+              )}
+
+              <h4>Additional Notes</h4>
               <div
                 dangerouslySetInnerHTML={{ __html: resource.body }}
                 className="resource-modal-text-body"
