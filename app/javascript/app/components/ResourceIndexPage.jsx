@@ -22,7 +22,7 @@ import Navbar from "./common/Navbar";
 import API from "../middleware/api";
 import { checkUserSignedIn, checkUserIsAdmin } from "../utils/session";
 
-import Placeholder from "images/placeholder-square.jpg";
+import Placeholder from "images/bear.png";
 
 class ResourceIndexPage extends React.Component {
   constructor(props) {
@@ -195,7 +195,11 @@ class ResourceIndexPage extends React.Component {
               }
             />
             {resource.link && (
-              <a href={resource.link} target="_blank" style={{ width: "100%" }}>
+              <a
+                href={resource.link}
+                className="resource-modal-link"
+                target="_blank"
+              >
                 <Button
                   large
                   minimal

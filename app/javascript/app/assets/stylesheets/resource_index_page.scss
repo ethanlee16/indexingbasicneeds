@@ -51,8 +51,11 @@ $sidebar-width: 300px;
 }
 
 .resource-modal-image {
-  width: 100px;
-  height: 100px;
+  display: block;
+  max-width: 100px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
   margin-right: 20px;
 }
 
@@ -109,6 +112,19 @@ $sidebar-width: 300px;
     margin: 10px;
     &:first-child {
       margin-top: 0px;
+    }
+  }
+}
+
+.resource-modal-link {
+  width: 100%;
+
+  > button {
+    > span {
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }
