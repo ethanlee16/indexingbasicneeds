@@ -67,6 +67,9 @@ $sidebar-width: 300px;
 }
 
 .resource-modal-text {
+  > p {
+    font-size: 16px;
+  }
 }
 
 .resource-modal-text-body {

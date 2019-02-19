@@ -11,6 +11,7 @@ import {
   Tabs,
   Tab,
   Tooltip,
+  Callout,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
@@ -23,6 +24,7 @@ import API from "../middleware/api";
 import { checkUserSignedIn, checkUserIsAdmin } from "../utils/session";
 
 import Placeholder from "images/bear.png";
+import { intentClass } from "@blueprintjs/core/lib/esm/common/classes";
 
 class ResourceIndexPage extends React.Component {
   constructor(props) {
@@ -154,11 +156,17 @@ class ResourceIndexPage extends React.Component {
               <h3 style={{ marginTop: "0px" }}>{resource.title}</h3>
               <p>{resource.description}</p>
 
+              {resource.deadlines && (
+                <Callout title="Deadlines Notice" intent={Intent.WARNING}>
+                  {resource.deadlines}
+                </Callout>
+              )}
+
               <h4>Eligibility</h4>
               <p>{resource.eligibility}</p>
 
-              <h4>Notes</h4>
-              <p>{resource.notes}</p>
+              {/* <h4>Notes</h4>
+              <p>{resource.notes}</p> */}
 
               <h4>Preview</h4>
               <div
