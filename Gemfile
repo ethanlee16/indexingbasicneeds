@@ -44,6 +44,8 @@ gem 'acts_as_votable', '~> 0.12.0'
 gem 'devise_token_auth', '~> 1.0.0'
 gem 'ffaker', '~> 2.10.0'
 gem 'pundit', '~> 2.0.1'
+gem 'figaro', '~> 1.1.1'
+gem 'airrecord', '~> 1.0.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
