@@ -195,7 +195,11 @@ class ResourceIndexPage extends React.Component {
               }
             />
             {resource.link && (
-              <a href={resource.link} target="_blank" style={{ width: "100%" }}>
+              <a
+                href={resource.link}
+                className="resource-modal-link"
+                target="_blank"
+              >
                 <Button
                   large
                   minimal

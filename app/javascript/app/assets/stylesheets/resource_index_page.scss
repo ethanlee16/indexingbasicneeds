@@ -112,3 +112,16 @@ $sidebar-width: 300px;
     }
   }
 }
+
+.resource-modal-link {
+  width: 100%;
+
+  > button {
+    > span {
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
