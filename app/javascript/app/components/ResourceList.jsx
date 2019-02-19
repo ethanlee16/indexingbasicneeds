@@ -22,7 +22,7 @@ import {
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
-import { checkUserSignedIn } from "../utils/session";
+import { checkUserSignedIn, checkUserIsAdmin } from "../utils/session";
 
 import Placeholder from "images/placeholder-square.jpg";
 import "../assets/stylesheets/resource_list.scss";
@@ -108,6 +108,13 @@ class ResourceList extends React.Component {
                 <Button minimal icon="document-open" />
               </Tooltip>
             </Link>
+            {checkUserIsAdmin() && (
+              <Link to={`/resources/${resource.id}/edit`} target="_blank">
+                <Tooltip position={Position.LEFT} content="Edit in new tab">
+                  <Button minimal icon="edit" />
+                </Tooltip>
+              </Link>
+            )}
           </div>
         </Card>
       );
