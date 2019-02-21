@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 import Navbar from "./common/Navbar";
 
-import API from "../middleware/api";
 
 class LandingPage extends React.Component {
   constructor(props) {
