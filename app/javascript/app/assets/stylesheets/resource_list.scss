@@ -1,0 +1,75 @@
+@import "./variables";
+
+.resource-list {
+}
+
+$resource-list-card-height: 160px;
+.resource-list-card {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: $resource-list-card-height;
+  margin: 15px 0px;
+  padding: 0px;
+  border-radius: 2px;
+}
+
+.resource-list-card-image {
+  display: block;
+  margin: 20px;
+  width: 120px;
+  height: 120px;
+  object-fit: scale-down;
+}
+
+.resource-list-card-text {
+  flex: 1;
+  padding: 16px 24px;
+}
+
+.resource-list-card-text-inner {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.resource-list-card-description {
+}
+
+.resource-list-card-control {
+  padding-right: 18px;
+  padding-bottom: 12px;
+  height: $resource-list-card-height;
+  min-width: 100px;
+  display: flex;
+  flex-flow: column-reverse;
+  align-items: flex-end;
+}
+
+.resource-list-card-title {
+  margin-bottom: 8px;
+  color: $off-black;
+  font-size: 20px;
+  font-weight: 600;
+  transition: 100ms;
+
+  &:hover {
+    cursor: pointer;
+    color: $rose-garden;
+  }
+}
+
+.resource-list-card-tag {
+  z-index: 2;
+
+  &.liked {
+    background-color: rgba(19, 124, 189, 0.15);
+  }
+}
+
+.resource-list-empty-state-container {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

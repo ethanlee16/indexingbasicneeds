@@ -8,7 +8,7 @@ module: {
       exclude: /node_modules/,
       loader: "babel-loader",
       options: {
-        presets: [["env", { modules: false }]],
+        presets: [["@babel/preset-env", { modules: false }]],
       },
     },
     {
@@ -41,6 +41,12 @@ environment.loaders.get("sass").use.splice(-1, 0, {
   loader: "resolve-url-loader",
   options: {
     attempts: 1,
+  },
+});
+
+environment.config.merge({
+  externals: {
+    ClassicEditor: "ClassicEditor",
   },
 });
 

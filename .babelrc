@@ -1,24 +1,25 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "modules": false,
         "targets": {
-          "browsers": ["last 2 versions", "safari >= 7"],
-          "uglify": true
+          "browsers": ["last 2 versions", "safari >= 7"]
         },
-        "useBuiltIns": true
+        "useBuiltIns": false,
+        "forceAllTransforms": true
       }
     ],
-    "react"
+    "@babel/react"
   ],
   "plugins": [
-    "syntax-dynamic-import",
-    "transform-object-rest-spread",
-    "transform-runtime",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/transform-runtime",
+    "@babel/plugin-transform-modules-commonjs",
     [
-      "transform-class-properties",
+      "@babel/plugin-proposal-class-properties",
       {
         "spec": true
       }

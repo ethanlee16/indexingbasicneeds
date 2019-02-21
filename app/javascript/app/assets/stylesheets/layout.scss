@@ -1,0 +1,88 @@
+@import "./variables";
+
+// Typography
+h1 {
+  font-family: $font-stack;
+  color: $off-black;
+  line-height: 1.2em;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+h2 {
+  font-family: $font-stack;
+  color: $off-black;
+  line-height: 1.2em;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-family: $font-stack;
+  color: $off-black;
+  line-height: 1.2em;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+
+h4 {
+  font-family: $font-stack;
+  color: $off-black;
+  line-height: 1.2em;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 18px;
+  margin-bottom: 12px;
+}
+
+p {
+  font-family: $font-stack;
+  color: $dark-gray;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5em;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+
+  &:hover {
+    color: inherit;
+    text-decoration: inherit;
+  }
+}
+
+// Overrides: Keep as few as possible
+
+.bp3-tab[aria-selected="true"] {
+  color: $rose-garden;
+  box-shadow: inset 0 -3px 0 $rose-garden;
+}
+
+.bp3-tab[aria-selected="true"],
+.bp3-tab:not([aria-disabled="true"]):hover {
+  color: $rose-garden;
+}
+
+.bp3-tab-indicator-wrapper .bp3-tab-indicator {
+  background-color: $rose-garden;
+}
+
+.bp3-label {
+  font-weight: 600;
+}
+
+.bp3-tab-list > *:not(:last-child) {
+  margin-right: 32px;
+}
+
+// Layouts
+
+.page-container {
+  padding: 60px;
+}

@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.4.1"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -17,7 +18,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
+gem 'webpacker', '~> 4.0.0.rc.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -36,6 +37,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'active_model_serializers', '~> 0.10.8'
+gem 'has_scope', '~> 0.7.2'
+gem 'ransack', '~> 2.1.1'
+gem 'acts_as_votable', '~> 0.12.0'
+gem 'devise_token_auth', '~> 1.0.0'
+gem 'ffaker', '~> 2.10.0'
+gem 'pundit', '~> 2.0.1'
+gem 'figaro', '~> 1.1.1'
+gem 'airrecord', '~> 1.0.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,6 +53,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'annotate'
 end
 
 group :development do
@@ -53,6 +64,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rb-readline'
+  gem 'rubocop', '~> 0.61.1', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

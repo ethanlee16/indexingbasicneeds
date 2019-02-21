@@ -1,0 +1,22 @@
+.filter-sidebar {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.filter-sidebar-header {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.filter-sidebar-item {
+  margin: 0px;
+  margin-left: 8px;
+  padding: 6px 0px;
+  border-radius: 3px;
+  &:hover {
+    background-color: rgba(138, 155, 168, 0.15);
+  }
+  &.bp3-checkbox.bp3-control {
+    margin-top: 0px;
+  }
+}

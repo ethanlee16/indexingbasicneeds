@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint(8)        not null, primary key
 #  first_name             :string
 #  last_name              :string
 #  is_admin               :boolean          default(FALSE)
@@ -18,6 +18,9 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  provider               :string
+#  uid                    :string
+#  tokens                 :text
 #
 
 class User < ApplicationRecord
@@ -25,4 +28,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  include DeviseTokenAuth::Concerns::User
+  
+  acts_as_voter 
 end
