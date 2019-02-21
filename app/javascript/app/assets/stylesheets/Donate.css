@@ -1,0 +1,47 @@
+/* Donate */
+
+.home-page-donate {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .home-page-right {
+    max-width: 60%;
+  }
+  
+  
+  .home-page-donate-label {
+    font-size: 0.875em;
+    font-family: Lato ,sans-serif;
+    font-weight: 400;
+  }
+  
+  .home-page-donate-info {
+    float: left;
+    line-height: 1.2;
+    font-size: 0.9em;
+    font-family: Lato ,sans-serif;
+    font-weight: 400;
+  
+  }
+  
+  .info {
+    padding-top: 8%;
+    line-height: 1.2;
+    font-size: 0.9em;
+    font-family: Lato ,sans-serif;
+    font-weight: 400;
+  }
+  
+  .row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .column {
+  
+    min-width: 50%;
+  }
+  
