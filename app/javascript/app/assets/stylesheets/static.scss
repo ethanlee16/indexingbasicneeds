@@ -691,66 +691,68 @@ p, br, ul, li {
   }
   
   
-    /* General Layout */
+// Get Involved
+
+ /* General Layout */
   
-    .get-involved-container {
-        width: 100%;
-        display: flex;
-      }
-      
-    .get-involved-banner {
-            background-color: gray;
-            height: 250px;
-    
-    }
-    
-    .get-involved-left-container {
-        background-color: var(--light-blue);
-        min-width: 225px;
-    }
-    
-    .get-involved-right-container {
-        width: 100%;
-    
-    }
-    
-    .get-involved-text {
-        padding: 10px 20px 10px 30px;
-    }
-    
-    .get-involved-centered {
-        font-family: 'Lato', sans-serif; 
-        color: var(--lap-lane);
-        text-align: center;
-        margin: 0 auto;
-    
-    }
-    
-    .get-involved-menu {
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        overflow-x: hidden;
-        padding-top: 20px;
-        display: block;
-    }
-    
-    .get-involved-menu a {
-        padding: 10px 8px 6px 35px;
-        text-decoration: none;
-        font-size: 18px;
-        color: #818181;
-        display: block;
-      }
-      
-      .get-involved-menu a:hover {
-        color: #f1f1f1;
-      }
-    
-      .get-involved-item {
-        font-family: 'Lato', sans-serif; 
-      }
-      
+ .get-involved-container {
+    width: 100%;
+    display: flex;
+  }
+  
+.get-involved-banner {
+        background-color: gray;
+        height: 250px;
+
+}
+
+.get-involved-left-container {
+    background-color: var(--light-blue);
+    min-width: 225px;
+}
+
+.get-involved-right-container {
+    width: 100%;
+
+}
+
+.get-involved-text {
+    padding: 10px 40px 10px 35px;
+}
+
+.get-involved-centered {
+    font-family: 'Lato', sans-serif; 
+    color: var(--lap-lane);
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+.get-involved-menu {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    display: block;
+}
+
+.get-involved-menu a {
+    padding: 10px 8px 6px 35px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+  }
+  
+  .get-involved-menu a:hover {
+    color: #f1f1f1;
+  }
+
+  .get-involved-item {
+    font-family: 'Lato', sans-serif; 
+  }
+  
