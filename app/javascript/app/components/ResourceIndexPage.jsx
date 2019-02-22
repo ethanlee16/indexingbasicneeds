@@ -48,14 +48,14 @@ class ResourceIndexPage extends React.Component {
   }
 
   async componentDidMount() {
+    await this.getResourceCategories();
+    this.setState({ animateTabs: true });
     let { json, headers } = await API.ResourcesIndex();
     let resources = json;
     this.setState({
       resources: resources,
       loaded: true,
     });
-    await this.getResourceCategories();
-    this.setState({ animateTabs: true });
   }
 
   async getResourceCategories() {
