@@ -18,10 +18,28 @@ namespace :airtable do
           resource_categories << { resource_category_id: category.id }
         end 
 
+        # Create resource tag instances for all categories of resource tags
+        resource_tag_instances = []
+        tag_names = [
+          r["Population Filters"] || [], 
+          r["Campus Filters"] || [], 
+          r["Community Filters"] || [], 
+        ].reduce([], :concat)
+        tag_names.each do |tag_name|
+          if (tag = ResourceTag.find_by(name: tag_name)).present? 
+            resource_tag_instances << { resource_tag_id: tag.id }
+          end
+        end
         # Create the resource and also tag the resource category
         r = Resource.create!(
           title: title, 
           description: r["Description"], 
+          address: {
+            street_address: r["Street Address"], 
+            city: r["City"], 
+            state: r["State Abbr"], 
+            zip: r["Zip"], 
+          }, 
           contact_info: r["Phone / Email Contact"], 
           hours_of_operation: r["Hours of Operation"], 
           eligibility: r["Eligibility"], 
@@ -30,6 +48,7 @@ namespace :airtable do
           link: r["Website"], 
           deadlines: r["Deadlines"], 
           admin_note: "#{r["Rationale**"]}\n\n#{r["Internal Contact**"]}\n\n#{r["Internal Notes**"]}", 
+          resource_tag_instances_attributes: resource_tag_instances, 
           resource_categories_resources_attributes: resource_categories, 
         )
         created_count += 1
