@@ -136,12 +136,16 @@ line-height: 1.5em;
   padding: 40px 100px;
 }
 
+.about-page-team-row {
+  display: flex;
+}
+
 .about-page-team-container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 50px 0px;
+  /* justify-content: space-between; */
+  padding: 20px 0px;
 }
 
 /* Card Itself */
