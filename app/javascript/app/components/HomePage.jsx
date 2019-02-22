@@ -6,7 +6,11 @@ import Navbar from "./common/Navbar";
 import Logo from "images/bnc-logo-white.png";
 import ValuesImage from "images/home-background.png";
 import Ruben from "images/team-ruben.jpg";
+import Undergrad from "images/home-undegrad.png";
+import Staff from "images/home-staff.png";
+import Grad from "images/home-grad.png";
 import Center from "images/home-ourcenter-2.png";
+import Donate from "images/home-donate.png";
 
 class HomePage extends React.Component {
   render() {
@@ -14,40 +18,42 @@ class HomePage extends React.Component {
       <div className="container home-page">
         <Navbar />
         {/* Landing Block */}
-        <div className="home-page-landing block">
-          <h1 className="white-text">Basic Needs Center</h1>
-          <div className="home-page-row">
-            <div className="home-page-landing-text">
-              <p className="white-text">
-                Founded in Spring 2019, the Basic Needs Center serves as a
-                physical resource hub for basic needs resources. The Basic Needs
-                Committee supports the food, housing, and economic justice of
-                those in our campus community.
-              </p>
-              <br />
-              <div className="btn-row">
-                <Link to="/resources">
-                  <Button
-                    large
-                    className="button-primary"
-                    intent={Intent.PRIMARY}
-                    text="Our Resource Index"
-                    style={{ marginRight: "10px" }}
-                  />
-                </Link>
-                <Link to="/">
-                  <Button
-                    large
-                    className="button-primary"
-                    intent={Intent.PRIMARY}
-                    text="Frequently Asked Questions"
-                  />
-                </Link>
+        <div className="home-page-banner-overlay">
+          <div className="home-page-landing block">
+            <h1 className="white-text">Basic Needs Center</h1>
+            <div className="home-page-row">
+              <div className="home-page-landing-text">
+                <p className="white-text">
+                  Founded in Spring 2019, the Basic Needs Center serves as a
+                  physical resource hub for basic needs resources. The Basic
+                  Needs Committee supports the food, housing, and economic
+                  justice of those in our campus community.
+                </p>
+                <br />
+                <div className="btn-row">
+                  <Link to="/resources">
+                    <Button
+                      large
+                      className="button-primary"
+                      intent={Intent.PRIMARY}
+                      text="Our Resource Index"
+                      style={{ marginRight: "10px" }}
+                    />
+                  </Link>
+                  <Link to="/">
+                    <Button
+                      large
+                      className="button-primary"
+                      intent={Intent.PRIMARY}
+                      text="Frequently Asked Questions"
+                    />
+                  </Link>
+                </div>
               </div>
-            </div>
-            {/* <div className="home-page-left-img">
+              {/* <div className="home-page-left-img">
               <img className="home-page-logo" src={Logo} alt="logo" />
             </div> */}
+            </div>
           </div>
         </div>
 
@@ -95,7 +101,7 @@ class HomePage extends React.Component {
               <div className="card-img">
                 <img
                   className="home-page-student"
-                  src={Ruben}
+                  src={Undergrad}
                   alt="Undergraduate"
                 />
               </div>
@@ -107,11 +113,7 @@ class HomePage extends React.Component {
 
             <div className="home-page-resource-card">
               <div className="card-img">
-                <img
-                  className="home-page-student"
-                  src={Ruben}
-                  alt="Undergraduate"
-                />
+                <img className="home-page-student" src={Grad} alt="Graduate" />
               </div>
               <div className="card-container">
                 <p className="card-text">Graduate / Professional Student</p>
@@ -120,11 +122,7 @@ class HomePage extends React.Component {
 
             <div className="home-page-resource-card">
               <div className="card-img">
-                <img
-                  className="home-page-student"
-                  src={Ruben}
-                  alt="Undergraduate"
-                />
+                <img className="home-page-student" src={Staff} alt="Staff" />
               </div>
               <div className="card-container">
                 <p className="card-text">Service Worker / Staff</p>
@@ -185,11 +183,11 @@ class HomePage extends React.Component {
         <div className="home-page-testimonies block">
           <div className="home-page-testimonies-text">
             <h1>Student Testimonies</h1>
-            <p>
+            {/* <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dsint occaecat cupidatat
               non proident
-            </p>
+            </p> */}
           </div>
 
           <div className="home-page-testimony-cards">
@@ -325,10 +323,7 @@ class HomePage extends React.Component {
             </div>
           </div>
 
-          <div className="home-page-left">
-            BNS Donate Image
-            {/* <img src="BNS-logo"> */}
-          </div>
+          <img className="home-donate-image" src={Donate} />
         </div>
 
         {/* End of Container */}
