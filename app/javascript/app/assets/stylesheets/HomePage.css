@@ -293,7 +293,7 @@ p {
 }
 
 .home-page-right {
-  max-width: 60%;
+  width: 50%;
 }
 
 
@@ -304,7 +304,7 @@ p {
 }
 
 .home-page-donate-info {
-  float: left;
+  width: 100%;
   line-height: 1.2;
   font-size: 0.9em;
   font-family: Lato ,sans-serif;
@@ -314,7 +314,7 @@ p {
 
 .info {
   padding-top: 8%;
-  line-height: 1.2;
+  line-height: 1.4;
   font-size: 0.9em;
   font-family: Lato ,sans-serif;
   font-weight: 400;
@@ -326,7 +326,7 @@ p {
   justify-content: space-between;
 }
 
-.column {
+.donate-by-mail {
 
   min-width: 50%;
 }
