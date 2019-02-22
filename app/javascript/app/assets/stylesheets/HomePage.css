@@ -56,7 +56,7 @@ h4 {
   margin-bottom: 12px;
 }
 
-p {
+p, br, ul, li {
   font-family: 'Lato', sans-serif;
   color: var(--off-black);
   font-size: 18px;
@@ -184,13 +184,15 @@ p {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+  justify-content: space-around;
 }
 
 /* Card Itself */
 .home-page-resource-card {
   background: white;
-  margin: 15px;
-  width: 285px;
+  margin: 10px;
+  min-height: 255px;
+  min-width: 255px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
   border-radius: 4px;
@@ -257,6 +259,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+  justify-content: space-evenly;
 
 }
 
@@ -272,12 +275,18 @@ p {
 }
 
 .card-test-container {
-  width: 80%;
+  width: 250px;
   margin: 0 auto;
   text-align: left;
+
 }
 
 .card-test-text {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top:  10px;
+  height: 110px;
+  overflow: scroll;
   font-family: 'Lato', sans-serif;
   color: #333333;
   font-size: 12px;
