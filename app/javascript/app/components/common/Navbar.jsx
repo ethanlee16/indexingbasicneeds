@@ -292,17 +292,17 @@ export default class extends React.Component {
               text="Resources"
             />
           </Link>
-          <Link to="/guides" className="bns-navbar-item">
+          {/* <Link to="/guides" className="bns-navbar-item">
             <Button
               className={Classes.MINIMAL}
               icon="manual"
               text="Student Guides"
             />
-          </Link>
+          </Link> */}
           <Link to="/about" className="bns-navbar-item">
             <Button className={Classes.MINIMAL} icon="book" text="About" />
           </Link>
-          <Link to="/get_involved" className="bns-navbar-item">
+          {/* <Link to="/get_involved" className="bns-navbar-item">
             <Button
               className={Classes.MINIMAL}
               icon="people"
@@ -315,7 +315,7 @@ export default class extends React.Component {
               icon="calendar"
               text="Calendar"
             />
-          </Link>
+          </Link> */}
         </NavbarGroup>
         <NavbarGroup align={Alignment.RIGHT}>
           <NavbarDivider />

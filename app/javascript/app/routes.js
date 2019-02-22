@@ -14,7 +14,7 @@ const App = props => (
   <Router>
     <div>
       <Route exact path="/" component={HomePage} />
-      <Route path="/about" component={AboutPage} />
+      <Route path="/about" component={WorkInProgressPage} />
       <Route path="/get_involved" component={WorkInProgressPage} />
       <Route path="/calendar" component={WorkInProgressPage} />
 
