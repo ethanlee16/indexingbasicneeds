@@ -1,0 +1,150 @@
+/* // Colors */ */
+
+:root {
+
+    --off-black: #4a4a4a;
+    --dark-gray: #828282;
+    --dark-blue: #3b7ea1;
+    --light-blue: #F3FBFF;
+    --gold: rgba(196, 130, 14, 0.35);
+
+    --rose-garden: #eb2562;
+    --rose-garden-light: #ff457f;
+    --rose-garden-dark: #dc235c;
+
+    --lap-lane: #19a498;
+    --california-gold: #fbb431;
+    --golden-gate: #ea633b;
+    --berkeley-blue: #043361;
+}
+
+/* // Typography */
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  color: var(--berkeley-blue);
+  font-size: 48px;
+  font-weight: 600;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  color: var(--berkeley-blue);
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-family: 'Lato', sans-serif;
+  color: var(--off-black);
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+
+h4 {
+  font-family: 'Lato', sans-serif;
+  color: var(--off-black);
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 18px;
+  margin-bottom: 12px;
+}
+
+p, br, ul, li {
+  font-family: 'Lato', sans-serif;
+  color: var(--off-black);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5em;
+}
+
+/* General Layout */
+
+.learn-page-block {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    align-items: flex-start;
+}
+  
+ .learn-page-container {
+    width: 100%;
+    display: flex;
+  }
+  
+.learn-page-banner {
+    width: 100%;
+        background-color: gray;
+        height: fit-content;
+        padding-bottom: 20px;
+
+}
+
+.learn-page-left-container {
+    background-color: var(--light-blue);
+    min-width: 225px;
+}
+
+.learn-page-right-container {
+    width: 100%;
+
+}
+
+.learn-page-text {
+    padding: 10px 40px 10px 55px;
+}
+
+.learn-page-centered {
+    font-family: 'Lato', sans-serif; 
+    color: var(--lap-lane);
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+.learn-page-menu {
+    background-color: var(--light-blue);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    display: block;
+}
+
+.learn-page-menu a {
+    padding: 10px 8px 6px 35px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+  }
+  
+  .learn-page-menu a:hover {
+    color: #f1f1f1;
+  }
+
+  .learn-page-item {
+    font-family: 'Lato', sans-serif; 
+  }
+  
+
+.learn-page-white-text {
+    color: white;
+    display: block;
+    width: 100%;
+    padding: 0px 0px 0px 55px;
+
+  }
+
+  .learn-page-banner-text {
+    width: 500px;
+    padding-bottom: 50px;
+  }
