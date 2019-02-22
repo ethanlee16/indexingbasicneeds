@@ -148,3 +148,21 @@ p, br, ul, li {
     width: 500px;
     padding-bottom: 50px;
   }
+
+  table, td {
+    border: 1px solid white;
+  }
+
+  th {
+    border-bottom: 1px solid gray;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td {
+    height: 50px;
+    vertical-align: bottom;
+  }
