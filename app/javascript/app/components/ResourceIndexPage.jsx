@@ -315,7 +315,7 @@ class ResourceIndexPage extends React.Component {
                   <Tab id={category.id} key={`category-tab-${i}`}>
                     <Tooltip
                       position={Position.BOTTOM}
-                      content="This tooltip will be populated with a help description for this section."
+                      content="Click to filter by category"
                     >
                       {category.name}
                     </Tooltip>

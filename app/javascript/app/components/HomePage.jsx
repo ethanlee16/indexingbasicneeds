@@ -263,7 +263,7 @@ class HomePage extends React.Component {
 
         {/* Donate */}
         <div className="home-page-donate block">
-          <h1>Donate to Basic Needs Security</h1>
+          <h1 style={{ width: "100%" }}>Donate to Basic Needs Security</h1>
           <div className="home-page-right">
             <div
               className="home-page-donate-text"
