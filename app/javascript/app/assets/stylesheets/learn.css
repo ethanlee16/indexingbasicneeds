@@ -107,9 +107,9 @@ p, br, ul, li {
 }
 
 .learn-page-menu {
-    background-color: var(--light-blue);
+    background-color: #EAF7FF;
     height: 100%;
-    width: 100%;
+    min-width: 235px;
     position: fixed;
     z-index: 1;
     top: 0;
