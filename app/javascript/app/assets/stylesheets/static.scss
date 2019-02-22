@@ -1,0 +1,694 @@
+// Home Page
+
+
+/* 
+// Colors */
+
+:root {
+
+    --off-black: #4a4a4a;
+    --dark-gray: #828282;
+    --dark-blue: #3b7ea1;
+    --light-blue: #F3FBFF;
+    --gold: rgba(196, 130, 14, 0.35);
+
+    --rose-garden: #eb2562;
+    --rose-garden-light: #ff457f;
+    --rose-garden-dark: #dc235c;
+
+    --lap-lane: #19a498;
+    --california-gold: #fbb431;
+    --golden-gate: #ea633b;
+    --berkeley-blue: #043361;
+}
+
+/* // Typography */
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  color: var(--berkeley-blue);
+  font-size: 48px;
+  font-weight: 600;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  color: var(--off-black);
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+h3 {
+  font-family: 'Lato', sans-serif;
+  color: var(--off-black);
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+
+h4 {
+  font-family: 'Lato', sans-serif;
+  color: var(--off-black);
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 18px;
+  margin-bottom: 12px;
+}
+
+p, br, ul, li {
+  font-family: 'Lato', sans-serif;
+  color: var(--off-black);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5em;
+}
+
+
+
+/* // Overrides: Keep as few as possible */
+
+.bp3-tab[aria-selected="true"] {
+  color: var(--rose-garden);
+  box-shadow: inset 0 -3px 0 var(--rose-garden);
+}
+
+.bp3-tab[aria-selected="true"],
+.bp3-tab:not([aria-disabled="true"]):hover {
+  color: var(--rose-garden);
+}
+
+.bp3-tab-indicator-wrapper .bp3-tab-indicator {
+  background-color: var(--rose-garden);
+}
+
+.bp3-label {
+  font-weight: 600;
+}
+
+.bp3-tab-list > *:not(:last-child) {
+  margin-right: 32px;
+} 
+
+/* Buttons */
+
+
+.btn {
+  display: inline-block;
+  line-height: 1.2;
+  padding: 8px 20px;
+  margin-top: 40px;
+  margin-bottom: 5px;
+  font-size: 0.875em;
+  font-family: Lato ,sans-serif;
+  font-weight: 400;
+  border-width: 2px !important;
+  border-style: solid !important;
+  text-decoration: none !important;
+  border-radius: 2px;
+  background-color: var(--rose-garden);
+  color: #fff;
+  border-color: var(--rose-garden);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+
+
+
+/* General Layout */
+
+.container {
+  width: 100%;
+}
+
+.block {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    align-items: flex-start;
+    padding: 40px 100px 100px;
+}
+
+/* Block Colors */
+
+.home-page-landing {
+  background-color: var(--berkeley-blue);
+}
+
+.home-page-resource-index {
+  background-color: var(--light-blue);
+}
+
+
+.home-page-center {
+  background-color: var(--berkeley-blue);
+
+}
+
+.home-page-testimonies {
+  background-color: var(--light-blue);
+}
+
+.home-page-donate {
+  background-color: white;
+
+}
+
+/* Landing */
+
+.home-page-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.home-page-landing-text {
+  text-align: left;
+  width: 55%;
+}
+
+/* Resource Index */
+
+.home-page-resource-text {
+  max-width: 75%;
+  min-width: 55%;
+}
+
+/* Resource Index Cards */
+.card-img {
+  background: cornsilk;
+}
+
+.home-page-resource-cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+
+/* Card Itself */
+.home-page-resource-card {
+  background: white;
+  margin: 10px;
+  min-height: 255px;
+  min-width: 255px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  border-radius: 4px;
+  border-top: 8px solid var(--california-gold);
+
+}
+
+/* Text-Container - Card */
+.card-container {
+  padding: 0px 10px 0px 10px;
+  
+}
+
+/* Font Styling of Text - Card */
+.card-text {
+  font-family: 'Lato', sans-serif;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* BNS Center */
+
+.home-page-center {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.home-page-center-text {
+  width: 55%;
+}
+
+.btn-primary {
+  margin-right: 2%;
+}
+
+
+.white-text {
+  color: white;
+}
+
+/* Our Mission */
+
+
+.home-page-background {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.home-page-background-text {
+  width: 55%;
+}
+
+/* Student Testimonies */
+
+.home-page-testimonies-text {
+  max-width: 75%;
+  min-width: 55%;
+}
+.home-page-testimony-cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-evenly;
+
+}
+
+.home-page-testimony-card {
+  background: white;
+  margin: 15px;
+  width: 250px;
+  height: 350px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  border-radius: 4px;
+  border-top: 8px solid var(--california-gold);
+}
+
+.card-test-container {
+  width: 250px;
+  margin: 0 auto;
+  text-align: left;
+
+}
+
+.card-test-text {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top:  10px;
+  height: 110px;
+  overflow: scroll;
+  font-family: 'Lato', sans-serif;
+  color: #333333;
+  font-size: 12px;
+  font-weight: 200;
+  
+}
+/* Donate */
+
+.home-page-donate {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.home-page-right {
+  width: 50%;
+}
+
+
+.home-page-donate-label {
+  font-size: 0.875em;
+  font-family: Lato ,sans-serif;
+  font-weight: 400;
+}
+
+.home-page-donate-info {
+  width: 100%;
+  line-height: 1.2;
+  font-size: 0.9em;
+  font-family: Lato ,sans-serif;
+  font-weight: 400;
+
+}
+
+.info {
+  padding-top: 8%;
+  line-height: 1.4;
+  font-size: 0.9em;
+  font-family: Lato ,sans-serif;
+  font-weight: 400;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.donate-by-mail {
+
+  min-width: 50%;
+}
+
+
+// donate page
+
+
+/* General Layout */
+
+.donate-page-container {
+    width: 100%;
+  }
+  
+  .donate-page-block {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: left;
+      align-items: flex-start;
+      padding: 40px 100px 100px;
+  }
+  
+  /* Block Colors */
+  
+  
+  .donate-page-donate {
+    background-color: white;
+  }
+  
+  
+  /* Donate */
+  
+  .donate-page-donate {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .donate-page-right {
+    width: 50%;
+  }
+  
+  
+  .donate-page-donate-label {
+    font-size: 0.875em;
+    font-family: Lato ,sans-serif;
+    font-weight: 400;
+  }
+  
+  .donate-page-donate-info {
+      width: 100%;
+    line-height: 1.2;
+    font-size: 0.9em;
+    font-family: Lato ,sans-serif;
+    font-weight: 400;
+  
+  }
+  
+  .donate-page-info {
+    padding-top: 8%;
+    line-height: 1.4;
+    font-size: 0.9em;
+    font-family: Lato ,sans-serif;
+    font-weight: 400;
+  }
+  
+  .donate-page-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .donate-page-donate-by-mail {
+    min-width: 50%;
+  }
+  
+  .drop-shadow-img {
+      background: gray;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+  }
+  
+
+//   Testimonies
+
+* General Layout */
+
+.testimonies-page-container {
+  width: 100%;
+}
+
+.testimonies-page-block {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    align-items: flex-start;
+    padding: 20px 100px;
+}
+
+.testimonies-page-testimonies {
+    background: var(--light-blue);
+}
+
+.testimonies-cover-image {
+    background: gray;
+}
+
+/* Width of Paragraphs */
+
+.half-width {
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+/* Community Stories */
+
+.testimonies-cover-image-text, .testimonies-stories-text {
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+.testimonies-cover-image-text {
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+
+
+/* BNS Center */
+
+.testimonies-page-center {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.testimonies-page-center-text {
+  width: 55%;
+}
+
+.btn-primary {
+  margin-right: 2%;
+}
+
+
+.white-text {
+  color: white;
+}
+
+
+
+/* Student Testimonies */
+
+.testimonies-page-testimonies-text {
+  max-width: 75%;
+  min-width: 55%;
+}
+.testimonies-page-testimony-testimonies-page-cards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-evenly;
+
+}
+
+.testimonies-page-testimony-testimonies-page-card {
+  background: white;
+  margin: 15px;
+  width: 250px;
+  height: 350px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  border-radius: 4px;
+  border-top: 8px solid var(--california-gold);
+}
+
+.testimonies-page-card-test-container {
+  width: 250px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.testimonies-page-card-test-text {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top:  10px;
+  height: 110px;
+  overflow: scroll;
+  font-family: 'Lato', sans-serif;
+  color: #333333;
+  font-size: 12px;
+  font-weight: 200;
+  
+}
+
+
+// About Page
+
+/* General Layout */
+
+.about-page-container {
+    width: 100%;
+  }
+  
+  /* BNS Center */
+  
+  .about-page-center  {
+    background-color: white;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 100px;
+    }
+  
+    .about-page-center-text {
+    width: 55%;
+    }
+    
+    .btn-primary {
+    margin-right: 2%;
+    }
+    
+  
+  /* BNS Background */
+  
+  .about-page-background {
+    background-color: var(--light-blue);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 40px 100px;
+    }
+  
+  .about-page-background-text {
+    width: 55%;
+    } 
+    
+  
+  /* Team */
+  
+  .about-page-team {
+    padding: 40px 100px;
+  }
+  
+  .about-page-team-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 50px 0px;
+  }
+  
+  /* Card Itself */
+  .about-page-team-card {
+  line-height: 1.2em;
+  height: 125px;
+  display: flex;
+  text-align: left;
+  background: white;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  
+  }
+  
+  .about-page-team-img {
+    max-width: 125px;
+    background: gray;
+    border-radius: 2px;
+  }
+  
+  /* Text-Container - Card */
+  .about-page-team-text-container {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 400px;
+  
+  }
+  
+  
+  /* Font Styling of Text - Card */
+  
+  .about-page-team-description {
+  font-family: 'Lato', sans-serif;
+  color: #333333;
+  font-size: 0.675em;
+  }
+  
+  
+  
+  
+  
+  
+  /* Areas of Focus*/
+  
+  .about-page-focus {
+    background-color: var(--light-blue);
+    padding: 40px 100px;
+    }
+  
+  .about-page-focus-text {
+    width: 65%;
+  }
+  
+  
+  .about-page-focus-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 50px 0px;
+  }
+  
+  /* Card Itself */
+  .about-page-focus-card {
+  line-height: 1.2em;
+  height: 175px;
+  display: flex;
+  text-align: left;
+  background: white;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
+  
+  }
+  
+  .about-page-focus-img {
+    max-width: 175px;
+    background: gray;
+    border-radius: 3px;
+  }
+  
+  /* Text-Container - Card */
+  .about-page-focus-text-container {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 400px;
+  
+  }
+  
+  
+  /* Font Styling of Text - Card */
+  
+  .about-page-focus-description {
+  padding-right: 10px;
+  height: 100px;
+  overflow: scroll;
+  font-family: 'Lato', sans-serif;
+  color: #333333;
+  font-size: 0.675em;
+  }
+  
+  
+  

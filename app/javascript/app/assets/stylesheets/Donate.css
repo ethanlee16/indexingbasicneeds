@@ -116,11 +116,11 @@ p {
 
 /* General Layout */
 
-.container {
+.donate-page-container {
   width: 100%;
 }
 
-.block {
+.donate-page-block {
     display: flex;
     flex-flow: row wrap;
     justify-content: left;
@@ -164,7 +164,7 @@ p {
 
 }
 
-.info {
+.donate-page-info {
   padding-top: 8%;
   line-height: 1.4;
   font-size: 0.9em;
@@ -172,13 +172,13 @@ p {
   font-weight: 400;
 }
 
-.row {
+.donate-page-row {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.donate-by-mail {
+.donate-page-donate-by-mail {
   min-width: 50%;
 }
 

@@ -116,11 +116,11 @@ p {
 
 /* General Layout */
 
-.container {
+.testimonies-page-container {
   width: 100%;
 }
 
-.block {
+.testimonies-page-block {
     display: flex;
     flex-flow: row wrap;
     justify-content: left;
@@ -128,7 +128,7 @@ p {
     padding: 20px 100px;
 }
 
-.home-page-testimonies {
+.testimonies-page-testimonies {
     background: var(--light-blue);
 }
 
@@ -160,13 +160,13 @@ p {
 
 /* BNS Center */
 
-.home-page-center {
+.testimonies-page-center {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.home-page-center-text {
+.testimonies-page-center-text {
   width: 55%;
 }
 
@@ -183,22 +183,23 @@ p {
 
 /* Student Testimonies */
 
-.home-page-testimonies-text {
+.testimonies-page-testimonies-text {
   max-width: 75%;
   min-width: 55%;
 }
-.home-page-testimony-cards {
+.testimonies-page-testimony-testimonies-page-cards {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+  justify-content: space-evenly;
 
 }
 
-.home-page-testimony-card {
+.testimonies-page-testimony-testimonies-page-card {
   background: white;
   margin: 15px;
-  width: 285px;
+  width: 250px;
   height: 350px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
@@ -206,13 +207,18 @@ p {
   border-top: 8px solid var(--california-gold);
 }
 
-.card-test-container {
-  width: 80%;
+.testimonies-page-card-test-container {
+  width: 250px;
   margin: 0 auto;
   text-align: left;
 }
 
-.card-test-text {
+.testimonies-page-card-test-text {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top:  10px;
+  height: 110px;
+  overflow: scroll;
   font-family: 'Lato', sans-serif;
   color: #333333;
   font-size: 12px;

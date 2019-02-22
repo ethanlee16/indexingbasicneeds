@@ -156,14 +156,14 @@ margin-bottom: 30px;
 
 }
 
-.team-img {
+.about-page-team-img {
   max-width: 125px;
   background: gray;
   border-radius: 2px;
 }
 
 /* Text-Container - Card */
-.team-text-container {
+.about-page-team-text-container {
 padding-left: 10px;
 padding-right: 10px;
 width: 400px;
@@ -173,7 +173,7 @@ width: 400px;
 
 /* Font Styling of Text - Card */
 
-.team-description {
+.about-page-team-description {
 font-family: 'Lato', sans-serif;
 color: #333333;
 font-size: 0.675em;
@@ -217,14 +217,14 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
 
 }
 
-.focus-img {
+.about-page-focus-img {
   max-width: 175px;
   background: gray;
   border-radius: 3px;
 }
 
 /* Text-Container - Card */
-.focus-text-container {
+.about-page-focus-text-container {
 padding-left: 10px;
 padding-right: 10px;
 width: 400px;
@@ -234,7 +234,10 @@ width: 400px;
 
 /* Font Styling of Text - Card */
 
-.focus-description {
+.about-page-focus-description {
+padding-right: 10px;
+height: 100px;
+overflow: scroll;
 font-family: 'Lato', sans-serif;
 color: #333333;
 font-size: 0.675em;
