@@ -176,6 +176,7 @@
   background: cornsilk;
   height: 200px;
   width: 100%;
+  overflow: hidden;
 }
 
 .home-page-resource-cards {
@@ -286,6 +287,21 @@
   font-weight: 200;
 }
 /* Donate */
+
+.home-page-logo {
+  width: 280px;
+}
+
+.home-values {
+  width: 400px;
+}
+
+.home-page-student {
+  display: block;
+  width: 100%;
+  margin: auto;
+  transform: translateY(-15%);
+}
 
 .home-page-donate {
   display: flex;

@@ -3,6 +3,11 @@ import { Button, Intent } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import Navbar from "./common/Navbar";
 
+import Logo from "images/bnc-logo-white.png";
+import ValuesImage from "images/home-background.png";
+import Ruben from "images/team-ruben.jpg";
+import Center from "images/home-ourcenter-2.png";
+
 class HomePage extends React.Component {
   render() {
     return (
@@ -40,7 +45,9 @@ class HomePage extends React.Component {
                 </Link>
               </div>
             </div>
-            <div className="home-page-left-img">BNS Logo here</div>
+            {/* <div className="home-page-left-img">
+              <img className="home-page-logo" src={Logo} alt="logo" />
+            </div> */}
           </div>
         </div>
 
@@ -68,8 +75,7 @@ class HomePage extends React.Component {
               />
             </Link>
           </div>
-
-          <div className="home-page-left-img">Background Img Here</div>
+          <img className="home-values" src={ValuesImage} alt="values" />
         </div>
 
         {/* Resource Index Block */}
@@ -87,7 +93,11 @@ class HomePage extends React.Component {
           <div className="home-page-resource-cards">
             <div className="home-page-resource-card">
               <div className="card-img">
-                {/* <img src="rock600x400.jpg" alt="Undergraduate" style="width:100%;"> */}
+                <img
+                  className="home-page-student"
+                  src={Ruben}
+                  alt="Undergraduate"
+                />
               </div>
 
               <div className="card-container">
@@ -97,7 +107,11 @@ class HomePage extends React.Component {
 
             <div className="home-page-resource-card">
               <div className="card-img">
-                {/* <img src="rock600x400.jpg" alt="Undergraduate" style="width:100%;"> */}
+                <img
+                  className="home-page-student"
+                  src={Ruben}
+                  alt="Undergraduate"
+                />
               </div>
               <div className="card-container">
                 <p className="card-text">Graduate / Professional Student</p>
@@ -106,7 +120,11 @@ class HomePage extends React.Component {
 
             <div className="home-page-resource-card">
               <div className="card-img">
-                {/* <img src="rock600x400.jpg" alt="Undergraduate" style="width:100%;"> */}
+                <img
+                  className="home-page-student"
+                  src={Ruben}
+                  alt="Undergraduate"
+                />
               </div>
               <div className="card-container">
                 <p className="card-text">Service Worker / Staff</p>
@@ -158,8 +176,7 @@ class HomePage extends React.Component {
           </div>
 
           <div className="home-page-left-img">
-            BNS Center Img Here
-            {/* <img src="BNS-logo"> */}
+            <img className="home-page-center" src={Center} alt="Center" />
           </div>
         </div>
 
