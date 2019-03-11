@@ -163,14 +163,17 @@ class HomePage extends React.Component {
               Workers.
             </p>
             <br />
-            <Link to="/">
+            <a
+              href="https://ucberkeleybasicneeds.youcanbook.me/"
+              target="_blank"
+            >
               <Button
                 large
                 className="button-primary"
                 intent={Intent.PRIMARY}
                 text="Book Appointment"
               />
-            </Link>
+            </a>
           </div>
 
           <div className="home-page-left-img">
@@ -278,7 +281,7 @@ class HomePage extends React.Component {
               </p>
 
               <a
-                href="http://give.berkeley.edu/browse/?u=408"
+                href="https://give.berkeley.edu/browse/?u=408"
                 target="_blank"
                 style={{ display: "block", marginTop: "24px" }}
               >
