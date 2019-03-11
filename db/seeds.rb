@@ -55,11 +55,11 @@ def create_resource_tags
 end
 
 def create_resource_categories
-  ResourceCategory.find_or_create_by(name: 'Food Support')
-  ResourceCategory.find_or_create_by(name: 'Housing Support')
-  ResourceCategory.find_or_create_by(name: 'Economic Support')
-  ResourceCategory.find_or_create_by(name: 'Emergency Support')
-  ResourceCategory.find_or_create_by(name: 'Holistic Support')
+  ResourceCategory.find_or_create_by(name: 'Food Support', description: "The provision of food or financial support in emergency situations or to provide longer-term solutions in areas where food resources are limited")
+  ResourceCategory.find_or_create_by(name: 'Housing Support', description: "Assistance to enable individuals secure and maintain suitable housing or shelter")
+  ResourceCategory.find_or_create_by(name: 'Economic Support', description: "Financial security of having stable and predictable income or other resources to support a standard of living now and in the foreseeable future")
+  ResourceCategory.find_or_create_by(name: 'Emergency Support', description: "Relief or interventions for students experiencing acute emotional, medical, psychological or resource stressors")
+  ResourceCategory.find_or_create_by(name: 'Holistic Support', description: "A broad range of services that address the ongoing and dynamic needs in all domains of one’s life across personal, social, and academic/professional wellbeing")
 end
 
 def create_users
