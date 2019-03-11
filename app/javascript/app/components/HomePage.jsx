@@ -277,14 +277,18 @@ class HomePage extends React.Component {
                 basic needs secure institution.
               </p>
 
-              <Link to="/" style={{ display: "block", marginTop: "24px" }}>
+              <a
+                href="http://give.berkeley.edu/browse/?u=408"
+                target="_blank"
+                style={{ display: "block", marginTop: "24px" }}
+              >
                 <Button
                   large
                   className="button-primary"
                   intent={Intent.PRIMARY}
                   text="Donate now"
                 />
-              </Link>
+              </a>
               <br />
             </div>
 
