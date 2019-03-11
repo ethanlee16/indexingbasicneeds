@@ -314,7 +314,6 @@ class ResourceIndexPage extends React.Component {
                 return (
                   <Tab id={category.id} key={`category-tab-${i}`}>
                     <Tooltip
-                      hoverOpenDelay={500}
                       position={Position.BOTTOM}
                       content={category.description}
                     >

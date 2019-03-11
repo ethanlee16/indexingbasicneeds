@@ -6,9 +6,10 @@ import UpdateResourcePage from "./components/UpdateResourcePage";
 import ShowResourcePage from "./components/ShowResourcePage";
 import AboutPage from "./components/AboutPage";
 import HomePage from "./components/HomePage";
+import CalendarPage from "./components/CalendarPage";
+import WorkInProgressPage from "./components/WorkInProgressPage";
 
 import "./assets/stylesheets/app";
-import WorkInProgressPage from "./components/WorkInProgressPage";
 
 const App = props => (
   <Router>
@@ -16,7 +17,7 @@ const App = props => (
       <Route exact path="/" component={HomePage} />
       <Route path="/about" component={WorkInProgressPage} />
       <Route path="/get_involved" component={WorkInProgressPage} />
-      <Route path="/calendar" component={WorkInProgressPage} />
+      <Route path="/calendar" component={CalendarPage} />
 
       <Switch>
         <Route path="/guides" component={WorkInProgressPage} />

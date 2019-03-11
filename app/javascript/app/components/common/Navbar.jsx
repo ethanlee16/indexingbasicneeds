@@ -308,14 +308,14 @@ export default class extends React.Component {
               icon="people"
               text="Get Involved"
             />
-          </Link>
+          </Link> */}
           <Link to="/calendar" className="bns-navbar-item">
             <Button
               className={Classes.MINIMAL}
               icon="calendar"
               text="Calendar"
             />
-          </Link> */}
+          </Link>
         </NavbarGroup>
         <NavbarGroup align={Alignment.RIGHT}>
           <NavbarDivider />
