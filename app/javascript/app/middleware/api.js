@@ -23,7 +23,12 @@ class API {
   }
 
   static async Logout() {
-    return await Requester.destroy("/api/auth/sign_out");
+    try {
+      return await Requester.destroy("/api/auth/sign_out");
+    } catch (error) {
+      removeUserSession();
+      console.warn(error);
+    }
   }
 
   static async ResourcesIndex(
