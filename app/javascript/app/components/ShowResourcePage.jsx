@@ -1,5 +1,13 @@
 import React from "react";
-import { Button, H1, Tag, Intent } from "@blueprintjs/core";
+import {
+  Button,
+  Callout,
+  H1,
+  Tag,
+  Icon,
+  Intent,
+  HTMLTable,
+} from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 
 import Navbar from "./common/Navbar";
@@ -52,13 +60,14 @@ class ShowResourcePage extends React.Component {
   }
 
   render() {
+    const resource = this.state.resource;
     return (
       <div className="container is-widescreen page-container">
         <Navbar />
         <div className="resource-show-page-title-container">
-          <H1>{this.state.resource.title}</H1>
+          <H1>{resource.title}</H1>
           {checkUserIsAdmin() && (
-            <Link to={`/resources/${this.state.resource.id}/edit`}>
+            <Link to={`/resources/${resource.id}/edit`}>
               <Button
                 large
                 className="button-primary"
@@ -69,9 +78,93 @@ class ShowResourcePage extends React.Component {
             </Link>
           )}
         </div>
-        <div dangerouslySetInnerHTML={{ __html: this.state.resource.body }} />
+
         {this.renderResourceCategories()}
         {this.renderResourceTags()}
+
+        <h4>Description</h4>
+        <p>{resource.description}</p>
+
+        {resource.deadlines && (
+          <Callout title="Deadlines Notice" intent={Intent.WARNING}>
+            {resource.deadlines}
+          </Callout>
+        )}
+
+        <HTMLTable small interactive className="resource-modal-table">
+          <thead>
+            <tr>
+              <th colSpan={2}>
+                <h4>Quick Facts</h4>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <Icon icon="map-marker" iconSize={16} />
+              </td>
+              <td>
+                <p>{resource.address}</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Icon icon="phone" iconSize={16} />
+              </td>
+              <td>
+                <p>{resource.contact_info}</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Icon icon="time" iconSize={16} />
+              </td>
+              <td>
+                <p>{resource.hours_of_operation}</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Icon icon="dollar" iconSize={16} />
+              </td>
+              <td>
+                <p>{resource.cost}</p>
+              </td>
+            </tr>
+          </tbody>
+        </HTMLTable>
+
+        {resource.eligibility && (
+          <Callout title="Eligibility" intent={Intent.PRIMARY}>
+            {resource.eligibility}
+          </Callout>
+        )}
+
+        <h4>Website</h4>
+        {resource.link && (
+          <a
+            href={resource.link}
+            className="resource-modal-link"
+            target="_blank"
+          >
+            <Button
+              large
+              minimal
+              fill
+              icon="link"
+              intent={Intent.PRIMARY}
+              text={resource.link}
+            />
+          </a>
+        )}
+
+        {resource.body && (
+          <React.Fragment>
+            <h4>Additional Notes</h4>
+            <div dangerouslySetInnerHTML={{ __html: resource.body }} />
+          </React.Fragment>
+        )}
       </div>
     );
   }
