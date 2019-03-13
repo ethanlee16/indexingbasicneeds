@@ -1,0 +1,2 @@
+class ResearchFile < ApplicationRecord
+end
