@@ -27,5 +27,6 @@ Rails.application.routes.draw do
     end
     resources :resource_tags, only: [:index]
     resources :resource_categories, only: [:index]
+    resources :research_files, only: [:index, :create]
   end
 end

@@ -12,6 +12,8 @@
 #
 
 class ResearchFile < ApplicationRecord
+  has_one_attached :file
+
   CATEGORIES = {
     campus: 0,
     statewide: 1,
