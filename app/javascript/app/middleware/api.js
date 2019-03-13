@@ -84,6 +84,10 @@ class API {
     return await Requester.get("/api/resource_categories");
   }
 
+  static async GetResearchFiles() {
+    return await Requester.get("/api/research_files");
+  }
+
   static async CreateResearchFile(researchFile) {
     const payload = {
       research_file: researchFile,

@@ -4,7 +4,7 @@ class Api::ResearchFilesController < ApplicationController
   before_action :authenticate_api_user!, except: %i[index]
 
   def index
-    research_files = ResearchFiles.all
+    research_files = ResearchFile.all
     render json: research_files, status: :ok
   end
 

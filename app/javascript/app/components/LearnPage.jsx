@@ -14,6 +14,7 @@ import {
   InputGroup,
   Toaster,
   FileInput,
+  Card,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
@@ -32,9 +33,14 @@ class LearnPage extends React.Component {
     super(props);
 
     this.state = {
+      files: [],
       formFields: this.getInitialFormFields(),
       isModalOpen: false,
     };
+  }
+
+  componentWillMount() {
+    this.refreshResearchFiles();
   }
 
   getInitialFormFields() {
@@ -51,6 +57,15 @@ class LearnPage extends React.Component {
       return "No file selected";
     }
     return files[0].name;
+  }
+
+  async refreshResearchFiles() {
+    try {
+      let { json, headers } = await API.GetResearchFiles();
+      this.setState({ files: json });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   updateFormFieldCallback(fieldName) {
@@ -105,6 +120,7 @@ class LearnPage extends React.Component {
       intent: Intent.SUCCESS,
     });
     this.closeModal();
+    this.refreshResearchFiles();
   };
 
   renderFileUploadModal() {
@@ -212,7 +228,10 @@ class LearnPage extends React.Component {
             />
           )}
         </div>
-        <br />
+
+        {this.state.files.map(file => (
+          <Card>{file.name}</Card>
+        ))}
       </div>
     );
   }
