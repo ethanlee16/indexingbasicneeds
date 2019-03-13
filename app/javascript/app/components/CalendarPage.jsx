@@ -14,7 +14,7 @@ class CalendarPage extends React.Component {
           src="https://calendar.google.com/calendar/embed?src=berkeley.edu_o1rslfc34v1vp6cdispb0bb6pk%40group.calendar.google.com&ctz=America%2FLos_Angeles"
           width="1000"
           height="640"
-          frameborder="0"
+          frameBorder="0"
           scrolling="no"
         />
       </div>
