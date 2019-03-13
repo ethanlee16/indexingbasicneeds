@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, H1 } from "@blueprintjs/core";
-import { Link } from "react-router-dom";
 
 import Navbar from "./common/Navbar";
 

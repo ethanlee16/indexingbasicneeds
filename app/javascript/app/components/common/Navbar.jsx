@@ -316,6 +316,9 @@ export default class extends React.Component {
               text="Calendar"
             />
           </Link>
+          <Link to="/learn" className="bns-navbar-item">
+            <Button className={Classes.MINIMAL} icon="chart" text="Learn" />
+          </Link>
         </NavbarGroup>
         <NavbarGroup align={Alignment.RIGHT}>
           <NavbarDivider />

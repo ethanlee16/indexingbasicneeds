@@ -7,6 +7,7 @@ import ShowResourcePage from "./components/ShowResourcePage";
 import AboutPage from "./components/AboutPage";
 import HomePage from "./components/HomePage";
 import CalendarPage from "./components/CalendarPage";
+import LearnPage from "./components/LearnPage";
 import WorkInProgressPage from "./components/WorkInProgressPage";
 
 import "./assets/stylesheets/app";
@@ -18,6 +19,7 @@ const App = props => (
       <Route path="/about" component={WorkInProgressPage} />
       <Route path="/get_involved" component={WorkInProgressPage} />
       <Route path="/calendar" component={CalendarPage} />
+      <Route path="/learn" component={LearnPage} />
 
       <Switch>
         <Route path="/guides" component={WorkInProgressPage} />
