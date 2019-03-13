@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 class Api::ResearchFilesController < ApplicationController
-  before_action :authenticate_api_user!
+  before_action :authenticate_api_user!, except: %i[index]
 
   def index
-    files = ResearchFiles.all
-    render json: files, status: :ok
+    research_files = ResearchFiles.all
+    render json: research_files, status: :ok
   end
 
   def create
-    file = ResearchFile.create(research_file_params)
-    authorize file
-    render json: file, status: :ok
+    research_file = ResearchFile.create!(research_file_params)
+    authorize research_file
+    render json: research_file, status: :ok
   end
 
   private

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/resources/:id/edit', to: 'pages#root'
   get '/resources', to: 'pages#root'
 
-  post '/rails/active_storage/direct_uploads', to: 'direct_uploads#create'
+  post '/rails/active_storage/direct_uploads', to: 'api/direct_uploads#create'
 
   namespace :api, defaults: { format: %i[json csv] } do
     mount_devise_token_auth_for 'User', at: 'auth'

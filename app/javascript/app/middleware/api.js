@@ -83,6 +83,13 @@ class API {
   static async GetResourceCategories() {
     return await Requester.get("/api/resource_categories");
   }
+
+  static async CreateResearchFile(researchFile) {
+    const payload = {
+      research_file: researchFile,
+    };
+    return await Requester.post("/api/research_files", payload);
+  }
 }
 
 export default API;

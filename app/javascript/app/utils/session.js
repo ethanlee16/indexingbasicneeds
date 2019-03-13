@@ -58,6 +58,15 @@ function getAuthRequestHeaders() {
   };
 }
 
+function getCSRFHeaders() {
+  let headers = {};
+  const csrfHeader = document.querySelector('meta[name="csrf-token"]');
+  if (csrfHeader) {
+    headers["X-CSRF-Token"] = csrfHeader.content;
+  }
+  return headers;
+}
+
 export {
   checkUserSignedIn,
   checkUserIsAdmin,
@@ -65,4 +74,5 @@ export {
   removeUserSession,
   refreshAccessToken,
   getAuthRequestHeaders,
+  getCSRFHeaders,
 };

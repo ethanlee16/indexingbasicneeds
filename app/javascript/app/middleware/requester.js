@@ -7,7 +7,11 @@
  * @param {object} params: object containing payload body
  */
 
-import { getAuthRequestHeaders, refreshAccessToken } from "../utils/session";
+import {
+  getAuthRequestHeaders,
+  refreshAccessToken,
+  getCSRFHeaders,
+} from "../utils/session";
 
 class BaseRequester {
   /**
@@ -82,13 +86,8 @@ class BaseRequester {
       Accept: "application/json",
       "Content-Type": "application/json",
       ...getAuthRequestHeaders(),
+      ...getCSRFHeaders(),
     };
-
-    const csrfHeader = document.querySelector('meta[name="csrf-token"]');
-    if (csrfHeader) {
-      headers["X-CSRF-Token"] = csrfHeader.content;
-    }
-
     return headers;
   }
 
