@@ -15,6 +15,7 @@ import {
   Toaster,
   FileInput,
   Card,
+  ProgressBar,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
@@ -190,16 +191,13 @@ class LearnPage extends React.Component {
                       );
                     case "uploading":
                       return (
-                        <p key={upload.id}>
-                          Uploading {upload.file.name}: {upload.progress}%
-                        </p>
+                        <ProgressBar
+                          intent={Intent.PRIMARY}
+                          value={upload.progress / 100.0}
+                        />
                       );
                     case "finished":
-                      return (
-                        <p key={upload.id}>
-                          Finished uploading {upload.file.name}
-                        </p>
-                      );
+                      return <ProgressBar intent={Intent.SUCCESS} value={1} />;
                   }
                 })}
               </div>
