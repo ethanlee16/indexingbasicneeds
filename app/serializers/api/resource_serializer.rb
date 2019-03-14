@@ -20,7 +20,7 @@ class Api::ResourceSerializer < ActiveModel::Serializer
   has_many :resource_tags
 
   def updated_at
-    object.updated_at.strftime("%F, %H:%M")
+    object.updated_at.strftime("%b %e, %Y, %l:%M %p")
   end
 
   def num_likes

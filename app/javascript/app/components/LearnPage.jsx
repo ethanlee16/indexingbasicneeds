@@ -142,6 +142,7 @@ class LearnPage extends React.Component {
     this.closeModal();
     this.refreshResearchFiles();
   };
+
   renderTableHeaders() {
     return (
       <thead>
@@ -159,6 +160,7 @@ class LearnPage extends React.Component {
       </thead>
     );
   }
+
   renderFileUploadModal() {
     return (
       <Dialog onClose={this.closeModal} isOpen={this.state.isModalOpen}>
@@ -312,7 +314,16 @@ class LearnPage extends React.Component {
                   </td>
                   <td>{file.name}</td>
                   <td>{file.updated_at}</td>
-                  <td>Download</td>
+                  <td>
+                    <a href={file.download_link} target="_blank">
+                      <Button
+                        large
+                        minimal
+                        intent={Intent.PRIMARY}
+                        text="Download"
+                      />
+                    </a>
+                  </td>
                 </tr>
               ))}
             </tbody>
