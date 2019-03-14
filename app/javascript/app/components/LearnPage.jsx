@@ -7,7 +7,6 @@ import {
   H1,
   Intent,
   Dialog,
-  H2,
   Classes,
   H4,
   FormGroup,
@@ -16,6 +15,8 @@ import {
   FileInput,
   Card,
   ProgressBar,
+  RadioGroup,
+  Radio,
 } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
@@ -62,7 +63,7 @@ class LearnPage extends React.Component {
 
   async refreshResearchFiles() {
     try {
-      let { json, headers } = await API.GetResearchFiles();
+      let { json } = await API.GetResearchFiles();
       this.setState({ files: json });
     } catch (error) {
       console.error(error);
@@ -77,6 +78,15 @@ class LearnPage extends React.Component {
       this.setState(newState);
     };
   }
+
+  updateRadioFieldCallback = fieldName => event => {
+    const newState = update(this.state, {
+      formFields: {
+        [fieldName]: { $set: parseInt(event.currentTarget.value) },
+      },
+    });
+    this.setState(newState);
+  };
 
   updateFilesChangedCallback = event => {
     const newState = update(this.state, {
@@ -120,6 +130,8 @@ class LearnPage extends React.Component {
       message: "File successfully uploaded!",
       intent: Intent.SUCCESS,
     });
+
+    this.setState({ formFields: this.getInitialFormFields() });
     this.closeModal();
     this.refreshResearchFiles();
   };
@@ -130,34 +142,45 @@ class LearnPage extends React.Component {
         <div className={Classes.DIALOG_HEADER}>
           <H4>Upload File</H4>
         </div>
-        <div className={Classes.DIALOG_BODY}>
-          <FormGroup
-            label="Display Name"
-            labelFor="name-input"
-            labelInfo="(required)"
-          >
-            <InputGroup
-              id="name-input"
-              placeholder="Enter name here..."
-              onChange={this.updateFormFieldCallback("name")}
-              value={this.state.formFields.name}
-              large
-            />
-          </FormGroup>
-          <DirectUploadProvider
-            endpoint={{
-              path: "/api/research_files",
-              model: "Research_File",
-              attribute: "file",
-              method: "POST",
-            }}
-            headers={{
-              ...getAuthRequestHeaders(),
-              ...getCSRFHeaders(),
-            }}
-            onSuccess={this.handleSuccessfulUpload}
-            render={({ handleUpload, uploads, ready }) => (
-              <div>
+        <DirectUploadProvider
+          endpoint={{
+            path: "/api/research_files",
+            model: "Research_File",
+            attribute: "file",
+            method: "POST",
+          }}
+          headers={{
+            ...getAuthRequestHeaders(),
+            ...getCSRFHeaders(),
+          }}
+          onSuccess={this.handleSuccessfulUpload}
+          render={({ handleUpload, uploads, ready }) => (
+            <React.Fragment>
+              <div className={Classes.DIALOG_BODY}>
+                <FormGroup
+                  label="Display Name"
+                  labelFor="name-input"
+                  labelInfo="(required)"
+                >
+                  <InputGroup
+                    id="name-input"
+                    placeholder="Enter name here..."
+                    onChange={this.updateFormFieldCallback("name")}
+                    value={this.state.formFields.name}
+                    large
+                  />
+                </FormGroup>
+
+                <RadioGroup
+                  label="Research File Category"
+                  onChange={this.updateRadioFieldCallback("category")}
+                  selectedValue={this.state.formFields.category}
+                >
+                  <Radio label="Campus" value={0} />
+                  <Radio label="Statewide" value={1} />
+                  <Radio label="National" value={2} />
+                </RadioGroup>
+
                 <FormGroup
                   label="File"
                   labelFor="file-input"
@@ -171,16 +194,6 @@ class LearnPage extends React.Component {
                   />
                 </FormGroup>
 
-                <Button
-                  large
-                  className="button-primary"
-                  intent={Intent.PRIMARY}
-                  text="Submit"
-                  onClick={() => {
-                    handleUpload(this.state.formFields.file);
-                  }}
-                />
-
                 {uploads.map(upload => {
                   switch (upload.state) {
                     case "waiting":
@@ -192,44 +205,83 @@ class LearnPage extends React.Component {
                     case "uploading":
                       return (
                         <ProgressBar
+                          key={upload.id}
                           intent={Intent.PRIMARY}
                           value={upload.progress / 100.0}
                         />
                       );
                     case "finished":
-                      return <ProgressBar intent={Intent.SUCCESS} value={1} />;
+                      return (
+                        <ProgressBar
+                          key={upload.id}
+                          intent={Intent.SUCCESS}
+                          value={1}
+                        />
+                      );
                   }
                 })}
               </div>
-            )}
-          />
-        </div>
+
+              <div className={Classes.DIALOG_FOOTER}>
+                <div className={Classes.DIALOG_FOOTER_ACTIONS}>
+                  <Button large text="Cancel" onClick={this.closeModal} />
+                  <Button
+                    large
+                    className="button-primary"
+                    intent={Intent.PRIMARY}
+                    text="Submit"
+                    onClick={() => {
+                      handleUpload(this.state.formFields.file);
+                    }}
+                  />
+                </div>
+              </div>
+            </React.Fragment>
+          )}
+        />
       </Dialog>
     );
   }
 
   render() {
     return (
-      <div className="page-container">
+      <div>
         <Navbar />
         {this.renderFileUploadModal()}
-        <div className="learn-page-title-container">
-          <H1>Learn</H1>
-          {checkUserIsAdmin() && (
-            <Button
-              large
-              className="button-primary"
-              intent={Intent.PRIMARY}
-              rightIcon="add"
-              text="Upload new file"
-              onClick={this.openModal}
-            />
-          )}
+
+        <div className="learn-page-banner-container">
+          <div className="learn-page-banner">
+            <H1>Basic Needs Security — Learning Materials</H1>
+          </div>
         </div>
 
-        {this.state.files.map(file => (
-          <Card>{file.name}</Card>
-        ))}
+        <div className="page-container">
+          <div className="learn-page-title-container">
+            <h1>Research</h1>
+            {checkUserIsAdmin() && (
+              <Button
+                large
+                className="button-primary"
+                intent={Intent.PRIMARY}
+                rightIcon="add"
+                text="Upload new file"
+                onClick={this.openModal}
+              />
+            )}
+          </div>
+
+          <p className="learn-page-research-description">
+            UC Berkeley Basic Needs efforts have been featured in the three
+            largest studies in the country on college student basic needs.
+            Additionally, UC Berkeley was selected by the Federal Government
+            Accountability Office to be included in their first national study
+            on college student food insecurity.
+          </p>
+
+          {this.state.files.map((file, i) => (
+            <Card key={`file-${i}`}>{file.name}</Card>
+          ))}
+        </div>
       </div>
     );
   }
