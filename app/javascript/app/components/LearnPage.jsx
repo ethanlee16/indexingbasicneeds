@@ -9,7 +9,9 @@ import {
   Dialog,
   Classes,
   H4,
+  HTMLTable,
   FormGroup,
+  Icon,
   InputGroup,
   Toaster,
   FileInput,
@@ -59,6 +61,11 @@ class LearnPage extends React.Component {
       return "No file selected";
     }
     return files[0].name;
+  }
+
+  getFilesByCategory(category) {
+    console.warn(this.state.files);
+    return this.state.files.filter(file => file.category === category);
   }
 
   async refreshResearchFiles() {
@@ -135,7 +142,23 @@ class LearnPage extends React.Component {
     this.closeModal();
     this.refreshResearchFiles();
   };
-
+  renderTableHeaders() {
+    return (
+      <thead>
+        <tr>
+          <th colSpan={2}>
+            <h4 className="learn-page-research-table-header">Name</h4>
+          </th>
+          <th>
+            <h4 className="learn-page-research-table-header">Date</h4>
+          </th>
+          <th>
+            <h4 className="learn-page-research-table-header">Action</h4>
+          </th>
+        </tr>
+      </thead>
+    );
+  }
   renderFileUploadModal() {
     return (
       <Dialog onClose={this.closeModal} isOpen={this.state.isModalOpen}>
@@ -277,6 +300,26 @@ class LearnPage extends React.Component {
             Accountability Office to be included in their first national study
             on college student food insecurity.
           </p>
+
+          <h3 className="learn-page-research-category">Campus Research</h3>
+          <HTMLTable className="learn-page-table">
+            {this.renderTableHeaders()}
+            <tbody>
+              {this.getFilesByCategory("campus").map((file, i) => (
+                <tr key={`campus-file-${i}`}>
+                  <td>
+                    <Icon icon="document" iconSize={18} />
+                  </td>
+                  <td>{file.name}</td>
+                  <td>{file.updated_at}</td>
+                  <td>Download</td>
+                </tr>
+              ))}
+            </tbody>
+          </HTMLTable>
+          <h3 className="learn-page-research-category">Statewide Research</h3>
+
+          <h3 className="learn-page-research-category">National Research</h3>
 
           {this.state.files.map((file, i) => (
             <Card key={`file-${i}`}>{file.name}</Card>

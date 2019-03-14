@@ -84,5 +84,7 @@ a {
 // Layouts
 
 .page-container {
-  padding: 60px;
+  display: flex;
+  flex-flow: column;
+  padding: 64px;
 }
