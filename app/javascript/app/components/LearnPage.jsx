@@ -329,12 +329,56 @@ class LearnPage extends React.Component {
             </tbody>
           </HTMLTable>
           <h3 className="learn-page-research-category">Statewide Research</h3>
+          <HTMLTable className="learn-page-table">
+            {this.renderTableHeaders()}
+            <tbody>
+              {this.getFilesByCategory("statewide").map((file, i) => (
+                <tr key={`statewide-file-${i}`}>
+                  <td>
+                    <Icon icon="document" iconSize={18} />
+                  </td>
+                  <td>{file.name}</td>
+                  <td>{file.updated_at}</td>
+                  <td>
+                    <a href={file.download_link} target="_blank">
+                      <Button
+                        large
+                        minimal
+                        intent={Intent.PRIMARY}
+                        text="Download"
+                      />
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </HTMLTable>
 
           <h3 className="learn-page-research-category">National Research</h3>
-
-          {this.state.files.map((file, i) => (
-            <Card key={`file-${i}`}>{file.name}</Card>
-          ))}
+          <HTMLTable className="learn-page-table">
+            {this.renderTableHeaders()}
+            <tbody>
+              {this.getFilesByCategory("national").map((file, i) => (
+                <tr key={`national-file-${i}`}>
+                  <td>
+                    <Icon icon="document" iconSize={18} />
+                  </td>
+                  <td>{file.name}</td>
+                  <td>{file.updated_at}</td>
+                  <td>
+                    <a href={file.download_link} target="_blank">
+                      <Button
+                        large
+                        minimal
+                        intent={Intent.PRIMARY}
+                        text="Download"
+                      />
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </HTMLTable>
         </div>
       </div>
     );
