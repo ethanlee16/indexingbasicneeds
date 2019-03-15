@@ -163,10 +163,7 @@ class HomePage extends React.Component {
               Workers.
             </p>
             <br />
-            <a
-              href="https://ucberkeleybasicneeds.youcanbook.me/"
-              target="_blank"
-            >
+            <a href="https://kiyokothomas.youcanbook.me/" target="_blank">
               <Button
                 large
                 className="button-primary"

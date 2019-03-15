@@ -64,7 +64,6 @@ class LearnPage extends React.Component {
   }
 
   getFilesByCategory(category) {
-    console.warn(this.state.files);
     return this.state.files.filter(file => file.category === category);
   }
 

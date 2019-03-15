@@ -11,7 +11,7 @@ class CalendarPage extends React.Component {
         <H1>Calendar</H1>
         <br />
         <iframe
-          src="https://calendar.google.com/calendar/embed?src=berkeley.edu_o1rslfc34v1vp6cdispb0bb6pk%40group.calendar.google.com&ctz=America%2FLos_Angeles"
+          src="https://calendar.google.com/calendar/embed?src=berkeley.edu_cjl3p43bc08bac4n9uk3ehdk54%40group.calendar.google.com&ctz=America%2FLos_Angeles"
           width="1000"
           height="640"
           frameBorder="0"
