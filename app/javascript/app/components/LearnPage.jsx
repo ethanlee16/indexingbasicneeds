@@ -67,14 +67,14 @@ class LearnPage extends React.Component {
     return this.state.files.filter(file => file.category === category);
   }
 
-  async refreshResearchFiles() {
+  refreshResearchFiles = async () => {
     try {
       let { json } = await API.GetResearchFiles();
       this.setState({ files: json });
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   updateFormFieldCallback(fieldName) {
     return event => {
@@ -270,7 +270,10 @@ class LearnPage extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar
+          onLogin={this.refreshResearchFiles}
+          onLogout={this.refreshResearchFiles}
+        />
         {this.renderFileUploadModal()}
 
         <div className="learn-page-banner-container">
