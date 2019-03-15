@@ -1,0 +1,64 @@
+@import "./variables";
+
+.learn-page-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  > h1 {
+    margin: 16px 0px;
+  }
+  margin-bottom: 16px;
+}
+
+.learn-page-banner-container {
+  background: url("../../../../assets/images/martinez.jpg") no-repeat bottom
+    center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.learn-page-banner {
+  background-image: linear-gradient(
+    0deg,
+    rgba(4, 51, 97, 0.5),
+    rgba(4, 51, 97, 0.8)
+  );
+  padding: 60px;
+  min-height: 420px;
+  > * {
+    color: white;
+  }
+}
+
+.learn-page-research-description {
+  max-width: 500px;
+  font-size: 18px;
+}
+
+.learn-page-research-category {
+  margin: 32px;
+  margin-bottom: 24px;
+  color: $dark-gray;
+}
+
+.learn-page-table {
+  margin: 0px 64px;
+  th {
+    text-align: center !important;
+  }
+  td {
+    text-align: center !important;
+    padding: 12px 40px !important;
+    vertical-align: middle !important;
+    font-size: 16px;
+  }
+}
+
+.learn-page-research-table-header {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0px;
+}
