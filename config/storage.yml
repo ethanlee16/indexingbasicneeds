@@ -10,7 +10,7 @@ amazon:
   service: S3
   access_key_id: ""
   secret_access_key: ""
-  region: ""
+  region: us-west-1
   bucket: basic-needs
 # Remember not to checkin your GCS keyfile to a repository
 # google:
