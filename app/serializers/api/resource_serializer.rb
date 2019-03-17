@@ -40,4 +40,11 @@ class Api::ResourceSerializer < ActiveModel::Serializer
     end
     return "N/A"
   end
+
+  def admin_note
+    unless scope[:current_user]
+      return "N/A"
+    end 
+    scope[:current_user].is_admin ? object.admin_note : "N/A"
+  end
 end
