@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Override default users sessions controller
-  # devise_for :users, controllers: {
-  #   sessions: 'users/sessions'
-  # }
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 
   root to: 'pages#root'
 

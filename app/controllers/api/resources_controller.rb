@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Api::ResourcesController < ApplicationController
+class Api::ResourcesController < Api::ApiController
   before_action :parse_tag_ids, only: [:index]
   before_action :authenticate_api_user!, except: %i[index show]
 

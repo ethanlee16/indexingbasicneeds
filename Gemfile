@@ -49,6 +49,7 @@ gem 'pundit', '~> 2.0.1'
 gem 'figaro', '~> 1.1.1'
 gem 'airrecord', '~> 1.0.2'
 gem 'aws-sdk-s3', '~> 1.31', require: false
+gem 'rails_admin', '~> 1.4', '>= 1.4.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

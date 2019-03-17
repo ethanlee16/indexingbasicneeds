@@ -8,16 +8,20 @@ class ApplicationPolicy
     @record = record
   end
 
+  def dashboard?
+    user.is_admin
+  end
+  
   def index?
-    false
+    user.is_admin
   end
 
   def show?
-    false
+    user.is_admin
   end
 
   def create?
-    false
+    user.is_admin
   end
 
   def new?
@@ -25,7 +29,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    user.is_admin
   end
 
   def edit?
@@ -33,7 +37,19 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    user.is_admin
+  end
+
+  def export? 
+    user.is_admin
+  end 
+
+  def bulk_delete?
+    user.is_admin
+  end 
+
+  def show_in_app?
+    user.is_admin
   end
 
   class Scope

@@ -31,7 +31,11 @@ import {
 import { Link } from "react-router-dom";
 
 import API from "../../middleware/api";
-import { cacheUserSession, removeUserSession } from "../../utils/session";
+import {
+  cacheUserSession,
+  removeUserSession,
+  checkUserIsAdmin,
+} from "../../utils/session";
 
 import Logo from "images/bnc-logo-white.png";
 
@@ -319,6 +323,16 @@ export default class extends React.Component {
           <Link to="/learn" className="bns-navbar-item">
             <Button className={Classes.MINIMAL} icon="chart" text="Learn" />
           </Link>
+          {this.state.user && this.state.user.is_admin && (
+            <a href="/admin" className="bns-navbar-item">
+              <Button
+                className="button-primary"
+                intent={Intent.PRIMARY}
+                icon="badge"
+                text="Manage"
+              />
+            </a>
+          )}
         </NavbarGroup>
         <NavbarGroup align={Alignment.RIGHT}>
           <NavbarDivider />
