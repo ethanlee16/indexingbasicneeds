@@ -1,14 +1,14 @@
 # Indexing Basic Needs
 
-We're live! Check out the site: https://indexing-basic-needs.herokuapp.com/.
+We're live! Check out the site: https://www.basicneeds.center
 
 ## Dev Setup
 
 ### Ruby and Rails
 
-You'll need to install Rails 5.1+. Installation is notorious for being troublesome sometimes. You can try [this guide](http://blog.teamtreehouse.com/install-rails-5-mac) first and see how well it works for you. You should also use Ruby 2.4.1+.
+You'll need to install Rails 5.2+. Installation is notorious for being troublesome sometimes. You can try [this guide](http://blog.teamtreehouse.com/install-rails-5-mac) first and see how well it works for you. You should also use Ruby 2.4.1+.
 
-For reference I'm using Rails 5.1.6 and Ruby 2.4.1p111.
+For reference I'm using Rails 5.2.2 and Ruby 2.4.1p111.
 
 ### Database
 
