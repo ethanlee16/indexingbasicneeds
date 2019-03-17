@@ -282,7 +282,7 @@ class LearnPage extends React.Component {
           </div>
         </div>
 
-        <div className="page-container">
+        <div className="flex-container">
           <div className="learn-page-title-container">
             <h1>Research</h1>
             {checkUserIsAdmin() && (

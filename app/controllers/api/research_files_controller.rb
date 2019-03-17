@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Api::ResearchFilesController < ApplicationController
+class Api::ResearchFilesController < Api::ApiController
   before_action :authenticate_api_user!, except: %i[index]
 
   def index
