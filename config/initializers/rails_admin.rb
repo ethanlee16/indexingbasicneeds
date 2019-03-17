@@ -18,6 +18,7 @@ RailsAdmin.config do |config|
 
   ## == Pundit ==
   config.authorize_with :pundit
+  config.parent_controller = '::ApplicationController'
 
   # config.authorize_with do
   #   redirect_to root_path unless current_user.is_admin?
