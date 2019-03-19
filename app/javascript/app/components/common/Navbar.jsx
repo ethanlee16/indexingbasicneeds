@@ -306,13 +306,13 @@ export default class extends React.Component {
           <Link to="/about" className="bns-navbar-item">
             <Button className={Classes.MINIMAL} icon="book" text="About" />
           </Link>
-          {/* <Link to="/get_involved" className="bns-navbar-item">
+          <Link to="/get_involved" className="bns-navbar-item">
             <Button
               className={Classes.MINIMAL}
               icon="people"
               text="Get Involved"
             />
-          </Link> */}
+          </Link>
           <Link to="/calendar" className="bns-navbar-item">
             <Button
               className={Classes.MINIMAL}
@@ -323,7 +323,7 @@ export default class extends React.Component {
           <Link to="/learn" className="bns-navbar-item">
             <Button className={Classes.MINIMAL} icon="chart" text="Learn" />
           </Link>
-          {this.state.user && this.state.user.is_admin && (
+          {this.state.user && this.state.user.is_admin ? (
             <a href="/admin" className="bns-navbar-item">
               <Button
                 className="button-primary"
@@ -332,6 +332,14 @@ export default class extends React.Component {
                 text="Manage"
               />
             </a>
+          ) : (
+            <Link to="/donate" className="bns-navbar-item">
+              <Button
+                className="button-primary"
+                intent={Intent.PRIMARY}
+                text="Donate"
+              />
+            </Link>
           )}
         </NavbarGroup>
         <NavbarGroup align={Alignment.RIGHT}>

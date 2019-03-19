@@ -9,6 +9,8 @@ import HomePage from "./components/HomePage";
 import CalendarPage from "./components/CalendarPage";
 import LearnPage from "./components/LearnPage";
 import WorkInProgressPage from "./components/WorkInProgressPage";
+import GetInvolvedPage from "./components/GetInvolvedPage";
+import DonatePage from "./components/DonatePage";
 
 import "./assets/stylesheets/app";
 
@@ -16,10 +18,11 @@ const App = props => (
   <Router>
     <div>
       <Route exact path="/" component={HomePage} />
-      <Route path="/about" component={WorkInProgressPage} />
-      <Route path="/get_involved" component={WorkInProgressPage} />
+      <Route path="/about" component={AboutPage} />
+      <Route path="/get_involved" component={GetInvolvedPage} />
       <Route path="/calendar" component={CalendarPage} />
       <Route path="/learn" component={LearnPage} />
+      <Route path="/donate" component={DonatePage} />
 
       <Switch>
         <Route path="/guides" component={WorkInProgressPage} />

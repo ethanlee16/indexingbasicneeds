@@ -269,16 +269,40 @@ class LearnPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="learn-page-container">
         <Navbar
           onLogin={this.refreshResearchFiles}
           onLogout={this.refreshResearchFiles}
         />
         {this.renderFileUploadModal()}
 
-        <div className="learn-page-banner-container">
+        <div className="learn-page-banner-overlay">
           <div className="learn-page-banner">
-            <H1>Basic Needs Security — Learning Materials</H1>
+            <div className="learn-page-banner-text">
+              {" "}
+              <h2 className="learn-page-white-text">
+                Basic Needs Security — <br />
+                Learning Materials
+              </h2>
+              <p className="learn-page-white-text">
+                UC Berkeley Basic Needs efforts have been featured in the three
+                largest studies in the country on college student basic needs.
+                Additionally, UC Berkeley was selected by the Federal Government
+                Accountability Office to be included in their first national
+                study on college student food insecurity.
+              </p>
+              <br />
+              <br />
+              <Link to="/resources">
+                <Button
+                  large
+                  className="button-primary"
+                  intent={Intent.PRIMARY}
+                  text="View Latest Report"
+                  style={{ marginRight: "10px" }}
+                />
+              </Link>
+            </div>
           </div>
         </div>
 

@@ -1,0 +1,99 @@
+@import "./variables";
+
+.get-involved-right-container {
+  margin-left: 225px;
+  height: 100%;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.get-involved-text {
+  padding: 10px 50px 10px 50px;
+}
+
+.get-involved-centered {
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  color: var(--berkeley-blue);
+  text-align: center;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.get-involved-testimony {
+  padding: 10px 0 10px 15px;
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  color: var(--berkeley-blue);
+  text-align: left;
+  font-weight: 600;
+  border-left: 4px var(--berkeley-blue) solid;
+  font-style: italic;
+}
+
+.get-involved-menu {
+  background-color: var(--light-blue);
+  width: 225px;
+  height: 100%;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  display: block;
+}
+
+.get-involved-menu a {
+  padding: 10px 8px 6px 35px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+}
+
+.get-involved-menu a:hover {
+  color: #f1f1f1;
+}
+
+.get-involved-item {
+  font-family: "Lato", sans-serif;
+}
+
+@media screen and (max-height: 450px) {
+  .get-involved-menu {
+    padding-top: 15px;
+    width: 160px;
+  }
+  .get-involved-menu a {
+    font-size: 14px;
+  }
+}
+
+.get-involved-coalition-flex {
+  width: 100%;
+
+  p {
+    width: 100%;
+  }
+
+  img {
+    padding-top: 20px;
+    margin: 0 auto;
+    width: 75%;
+    border-radius: 4px;
+  }
+}
+
+.get-involved-food-pantry {
+  width: 100%;
+  .img,
+  .food-pantry-img {
+    padding-top: 20px;
+    margin: 0 auto;
+    width: 75%;
+    border-radius: 4px;
+  }
+}

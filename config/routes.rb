@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/calendar', to: 'pages#root'
   get '/guides', to: 'pages#root'
   get '/learn', to: 'pages#root'
+  get '/donate', to: 'pages#root'
 
   get '/resource/new', to: 'pages#root'
   get '/resources/:id', to: 'pages#root'

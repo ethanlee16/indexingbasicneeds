@@ -1,59 +1,247 @@
 @import "./variables";
+/* General Layout */
 
-.about-page-who {
+.container {
+  width: 100%;
+}
+
+.about-banner {
+  width: 100%;
+}
+
+/* BNS Center */
+
+$flexSize: 15em;
+
+.about-page-center {
+  background-color: white;
+  padding: 40px 150px;
+  img {
+    margin-top: 40px;
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+    flex: 1 1 auto;
+    border-radius: 4px;
+  }
+}
+
+.center-block {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.about-page-who-text {
-  display: inline-block;
-  flex: 2;
+.about-page-center-text {
+  width: 80%;
 }
 
-.about-page-who-text {
-  flex: 1;
+.btn-primary {
+  margin-right: 2%;
 }
+
+@media screen and (max-width: 900px) {
+  .about-page-center-text {
+    width: 100%;
+  }
+
+  .center-block {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+
+  .left {
+    width: 100%;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .about- {
+    width: 100%;
+  }
+
+  .about-page-center {
+    background-color: white;
+    padding: 40px 100px;
+  }
+}
+
+/* BNS Background */
 
 .about-page-background {
+  background-color: var(--light-blue);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 150px;
+  img {
+    margin-top: 20px;
+    margin-bottom: 35px;
+    width: 100%;
+    object-fit: cover;
+    flex: 1 1 auto;
+    border-radius: 4px;
+  }
+}
+
+.about-page-background-text {
   width: 100%;
-  padding: 40px 100px;
-  background-color: rgba(185, 211, 182, 0.36);
 }
 
-.about-page-background-numbers {
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-start;
-}
-
-.about-page-background-number {
-  display: inline-block;
-  max-width: 40%;
-
-  &.left {
-    align-self: flex-start;
-  }
-
-  &.right {
-    align-self: flex-end;
+@media screen and (max-width: 900px) {
+  .about-page-background {
+    background-color: var(--light-blue);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 40px 100px;
   }
 }
 
-.about-page-background-number-flex {
+/* Team */
+
+.about-page-team {
+  padding: 40px 150px;
+}
+
+.about-page-team-row {
+  margin: 0 auto;
+  width: 100%;
   display: flex;
-  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
-.about-page-background-number-num {
-  font-family: $font-stack;
-  color: $gold;
-  font-size: 140px;
-  font-weight: 900;
+.about-page-team-column {
+  margin: 0 auto;
 }
 
-.about-page-background-number-des {
-  margin-top: 40px;
-  margin-left: 20px;
+.about-page-team-container {
+  margin-top: 60px;
+}
+
+@media screen and (max-width: 900px) {
+  .about-page-team {
+    padding: 40px 100px;
+  }
+}
+
+/* Card Itself */
+.about-page-team-card {
+  line-height: 1.2em;
+  height: 200px;
+  display: flex;
+  text-align: left;
+  background: white;
+  background-size: cover;
+  width: 425px;
+  margin: 30px;
+}
+
+.about-page-team-img {
+  width: 200px;
+  height: 200px;
+  background: gray;
+  border-radius: 2px;
+}
+
+/* Text-Container - Card */
+.about-page-team-text-container {
+  padding-left: 30px;
+}
+
+/* Font Styling of Text - Card */
+
+.about-page-team-description {
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  color: #333333;
+}
+
+/* Areas of Focus*/
+
+.about-page-focus {
+  background-color: var(--light-blue);
+  padding: 40px 150px;
+}
+
+.about-page-focus-container {
+  padding: 40px 0px;
+  margin: 0 auto;
+}
+
+.about-page-focus-row {
+  width: 90%;
+  padding: 0 10px;
+}
+$flexSize: 25em;
+$boxSpacing: 1.8em;
+
+/* Card Itself */
+.about-page-focus-card {
+  height: $flexSize;
+  max-width: $flexSize * 4;
+  flex: 1 1 auto;
+  display: flex;
+  background-color: white;
+  box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);
+  margin-bottom: 50px;
+  border-radius: 4px;
+  img {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    height: $flexSize;
+    max-width: $flexSize;
+    object-fit: cover;
+    flex: 1 1 auto;
+  }
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 900px) {
+  .about-page-focus-card {
+    height: fit-content;
+    width: $flexSize;
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);
+    border-radius: 4px;
+    img {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      object-fit: cover;
+      flex: 1 1 auto;
+    }
+  }
+
+  .about-page-focus-description {
+    height: 100%;
+    overflow: scroll;
+    font-family: "Lato", sans-serif;
+    color: #333333;
+  }
+
+  .about-page-focus-text-container {
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* Text-Container - Card */
+.about-page-focus-text-container {
+  padding-top: 20px;
+  padding-left: 35px;
+  padding-right: 30px;
+}
+
+/* Font Styling of Text - Card */
+
+.about-page-focus-description {
+  height: 60%;
+  overflow: scroll;
+  font-family: "Lato", sans-serif;
+  color: #333333;
 }
