@@ -1,0 +1,55 @@
+/* Donate */
+
+.donate-page-donate {
+  padding: 40px 150px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  .donate-image,
+  img {
+    margin-top: 40px;
+    padding: 30px;
+    width: 30%;
+    object-fit: cover;
+    flex: 1 1 auto;
+    border-radius: 4px;
+  }
+}
+
+.donate-page-left {
+  width: 60%;
+  padding-right: 40px;
+}
+
+.donate-page-donate-label {
+  font-size: 0.875em;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+}
+
+.donate-page-donate-text {
+  width: 700px;
+}
+.donate-page-donate-info {
+  width: 500px;
+  line-height: 1.2;
+  font-size: 0.9em;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+}
+
+.info {
+  padding-top: 8%;
+  line-height: 1.4;
+  font-size: 0.9em;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+}
+
+.row {
+  width: 100%;
+}
+
+.donate-by-mail {
+  min-width: 50%;
+}
