@@ -268,6 +268,9 @@ class LearnPage extends React.Component {
   }
 
   render() {
+    const latest_file_url =
+      this.state.files.length > 0 ? this.state.files[0].download_link : "/";
+
     return (
       <div className="learn-page-container">
         <Navbar
@@ -293,7 +296,7 @@ class LearnPage extends React.Component {
               </p>
               <br />
               <br />
-              <Link to="/resources">
+              <Link to={latest_file_url}>
                 <Button
                   large
                   className="button-primary"

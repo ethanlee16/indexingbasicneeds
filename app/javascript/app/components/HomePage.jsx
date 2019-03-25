@@ -6,11 +6,14 @@ import Navbar from "./common/Navbar";
 import Logo from "images/bnc-logo-white.png";
 import ValuesImage from "images/home-background.png";
 import Ruben from "images/team-ruben.jpg";
-import Undergrad from "images/home-undegrad.png";
-import Staff from "images/home-staff.png";
-import Grad from "images/home-grad.png";
+import Undergrad from "images/Home_6_Resource.jpg";
+import Staff from "images/Home_7_Resource.jpg";
+import Grad from "images/Home_8_Resource.jpg";
 import Center from "images/home-ourcenter-2.png";
 import Donate from "images/home-donate.png";
+import Test_1 from "images/Home_10_Testimonial.jpg";
+import Test_2 from "images/Home_11_Testimonial.jpg";
+import Test_3 from "images/Home_12_Testimonial.jpg";
 
 class HomePage extends React.Component {
   render() {
@@ -24,10 +27,12 @@ class HomePage extends React.Component {
             <div className="home-page-row">
               <div className="home-page-landing-text">
                 <p className="white-text">
-                  Founded in Spring 2019, the Basic Needs Center serves as a
-                  physical resource hub for basic needs resources. The Basic
-                  Needs Committee supports the food, housing, and economic
-                  justice of those in our campus community.
+                  Welcome to Basic Needs community at UC Berkeley! Over the past
+                  six years, starting off initially as a food pantry, Basic
+                  Needs efforts have expanded to meet the need of the UC
+                  Berkeley community. It has been the mission of the Basic Needs
+                  efforts on campus to work towards economic, food and housing
+                  justice.
                 </p>
                 <br />
                 <div className="btn-row">
@@ -40,7 +45,7 @@ class HomePage extends React.Component {
                       style={{ marginRight: "10px" }}
                     />
                   </Link>
-                  <Link to="/">
+                  <Link to="/faq">
                     <Button
                       large
                       className="button-primary"
@@ -50,9 +55,9 @@ class HomePage extends React.Component {
                   </Link>
                 </div>
               </div>
-              {/* <div className="home-page-left-img">
-              <img className="home-page-logo" src={Logo} alt="logo" />
-            </div> */}
+              <div className="home-page-left-img">
+                <img className="home-page-logo" src={Logo} alt="logo" />
+              </div>
             </div>
           </div>
         </div>
@@ -62,17 +67,40 @@ class HomePage extends React.Component {
           <h1>Our Vision, Our Mission, Our Values</h1>
           <div className="home-page-background-text">
             <p>
-              Basic Needs Security refers to the food, housing, and wellness
-              security of our community. We understand that basic needs have a
-              direct impact on the wellness, mental-emotional-physical health,
-              academic performance, professional development, and holistic
-              success of our students. UC Berkeley's Basic Needs Security
-              Committee is fully dedicated to leading the transformation of UC
-              Berkeley into a basic needs secure institution of higher
-              education.
+              We are excited for the ongoing learning, building, and improvement
+              of our collective efforts. Please note that this site will
+              continue to shift and improve as we earn better knowledge,
+              strategies, and materials along our collective energy. We are
+              excited for community input on our current vision, mission and
+              values which will evolve over time.
+              <br />
+              <br />
+              Vision: Ongoing economic, food and housing justice for all UC
+              Berkeley community members no matter who they are or where they
+              come from We are excited for the ongoing learning, building, and
+              improvement of our collective efforts. Please note that this site
+              will continue to shift and improve as we earn better knowledge,
+              strategies, and materials along our collective energy. We are
+              excited for community input on our current vision, mission and
+              values which will evolve over time.
+              <br />
+              <br />
+              Mission: We provide accessible and equitable programming and
+              resources today; we research, innovate, advocate and engage in
+              coalition building to lead systemic change tomorrow. We are
+              excited for the ongoing learning, building, and improvement of our
+              collective efforts. Please note that this site will continue to
+              shift and improve as we earn better knowledge, strategies, and
+              materials along our collective energy. We are excited for
+              community input on our current vision, mission and values which
+              will evolve over time.
+              <br />
+              <br />
+              Values: compassion, dignity, diversity, generative, healing,
+              Interdependency, multigenerational, resilience
             </p>
             <br />
-            <Link to="/">
+            <Link to="/about">
               <Button
                 large
                 className="button-primary"
@@ -89,11 +117,10 @@ class HomePage extends React.Component {
           <div className="home-page-resource-text">
             <h1>Our Resource Index</h1>
             <p>
-              UC Berkeley's Basic Needs Security Committee is made up of
-              undergraduate, graduate student, professional staff, faculty,
-              administrators, and community experts.{" "}
+              We know that navigating the UC Berkeley community can be
+              overwhelming. That’s why we’ve consolidated all resources into a
+              single place, so you can focus on your well-being first.{" "}
             </p>
-            <p>Our areas of focus are:</p>
           </div>
 
           <div className="home-page-resource-cards">
@@ -155,13 +182,35 @@ class HomePage extends React.Component {
               Open Hours: Monday - Friday, 9 AM - 9 PM
             </p>
             <p className="white-text">
-              The Basic Needs Center serves as a physical resource hub for basic
-              needs resources. The Basic Needs Committee supports food, housing,
-              and economic justice of those in our campus community. Feel free
-              to walk in or book an appointment with the Basic Needs Case
-              Manager, the Basic Needs Financial Aid Assitance, or with County
-              Workers.
+              Location: Lower level of MLK Student Union (BNorth), Suite 72
             </p>
+            <p className="white-text">
+              Mailing Address: 2495 Bancroft Way, Suite 72, Berkeley CA
+              94720-4500
+            </p>
+
+            <p className="white-text">
+              Our center’s hours will be extended throughout the semester. The
+              Basic Needs Center serves as a physical resource hub for basic
+              needs resources and services. The Basic Needs Center serves as a
+              space for students to create community and access coordinated
+              basic needs services.
+              <br />
+              Below are our current services based out of our center:
+              <br />
+              Case management
+              <br />
+              CalFresh
+              <br />
+              Satellite Drop-In Services
+              <br />
+              Berkeley Rent Board
+              <br />
+              Financial Aid & Scholarships Office
+              <br />
+              CalFresh Appeals Clinic
+            </p>
+
             <br />
             <a href="https://kiyokothomas.youcanbook.me/" target="_blank">
               <Button
@@ -182,18 +231,13 @@ class HomePage extends React.Component {
 
         <div className="home-page-testimonies block">
           <div className="home-page-testimonies-text">
-            <h1>Student Testimonies</h1>
-            {/* <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dsint occaecat cupidatat
-              non proident
-            </p> */}
+            <h1>Student Testimonials</h1>
           </div>
 
           <div className="home-page-testimony-cards">
             <div className="home-page-testimony-card">
-              <div className="card-img">
-                {/* <img src="rock600x400.jpg" alt="Undergraduate" style="width:100%;"> */}
+              <div className="testimonial_img">
+                <img className="testimonial_img" src={Test_1} alt="values" />
               </div>
 
               <div className="card-test-container">
@@ -211,8 +255,8 @@ class HomePage extends React.Component {
             </div>
 
             <div className="home-page-testimony-card">
-              <div className="card-img">
-                {/* <img src="rock600x400.jpg" alt="Undergraduate" style="width:100%;"> */}
+              <div className="testimonial_img">
+                <img className="testimonial_img" src={Test_2} alt="values" />
               </div>
               <div className="card-test-container">
                 <p className="card-test-text">
@@ -232,8 +276,8 @@ class HomePage extends React.Component {
             </div>
 
             <div className="home-page-testimony-card">
-              <div className="card-img">
-                {/* <img src="rock600x400.jpg" alt="Undergraduate" style="width:100%;"> */}
+              <div className="testimonial_img">
+                <img className="testimonial_img" src={Test_3} alt="values" />
               </div>
               <div className="card-test-container">
                 <p className="card-test-text">
@@ -250,15 +294,6 @@ class HomePage extends React.Component {
               </div>
             </div>
           </div>
-
-          <Link to="/" style={{ margin: "0 auto", marginTop: "50px" }}>
-            <Button
-              large
-              className="button-primary"
-              intent={Intent.PRIMARY}
-              text="Read our stories"
-            />
-          </Link>
         </div>
 
         {/* Donate */}

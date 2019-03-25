@@ -16,10 +16,12 @@ import ibrahim from "images/About_10_Ibrahim_Ramoul.jpg";
 import meg from "images/About_11_Meg_Prier.jpg";
 import ruben from "images/About_12_Ruben_Canedo.jpg";
 import karina from "images/About_13_Karina_Candela.jpg";
+import maria from "images/About_14_Maria_Balcazar_Tellez.jpg";
 import about_food_supp from "images/About_14_Food Support.jpg";
 import about_housing from "images/About_15_Housing_Support.jpg";
 import about_econ from "images/About_16_Economic_Support.jpg";
 import about_faq from "images/About_17_FAQ.jpg";
+import ucb_wide from "images/UCB_Wide.png";
 
 class AboutPage extends React.Component {
   render() {
@@ -56,7 +58,7 @@ class AboutPage extends React.Component {
                   </p>
                   <br />
 
-                  <Link to="/">
+                  <Link to="https://ucberkeleybasicneeds.youcanbook.me/">
                     <Button
                       large
                       className="button-primary"
@@ -110,6 +112,12 @@ class AboutPage extends React.Component {
                 students with financial support for food, as well as the
                 Emergency Housing Support program.
               </p>
+
+              <p>
+                {" "}
+                <b>UC System Basic Needs Model</b>{" "}
+              </p>
+              <img className="ucb-wide" src={ucb_wide} alt="Img" />
             </div>
           </div>
           {/* Our Team  */}
@@ -262,7 +270,11 @@ class AboutPage extends React.Component {
                 {/* column */}
                 <div className="about-page-team-column">
                   <div className="about-page-team-card">
-                    <img className="about-page-team-img" src={sara} alt="Img" />
+                    <img
+                      className="about-page-team-img"
+                      src={maria}
+                      alt="Img"
+                    />
                     <div className="about-page-team-text-container">
                       <h3>Maria Balcazar Tellez</h3>
                       <p className="about-page-team-description">
