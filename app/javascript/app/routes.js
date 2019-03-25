@@ -11,6 +11,7 @@ import LearnPage from "./components/LearnPage";
 import WorkInProgressPage from "./components/WorkInProgressPage";
 import GetInvolvedPage from "./components/GetInvolvedPage";
 import DonatePage from "./components/DonatePage";
+import FAQPage from "./components/FAQPage";
 
 import "./assets/stylesheets/app";
 
@@ -23,6 +24,7 @@ const App = props => (
       <Route path="/calendar" component={CalendarPage} />
       <Route path="/learn" component={LearnPage} />
       <Route path="/donate" component={DonatePage} />
+      <Route path="/faq" component={FAQPage} />
 
       <Switch>
         <Route path="/guides" component={WorkInProgressPage} />

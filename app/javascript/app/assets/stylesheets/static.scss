@@ -131,7 +131,7 @@
 
 /* Block Colors */
 .home-page-banner-overlay {
-  background: url("~images/home-banner.png") no-repeat center center fixed;
+  background: url("~images/Home_1_Intro.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -256,6 +256,12 @@
 }
 
 /* Student Testimonies */
+
+.testimonial_img {
+  img {
+    width: 100%;
+  }
+}
 
 .home-page-testimonies-text {
   max-width: 75%;

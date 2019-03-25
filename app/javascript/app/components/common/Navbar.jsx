@@ -323,6 +323,9 @@ export default class extends React.Component {
           <Link to="/learn" className="bns-navbar-item">
             <Button className={Classes.MINIMAL} icon="chart" text="Learn" />
           </Link>
+          <Link to="/faq" className="bns-navbar-item">
+            <Button className={Classes.MINIMAL} icon="help" text="FAQ" />
+          </Link>
           {this.state.user && this.state.user.is_admin ? (
             <a href="/admin" className="bns-navbar-item">
               <Button
