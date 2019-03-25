@@ -296,7 +296,7 @@ class LearnPage extends React.Component {
               </p>
               <br />
               <br />
-              <Link to={latest_file_url}>
+              <a href={latest_file_url} target="_blank">
                 <Button
                   large
                   className="button-primary"
@@ -304,7 +304,7 @@ class LearnPage extends React.Component {
                   text="View Latest Report"
                   style={{ marginRight: "10px" }}
                 />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
