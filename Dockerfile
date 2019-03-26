@@ -7,6 +7,9 @@ ENV BUNDLE_PATH=/gems
 ENV GEM_HOME=/gems
 COPY . .
 RUN bundle install
+RUN apk update
+RUN apk add ncurses ncurses-static ncurses-libs ncurses-terminfo-base ncurses-terminfo
+RUN apk upgrade
 RUN apk add yarn --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community/ --allow-untrusted
 COPY --from=node /usr/bin/node /usr/bin/
 COPY --from=node /usr/lib/node_modules/npm /usr/lib/node_modules/npm

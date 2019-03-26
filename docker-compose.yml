@@ -6,8 +6,11 @@ x-default_env: &env
     - BUNDLE_PATH=/gems
     - GEM_PATH=/gems
     - GEM_HOME=/gems
+    - SPRING_TMP_PATH=/spring
     - PATH=/usr/local/bundle/bin:/usr/local/bundle/gems/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/gems/bin
-    # - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+    - WEBPACKER_DEV_SERVER_HOST=sh
+    - WEBPACKER_DEV_SERVER_PUBLIC=0.0.0.0:3035
+    - WEBPACKER_DEV_SERVER_HMR=true
 version: "3.4"
 services:
   db:
@@ -23,12 +26,7 @@ services:
       - spring-vol:/spring:delegated
       - gems:/gems:delegated
     command: spring server
-    environment:
-      - DATABASE_URL=postgres://root@db:5432
-      - SPRING_TMP_PATH=/spring
-      - GEM_PATH=/gems
-      - GEM_HOME=/gems
-      - PATH=/usr/local/bundle/bin:/usr/local/bundle/gems/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/gems/bin
+    <<: *env
     pid: host
   web:
     build: .
