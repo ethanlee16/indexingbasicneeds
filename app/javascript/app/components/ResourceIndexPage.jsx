@@ -312,19 +312,26 @@ class ResourceIndexPage extends React.Component {
               <Tab id={0} title="All Resources" />
               {this.state.resourceCategories.map((category, i) => {
                 return (
-                  <Tab id={category.id} key={`category-tab-${i}`}>
-                    <Tooltip
-                      position={Position.BOTTOM}
-                      content={category.description}
-                    >
-                      {category.name}
-                    </Tooltip>
+                  <Tab id={category.id} key={`category-tab-${category.id}`}>
+                    <Tooltip>{category.name}</Tooltip>
                   </Tab>
                 );
               })}
             </Tabs>
           </div>
-
+          <div className="resource-index-page-description">
+            {this.state.selectedTabId !== 0
+              ? this.state.resourceCategories
+                  .filter(c => c.id === this.state.selectedTabId)
+                  .pop()
+                  .description.split("\n")
+                  .map((line, i) => (
+                    <p key={`resource-desc-${this.state.selectedTabId}-${i}`}>
+                      {line}
+                    </p>
+                  ))
+              : ""}
+          </div>
           <div className="resource-index-page-sort-query-container">
             <InputGroup
               className="resource-index-page-searchbar"
