@@ -31,3 +31,60 @@
 
 en:
   hello: "Hello world"
+  categories:
+    - name: "Food Support"
+      description: >
+        Food support refers to the provision of food or financial support to purchase
+        food in emergency situations or to provide longer-term solutions in areas
+        where food resources are limited. A goal of food support is to create food
+        security – a situation in which people need not be vulnerable to hunger and
+        starvation.
+
+        Food insecurity refers to the limited or uncertain availability of safe and
+        nutritionally adequate foods; or limited or uncertain ability to obtain such
+        food in a socially acceptable manner. In its most extreme form, known as hunger,
+        individuals can experience physiological conditions such as uneasiness and pain.
+    - name: "Housing Support"
+      description: >
+        Housing support refers to assistance to enable individuals secure and maintain
+        suitable housing or shelter.
+
+        Homelessness means that a student does not have a stable, reliable, or permanent
+        place to live, often residing in a shelter, automobile, motel, a public
+        facility, or an abandoned building or outside. Housing insecurity refers
+        to a broader set of challenges that could include the inability to pay rent
+        or utilities, need to move frequently, or residing in a place where personal
+        safety or health is compromised.
+    - name: "Economic Support"
+      description: >
+        Economic support refers financial security of having stable and predictable
+        income or other resources to support a standard of living now and in the
+        foreseeable future.
+
+        Financial insecurity refers to the inability for students to access financial
+        resources to be a successful student, or find the resources to gain financial
+        literacy, such as educational materials to understand what resources are available
+        and where to receive additional support.
+    - name: "Emergency Support"
+      description: >
+        Emergency support* refers to relief or interventions for students experiencing
+        acute emotional, medical, psychological or resource stressors.
+
+        *Related Resource Area: We understand basic needs experiences are not limited
+        to economic, food, and housing areas. While these three areas are the focus of
+        our Basic Needs Center, our resource index includes areas directly impacted by
+        basic needs.
+    - name: "Holistic Support"
+      description: >
+        Holistic support* refers to broad range of services that address the ongoing and
+        dynamic needs in all domains of one’s life across personal, social, and
+        academic/professional well-being.
+
+        Students experience basic needs challenges beyond economic, food, and housing.
+        Often times personal, social, and academic/professional areas are not accessible,
+        neglected, and/or cannot be prioritized.
+
+        *Related Resource Area: We understand basic needs experiences are not limited
+        to economic, food, and housing areas. While these three areas are the focus of our
+        Basic Needs Center, our resource index includes areas directly impacted by basic
+        needs.
