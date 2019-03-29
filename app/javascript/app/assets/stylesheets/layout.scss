@@ -39,12 +39,17 @@ h4 {
   margin-bottom: 12px;
 }
 
-p {
+p,
+li {
   font-family: $font-stack;
   color: $dark-gray;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5em;
+}
+
+li {
+  margin-bottom: 5px;
 }
 
 a {

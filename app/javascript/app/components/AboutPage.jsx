@@ -30,42 +30,92 @@ class AboutPage extends React.Component {
         <Navbar />
         {/* Container */}
         <div className="about-page-container is-widescreen">
-          <img className="about-banner" src={about_banner} />
+          <div className="about-hero-container">
+            <div className="about-hero-content">
+              <div className="col left">
+                <h1>Our Center</h1>
+                <p>
+                  The Basic Needs Center serves as a physical resource hub for
+                  basic needs resources and services. The Basic Needs Center
+                  serves as a space for students to create community and access
+                  coordinated basic needs services. We are committed to
+                  cultivate wellness and belonging in the Basic Needs Center
+                  space.
+                </p>
+              </div>
+              <div className="col right">
+                <h3>Location</h3>
+                <p>Lower level of MLK Student Union (BNorth), Suite 72</p>
+                <h3>Mailing Address</h3>
+                <p>2495 Bancroft Way, Suite 72, Berkeley CA 94720-4500</p>
+                <h3>Open Hours</h3>
+                <p>
+                  Monday - Friday, 9 AM - 5 PM. Our center’s hours will be
+                  extended throughout the semester.
+                </p>
+              </div>
+            </div>
+            <img className="about-banner" src={about_banner} />
+          </div>
+
           {/* BNS Center  */}
 
           <div className="about-page-center">
             <div className="center-block">
               <div className="left">
                 <div className="about-page-center-text">
-                  <h1>Our Center</h1>
+                  <h1>Our Services</h1>
+                  <p>Below are our current services based out of our center:</p>
+                  <ul>
+                    <li>
+                      <strong>Case management</strong>: Need support navigating
+                      your current housing situation? Want to consult about food
+                      and housing resources? Book an appointment with the Basic
+                      Needs Manager or come to our drop-in case management hours
+                      on Thursday afternoons from 1-5pm.
+                      <a
+                        href="https://ucberkeleybasicneeds.youcanbook.me/"
+                        target="_blank"
+                      >
+                        <Button
+                          large
+                          className="button-primary"
+                          intent={Intent.PRIMARY}
+                          text="Book Appointment"
+                          style={{ margin: "10px 0", display: "block" }}
+                        />
+                      </a>
+                    </li>
+                    <li>
+                      <strong>CalFresh</strong>: Want support with your CalFresh
+                      application? If you would like to have the help of a
+                      certified CalFresh outreach worker or to walk you through
+                      the application process, you can attend a CalFresh
+                      Application Session.
+                    </li>
+                  </ul>
                   <p>
-                    The Basic Needs Center serves as a physical resource hub for
-                    basic needs resources and services. The Basic Needs Center
-                    serves as a space for students to create community and
-                    access coordinated basic needs services. We are committed to
-                    cultivate wellness and belonging in the Basic Needs Center
-                    space.
+                    <strong>Satellite Drop-In Services:</strong>
                   </p>
-
-                  <p>
-                    <b>Location:</b> Lower level of MLK Student Union (BNorth),
-                    Suite 72 <br />
-                    <b>Mailing Address:</b> 2495 Bancroft Way, Suite 72,
-                    Berkeley CA 94720-4500 <br />
-                    <b>Open Hours: </b>Monday - Friday, 9 AM - 5 PM. Our
-                    center’s hours will be extended throughout the semester.{" "}
-                    <br />
-                  </p>
-                  <br />
-
-                  <Link to="https://ucberkeleybasicneeds.youcanbook.me/">
-                    <Button
-                      large
-                      className="button-primary"
-                      intent={Intent.PRIMARY}
-                      text="Book Appointment"
-                    />
-                  </Link>
+                  <ul>
+                    <li>
+                      <strong>Financial Aid</strong>: Need financial aid
+                      counseling related to your housing or food needs? Drop-in
+                      to meet with our Basic Needs Financial Aid Counselor on
+                      Tuesdays from 11am-2pm.
+                    </li>
+                    <li>
+                      <strong>Berkeley Rent Stabilization Board</strong>: Need
+                      support around your rights as a tenant? Drop-in to meet
+                      with a rent board housing counselor on Wednesdays from
+                      2-4pm.{" "}
+                    </li>
+                    <li>
+                      <strong>CalFresh Appeal Clinics</strong>: Were you
+                      CalFresh benefits denied or delayed? Attend a CalFresh
+                      denials clinic on March 6 and April 10 from 6-8pm.
+                    </li>
+                  </ul>
                 </div>
               </div>
 

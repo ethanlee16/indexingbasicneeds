@@ -17,7 +17,8 @@ class ResourceTag < ApplicationRecord
         other: 0, 
         student: 1, 
         campus: 2, 
-        community: 3, 
+        community: 3,
+        level_of_urgency: 4 
     }
 
     enum category: CATEGORIES

@@ -289,12 +289,18 @@ export default class extends React.Component {
             </Link>
           </NavbarHeading>
           <NavbarDivider />
+          <Link to="/about" className="bns-navbar-item">
+            <Button className={Classes.MINIMAL} icon="book" text="About" />
+          </Link>
           <Link to="/resources" className="bns-navbar-item">
             <Button
               className={Classes.MINIMAL}
               icon="projects"
               text="Resources"
             />
+          </Link>
+          <Link to="/learn" className="bns-navbar-item">
+            <Button className={Classes.MINIMAL} icon="chart" text="Learn" />
           </Link>
           {/* <Link to="/guides" className="bns-navbar-item">
             <Button
@@ -303,9 +309,6 @@ export default class extends React.Component {
               text="Student Guides"
             />
           </Link> */}
-          <Link to="/about" className="bns-navbar-item">
-            <Button className={Classes.MINIMAL} icon="book" text="About" />
-          </Link>
           <Link to="/get_involved" className="bns-navbar-item">
             <Button
               className={Classes.MINIMAL}
@@ -319,9 +322,6 @@ export default class extends React.Component {
               icon="calendar"
               text="Calendar"
             />
-          </Link>
-          <Link to="/learn" className="bns-navbar-item">
-            <Button className={Classes.MINIMAL} icon="chart" text="Learn" />
           </Link>
           <Link to="/faq" className="bns-navbar-item">
             <Button className={Classes.MINIMAL} icon="help" text="FAQ" />

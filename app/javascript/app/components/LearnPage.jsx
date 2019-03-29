@@ -296,12 +296,15 @@ class LearnPage extends React.Component {
               </p>
               <br />
               <br />
-              <a href={latest_file_url} target="_blank">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdn4AVI-u6Os6h5iUn0jseB6KyuLOf5omxkciIsIsxMSPe60Q/viewform?vc=0&c=0&w=1"
+                target="_blank"
+              >
                 <Button
                   large
                   className="button-primary"
                   intent={Intent.PRIMARY}
-                  text="View Latest Report"
+                  text="View 2017-2018 Annual Report"
                   style={{ marginRight: "10px" }}
                 />
               </a>

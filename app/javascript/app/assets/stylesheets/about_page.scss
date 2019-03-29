@@ -7,6 +7,46 @@
 
 .about-banner {
   width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+}
+
+.about-hero-container {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  background-color: rgba(darken($berkeley-blue, 5%), 0.7);
+}
+
+.about-hero-content {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.about-hero-content * {
+  color: white;
+}
+
+.about-hero-content .left {
+  flex: 1 1 400px;
+  padding: 0 5%;
+}
+
+.about-hero-content .right {
+  flex: 1 1 400px;
+  padding: 0 5%;
+  // margin-top: 75px;
+}
+
+.about-hero-content .right h3 {
+  margin-bottom: 0;
 }
 
 /* BNS Center */
@@ -29,6 +69,14 @@ $flexSize: 15em;
 .center-block {
   display: flex;
   justify-content: space-between;
+}
+
+.center-block .left {
+  flex: 2;
+}
+
+.center-block .right {
+  flex: 1;
 }
 
 .about-page-center-text {

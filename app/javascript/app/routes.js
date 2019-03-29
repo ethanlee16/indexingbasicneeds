@@ -18,18 +18,19 @@ import "./assets/stylesheets/app";
 const App = props => (
   <Router>
     <div>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/about" component={AboutPage} />
-      <Route path="/get_involved" component={GetInvolvedPage} />
-      <Route path="/calendar" component={CalendarPage} />
-      <Route path="/learn" component={LearnPage} />
-      <Route path="/donate" component={DonatePage} />
-      <Route path="/faq" component={FAQPage} />
-
+      <Route path="/" component={() => window.scrollTo(0, 0) || null} />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/get_involved" component={GetInvolvedPage} />
+        <Route path="/calendar" component={CalendarPage} />
+        <Route path="/learn" component={LearnPage} />
+        <Route path="/donate" component={DonatePage} />
+        <Route path="/faq" component={FAQPage} />
+      </Switch>
       <Switch>
         <Route path="/guides" component={WorkInProgressPage} />
       </Switch>
-
       <Switch>
         <Route path="/resource/new" component={CreateResourcePage} />
         <Route path={`/resources/:id/edit`} component={UpdateResourcePage} />

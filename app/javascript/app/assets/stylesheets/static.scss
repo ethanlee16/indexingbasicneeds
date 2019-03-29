@@ -66,6 +66,7 @@
   }
 
   .white-text {
+    margin-top: 0;
     color: white;
   }
 }
@@ -131,7 +132,7 @@
 
 /* Block Colors */
 .home-page-banner-overlay {
-  background: url("~images/Home_1_Intro.jpg") no-repeat center center fixed;
+  background: url("~images/Home_1_Intro.jpg") no-repeat top center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -141,9 +142,11 @@
 .home-page-landing {
   background-image: linear-gradient(
     0deg,
-    rgba(4, 51, 97, 0.5),
-    rgba(4, 51, 97, 0.8)
+    rgba(darken($california-gold, 0%), 0.7),
+    rgba(darken($rose-garden, 20%), 0.8)
   );
+  align-items: center;
+  flex-wrap: wrap-reverse;
 }
 
 .home-page-resource-index {
@@ -168,11 +171,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  flex-direction: column;
+  flex: 3;
 }
 
 .home-page-landing-text {
   text-align: left;
-  width: 55%;
+  padding-right: 20%;
+  // width: 80%;
 }
 
 /* Resource Index */
@@ -239,7 +245,8 @@
   margin-right: 2%;
 }
 
-.white-text {
+.white-text,
+.white-text li {
   color: white;
 }
 
@@ -331,7 +338,6 @@
 }
 
 .home-page-donate-label {
-  font-size: 0.875em;
   font-family: Lato, sans-serif;
   font-weight: 400;
 }
@@ -343,7 +349,6 @@
 .home-page-donate-info {
   width: 100%;
   line-height: 1.2;
-  font-size: 0.9em;
   font-family: Lato, sans-serif;
   font-weight: 400;
 }
@@ -351,7 +356,6 @@
 .info {
   padding-top: 8%;
   line-height: 1.4;
-  font-size: 0.9em;
   font-family: Lato, sans-serif;
   font-weight: 400;
 }
@@ -363,5 +367,21 @@
 }
 
 .donate-by-mail {
-  min-width: 50%;
+  // min-width: 50%;
+}
+
+.donate-by-mail.left {
+  flex: 1;
+}
+
+.donate-by-mail.right {
+  flex: 3;
+}
+
+.donate-by-mail.left > p {
+  font-weight: 700;
+}
+
+.donate-by-mail.address > p {
+  margin-bottom: 0;
 }

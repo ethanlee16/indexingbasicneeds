@@ -31,6 +31,10 @@ class ResourceIndexFilterSidebar extends FilterSidebar {
         tags: [],
       },
       {
+        name: "Level of Urgency",
+        tags: [],
+      },
+      {
         name: "Community Filters",
         tags: [],
       },
@@ -50,11 +54,14 @@ class ResourceIndexFilterSidebar extends FilterSidebar {
         case "campus":
           sectionsState[1].tags.push(tag);
           break;
-        case "community":
+        case "level_of_urgency":
           sectionsState[2].tags.push(tag);
           break;
-        default:
+        case "community":
           sectionsState[3].tags.push(tag);
+          break;
+        default:
+          sectionsState[4].tags.push(tag);
           break;
       }
     });

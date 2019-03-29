@@ -7,8 +7,8 @@ import Logo from "images/bnc-logo-white.png";
 import ValuesImage from "images/home-background.png";
 import Ruben from "images/team-ruben.jpg";
 import Undergrad from "images/Home_6_Resource.jpg";
-import Staff from "images/Home_7_Resource.jpg";
-import Grad from "images/Home_8_Resource.jpg";
+import Grad from "images/Home_7_Resource.jpg";
+import Staff from "images/Home_8_Resource.jpg";
 import Center from "images/home-ourcenter-2.png";
 import Donate from "images/home-donate.png";
 import Test_1 from "images/Home_10_Testimonial.jpg";
@@ -23,8 +23,8 @@ class HomePage extends React.Component {
         {/* Landing Block */}
         <div className="home-page-banner-overlay">
           <div className="home-page-landing block">
-            <h1 className="white-text">Basic Needs Center</h1>
             <div className="home-page-row">
+              <h1 className="white-text">Basic Needs Center</h1>
               <div className="home-page-landing-text">
                 <p className="white-text">
                   Welcome to Basic Needs community at UC Berkeley! Over the past
@@ -55,9 +55,9 @@ class HomePage extends React.Component {
                   </Link>
                 </div>
               </div>
-              <div className="home-page-left-img">
-                <img className="home-page-logo" src={Logo} alt="logo" />
-              </div>
+            </div>
+            <div className="home-page-left-img">
+              <img className="home-page-logo" src={Logo} alt="logo" />
             </div>
           </div>
         </div>
@@ -68,36 +68,25 @@ class HomePage extends React.Component {
           <div className="home-page-background-text">
             <p>
               We are excited for the ongoing learning, building, and improvement
-              of our collective efforts. Please note that this site will
-              continue to shift and improve as we earn better knowledge,
-              strategies, and materials along our collective energy. We are
-              excited for community input on our current vision, mission and
-              values which will evolve over time.
+              of these areas, and are excited for community input to inform our
+              efforts. Please note that this site will continue to shift and
+              improve as we earn better knowledge, strategies, and materials
+              along our collective energy.
               <br />
               <br />
-              Vision: Ongoing economic, food and housing justice for all UC
-              Berkeley community members no matter who they are or where they
-              come from We are excited for the ongoing learning, building, and
-              improvement of our collective efforts. Please note that this site
-              will continue to shift and improve as we earn better knowledge,
-              strategies, and materials along our collective energy. We are
-              excited for community input on our current vision, mission and
-              values which will evolve over time.
+              <strong>Vision</strong>: Ongoing economic, food and housing
+              justice for all UC Berkeley community members no matter who they
+              are or where they come from
               <br />
               <br />
-              Mission: We provide accessible and equitable programming and
-              resources today; we research, innovate, advocate and engage in
-              coalition building to lead systemic change tomorrow. We are
-              excited for the ongoing learning, building, and improvement of our
-              collective efforts. Please note that this site will continue to
-              shift and improve as we earn better knowledge, strategies, and
-              materials along our collective energy. We are excited for
-              community input on our current vision, mission and values which
-              will evolve over time.
+              <strong>Mission</strong>: We provide accessible and equitable
+              programming and resources today; we research, innovate, advocate
+              and engage in coalition building to lead systemic change tomorrow.
               <br />
               <br />
-              Values: compassion, dignity, diversity, generative, healing,
-              Interdependency, multigenerational, resilience
+              <strong>Values</strong>: compassion, dignity, diversity,
+              generative, healing, Interdependency, multigenerational,
+              resilience
             </p>
             <br />
             <Link to="/about">
@@ -177,16 +166,19 @@ class HomePage extends React.Component {
           </div>
 
           <div className="home-page-center-text">
-            <p className="white-text">Location: 12345 MLK Way, Berkeley, CA</p>
             <p className="white-text">
-              Open Hours: Monday - Friday, 9 AM - 9 PM
+              <strong>Location</strong>: 12345 MLK Way, Berkeley, CA
             </p>
             <p className="white-text">
-              Location: Lower level of MLK Student Union (BNorth), Suite 72
+              <strong>Open Hours</strong>: Monday - Friday, 9 AM - 9 PM
             </p>
             <p className="white-text">
-              Mailing Address: 2495 Bancroft Way, Suite 72, Berkeley CA
-              94720-4500
+              <strong>Location</strong>: Lower level of MLK Student Union
+              (BNorth), Suite 72
+            </p>
+            <p className="white-text">
+              <strong>Mailing Address</strong>: 2495 Bancroft Way, Suite 72,
+              Berkeley CA 94720-4500
             </p>
 
             <p className="white-text">
@@ -197,19 +189,17 @@ class HomePage extends React.Component {
               basic needs services.
               <br />
               Below are our current services based out of our center:
-              <br />
-              Case management
-              <br />
-              CalFresh
-              <br />
-              Satellite Drop-In Services
-              <br />
-              Berkeley Rent Board
-              <br />
-              Financial Aid & Scholarships Office
-              <br />
-              CalFresh Appeals Clinic
             </p>
+            <ul className="white-text">
+              <li>Case management</li>
+              <li>CalFresh</li>
+              <li>Satellite Drop-In Services</li>
+              <ul>
+                <li>Berkeley Rent Board</li>
+                <li>Financial Aid &amp; Scholarships Office</li>
+                <li>CalFresh Appeals Clinic</li>
+              </ul>
+            </ul>
 
             <br />
             <a href="https://kiyokothomas.youcanbook.me/" target="_blank">
@@ -327,36 +317,35 @@ class HomePage extends React.Component {
               <br />
             </div>
 
-            <div className="home-page-donate-label">Donate By Mail</div>
+            <h3 className="home-page-donate-label">Donate By Mail</h3>
 
             <div className="home-page-donate-info">
               <div className="row">
                 <div className="donate-by-mail left">
-                  <div className="info">Check to:</div>
+                  <p>Check to:</p>
                 </div>
                 <div className="donate-by-mail right">
-                  <div className="info">UC Berkeley Foundation</div>
+                  <p>UC Berkeley Foundation</p>
                 </div>
               </div>
 
               <div className="row">
                 <div className="donate-by-mail left">
-                  <div className="info">Memo:</div>
+                  <p>Memo:</p>
                 </div>
                 <div className="donate-by-mail right">
-                  <div className="info">Basic Needs</div>
+                  <p>Basic Needs</p>
                 </div>
               </div>
 
               <div className="row">
                 <div className="donate-by-mail left">
-                  <div className="info">Address:</div>
+                  <p>Address:</p>
                 </div>
-                <div className="donate-by-mail right">
-                  <div className="info">
-                    University of California, Berkeley, Gift Services 1995
-                    University Ave, Ste 40, Berkeley, CA 94704-1070
-                  </div>
+                <div className="donate-by-mail right address">
+                  <p>University of California, Berkeley, Gift Services</p>
+                  <p>1995 University Ave, Ste 400</p>
+                  <p>Berkeley, CA 94704-1070</p>
                 </div>
               </div>
             </div>
