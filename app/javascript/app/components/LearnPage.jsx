@@ -292,9 +292,11 @@ class LearnPage extends React.Component {
                 largest studies in the country on college student basic needs.
                 Additionally, UC Berkeley was selected by the Federal Government
                 Accountability Office to be included in their first national
-                study on college student food insecurity.
+                study on college student food insecurity. Each year, UC Berkeley
+                Basic Needs publishes a report on the current status of food,
+                housing, and economic efforts in order to continue to learn
+                collectively as a campus community.
               </p>
-              <br />
               <br />
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdn4AVI-u6Os6h5iUn0jseB6KyuLOf5omxkciIsIsxMSPe60Q/viewform?vc=0&c=0&w=1"
@@ -314,7 +316,7 @@ class LearnPage extends React.Component {
 
         <div className="flex-container">
           <div className="learn-page-title-container">
-            <h1>Research</h1>
+            {/* <h1>Research</h1> */}
             {checkUserIsAdmin() && (
               <Button
                 large
@@ -327,13 +329,7 @@ class LearnPage extends React.Component {
             )}
           </div>
 
-          <p className="learn-page-research-description">
-            UC Berkeley Basic Needs efforts have been featured in the three
-            largest studies in the country on college student basic needs.
-            Additionally, UC Berkeley was selected by the Federal Government
-            Accountability Office to be included in their first national study
-            on college student food insecurity.
-          </p>
+          <p className="learn-page-research-description" />
 
           <h3 className="learn-page-research-category">Campus Research</h3>
           <HTMLTable className="learn-page-table">

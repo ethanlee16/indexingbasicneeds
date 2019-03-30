@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Navbar from "./common/Navbar";
 
 import about_banner from "images/About_1.jpg";
-import about_center from "images/About_2_Our Center.jpg";
+import about_center from "images/About_2_Our_Services.jpg";
 import about_background from "images/About_3_Background.jpg";
 import sara from "images/About_4_Sara_Tsai.jpg";
 import vikrem from "images/About_5_Vikrem_Padda.jpg";
@@ -60,7 +60,7 @@ class AboutPage extends React.Component {
 
           {/* BNS Center  */}
 
-          <div className="about-page-center">
+          <div className="about-page-center" id="services">
             <div className="center-block">
               <div className="left">
                 <div className="about-page-center-text">
@@ -171,7 +171,7 @@ class AboutPage extends React.Component {
             </div>
           </div>
           {/* Our Team  */}
-          <div className="about-page-team ">
+          <div className="about-page-team" id="village">
             <h1>Our Basic Needs Village</h1>
             <div className="about-page-team-container">
               {/* row */}

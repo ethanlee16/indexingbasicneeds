@@ -127,7 +127,14 @@
   flex-flow: row wrap;
   justify-content: left;
   align-items: flex-start;
-  padding: 100px;
+  padding: 50px 100px; // TODO: This should be changed - not mobile-friendly
+}
+
+@media (max-width: 950px) {
+  .block {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 /* Block Colors */
@@ -142,11 +149,19 @@
 .home-page-landing {
   background-image: linear-gradient(
     0deg,
-    rgba(darken($california-gold, 0%), 0.7),
-    rgba(darken($rose-garden, 20%), 0.8)
+    rgba(darken($rose-garden, 40%), 0.6),
+    rgba(desaturate(lighten($berkeley-blue, 30%), 40%), 0.8)
   );
   align-items: center;
   flex-wrap: wrap-reverse;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.home-page-landing .subheading {
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-size: 16pt;
 }
 
 .home-page-resource-index {
@@ -172,13 +187,33 @@
   flex-wrap: wrap;
   justify-content: space-between;
   flex-direction: column;
-  flex: 3;
+  flex: 3 1 400px;
 }
 
 .home-page-landing-text {
   text-align: left;
-  padding-right: 20%;
-  // width: 80%;
+}
+
+@media (min-width: 640px) {
+  .home-page-landing-text {
+    padding-right: 20%;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-page-landing .home-page-left-img {
+    display: none;
+    // max-width: 200px;
+    // margin-bottom: 50px;
+  }
+}
+
+.home-page-landing .home-page-left-img {
+  flex: 1 1 200px;
+}
+
+.home-page-logo {
+  width: 100%;
 }
 
 /* Resource Index */
@@ -230,15 +265,34 @@
 }
 
 /* BNS Center */
+// .home-page-center {
+// }
 
-.home-page-center {
+.home-page-center-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.home-page-center-container .home-page-left-img {
+  flex: 1 1 400px;
+}
+
+@media (min-width: 950px) {
+  .home-page-center-container .home-page-left-img {
+    max-width: 45%;
+    padding-left: 5%;
+  }
+}
+
+.home-page-center .home-page-left-img img {
+  width: 100%;
 }
 
 .home-page-center-text {
-  width: 55%;
+  flex: 1 1 400px;
+  margin-bottom: 20px;
 }
 
 .btn-primary {
@@ -258,8 +312,35 @@
   flex-wrap: wrap;
 }
 
+.home-page-background h1 {
+  max-width: 600px;
+}
+
+.home-page-background-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .home-page-background-text {
-  width: 55%;
+  flex: 1 1 400px;
+  margin-bottom: 20px;
+}
+
+.home-page-background-video {
+  flex: 1 1 50%;
+  min-height: 300px;
+}
+
+@media (min-width: 690px) {
+  .home-page-background-video {
+    padding-left: 5%;
+  }
+}
+
+.home-page-background-video iframe {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 /* Student Testimonies */
@@ -312,10 +393,6 @@
 }
 /* Donate */
 
-.home-page-logo {
-  width: 280px;
-}
-
 .home-values {
   width: 400px;
 }
@@ -334,7 +411,9 @@
 }
 
 .home-page-right {
-  width: 50%;
+  // width: 50%;
+  flex: 2 1 400px;
+  padding-right: 40px;
 }
 
 .home-page-donate-label {
@@ -343,7 +422,12 @@
 }
 
 .home-donate-image {
-  width: 400px;
+  // width: 400px;
+  flex: 1 1 200px;
+}
+
+.home-donate-image img {
+  width: 100%;
 }
 
 .home-page-donate-info {

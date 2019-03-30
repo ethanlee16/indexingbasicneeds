@@ -14,7 +14,7 @@ class DonatePage extends React.Component {
         {/* Donate */}
         <div className="donate-page-donate block">
           <div className="donate-page-left">
-            <h1 style={{ width: "100%" }}>Donate to Basic Needs Security</h1>
+            <h1 style={{ width: "100%" }}>Donate</h1>
             <div
               className="donate-page-donate-text"
               style={{
@@ -23,8 +23,9 @@ class DonatePage extends React.Component {
               }}
             >
               <p>
-                Your contribution will go to help transform UC Berkeley into a
-                basic needs secure institution.
+                Support UC Berkeley students thrive by contributing to their
+                holistic success, ensuring that their food and housing needs are
+                met.
               </p>
 
               <a

@@ -1,16 +1,16 @@
 import React from "react";
 import { Button, Intent } from "@blueprintjs/core";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import Navbar from "./common/Navbar";
 
 import Logo from "images/bnc-logo-white.png";
-import ValuesImage from "images/home-background.png";
 import Ruben from "images/team-ruben.jpg";
 import Undergrad from "images/Home_6_Resource.jpg";
 import Grad from "images/Home_7_Resource.jpg";
 import Staff from "images/Home_8_Resource.jpg";
-import Center from "images/home-ourcenter-2.png";
-import Donate from "images/home-donate.png";
+import Center from "images/Home_9_Our_Center.jpg";
+import Donate from "images/Home_13_Donate_1.jpg";
 import Test_1 from "images/Home_10_Testimonial.jpg";
 import Test_2 from "images/Home_11_Testimonial.jpg";
 import Test_3 from "images/Home_12_Testimonial.jpg";
@@ -24,7 +24,8 @@ class HomePage extends React.Component {
         <div className="home-page-banner-overlay">
           <div className="home-page-landing block">
             <div className="home-page-row">
-              <h1 className="white-text">Basic Needs Center</h1>
+              <h2 className="white-text subheading">UC Berkeley</h2>
+              <h1 className="white-text">Basic Needs</h1>
               <div className="home-page-landing-text">
                 <p className="white-text">
                   Welcome to Basic Needs community at UC Berkeley! Over the past
@@ -65,40 +66,49 @@ class HomePage extends React.Component {
         {/* Background Block */}
         <div className="home-page-background block">
           <h1>Our Vision, Our Mission, Our Values</h1>
-          <div className="home-page-background-text">
-            <p>
-              We are excited for the ongoing learning, building, and improvement
-              of these areas, and are excited for community input to inform our
-              efforts. Please note that this site will continue to shift and
-              improve as we earn better knowledge, strategies, and materials
-              along our collective energy.
+          <div className="home-page-background-container">
+            <div className="home-page-background-text">
+              <p>
+                We are excited for the ongoing learning, building, and
+                improvement of these areas as we earn better knowledge along our
+                collective energy.
+              </p>
+              <p>
+                <strong>Vision</strong>: Ongoing economic, food and housing
+                justice for all UC Berkeley community members no matter who they
+                are or where they come from.
+              </p>
+              <p>
+                <strong>Mission</strong>: We provide accessible and equitable
+                programming and resources today; we research, innovate, advocate
+                and engage in coalition building to lead systemic change
+                tomorrow.
+              </p>
+              <p>
+                <strong>Values</strong>: compassion, dignity, diversity,
+                generative, healing, interdependency, multigenerational,
+                resilience
+              </p>
               <br />
-              <br />
-              <strong>Vision</strong>: Ongoing economic, food and housing
-              justice for all UC Berkeley community members no matter who they
-              are or where they come from
-              <br />
-              <br />
-              <strong>Mission</strong>: We provide accessible and equitable
-              programming and resources today; we research, innovate, advocate
-              and engage in coalition building to lead systemic change tomorrow.
-              <br />
-              <br />
-              <strong>Values</strong>: compassion, dignity, diversity,
-              generative, healing, Interdependency, multigenerational,
-              resilience
-            </p>
-            <br />
-            <Link to="/about">
-              <Button
-                large
-                className="button-primary"
-                intent={Intent.PRIMARY}
-                text="Meet the BNS Village"
+              <HashLink to="/about#village">
+                <Button
+                  large
+                  className="button-primary"
+                  intent={Intent.PRIMARY}
+                  text="Meet the BNC Village"
+                />
+              </HashLink>
+            </div>
+            <div className="home-page-background-video">
+              <iframe
+                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fucberkeleyfoodpantry%2Fvideos%2F2179252602152748%2F&show_text=0&width=560"
+                style={{ border: "none", overflow: "hidden" }}
+                scrolling="no"
+                frameBorder="0"
+                allowFullScreen="true"
               />
-            </Link>
+            </div>
           </div>
-          <img className="home-values" src={ValuesImage} alt="values" />
         </div>
 
         {/* Resource Index Block */}
@@ -153,7 +163,7 @@ class HomePage extends React.Component {
               large
               className="button-primary"
               intent={Intent.PRIMARY}
-              text="Search all resources"
+              text="Search all Resources"
             />
           </Link>
         </div>
@@ -161,59 +171,39 @@ class HomePage extends React.Component {
         {/* BNS Center Block */}
 
         <div className="home-page-center block">
-          <div className="home-page-center-text">
-            <h1 className="white-text">Our Center</h1>
-          </div>
-
-          <div className="home-page-center-text">
-            <p className="white-text">
-              <strong>Location</strong>: 12345 MLK Way, Berkeley, CA
-            </p>
-            <p className="white-text">
-              <strong>Open Hours</strong>: Monday - Friday, 9 AM - 9 PM
-            </p>
-            <p className="white-text">
-              <strong>Location</strong>: Lower level of MLK Student Union
-              (BNorth), Suite 72
-            </p>
-            <p className="white-text">
-              <strong>Mailing Address</strong>: 2495 Bancroft Way, Suite 72,
-              Berkeley CA 94720-4500
-            </p>
-
-            <p className="white-text">
-              Our center’s hours will be extended throughout the semester. The
-              Basic Needs Center serves as a physical resource hub for basic
-              needs resources and services. The Basic Needs Center serves as a
-              space for students to create community and access coordinated
-              basic needs services.
+          <div className="home-page-center-container">
+            <div className="home-page-center-text">
+              <h1 className="white-text">Our Center</h1>
+              <p className="white-text">
+                <strong>Location</strong>: Lower level of MLK Student Union
+                (BNorth), Suite 72
+              </p>
+              <p className="white-text">
+                <strong>Mailing Address</strong>: 2495 Bancroft Way, Suite 72,
+                Berkeley CA 94720-4500
+              </p>
+              <p className="white-text">
+                <strong>Open Hours</strong>: Monday - Friday, 9 AM - 5 PM. Our
+                center’s hours will be extended throughout the semester.
+              </p>
+              <p className="white-text">
+                The Basic Needs Center serves as a space for students to create
+                community and access coordinated basic needs services.
+              </p>
               <br />
-              Below are our current services based out of our center:
-            </p>
-            <ul className="white-text">
-              <li>Case management</li>
-              <li>CalFresh</li>
-              <li>Satellite Drop-In Services</li>
-              <ul>
-                <li>Berkeley Rent Board</li>
-                <li>Financial Aid &amp; Scholarships Office</li>
-                <li>CalFresh Appeals Clinic</li>
-              </ul>
-            </ul>
+              <HashLink to="/about#services">
+                <Button
+                  large
+                  className="button-primary"
+                  intent={Intent.PRIMARY}
+                  text="Learn More About Our Services"
+                />
+              </HashLink>
+            </div>
 
-            <br />
-            <a href="https://kiyokothomas.youcanbook.me/" target="_blank">
-              <Button
-                large
-                className="button-primary"
-                intent={Intent.PRIMARY}
-                text="Book Appointment"
-              />
-            </a>
-          </div>
-
-          <div className="home-page-left-img">
-            <img className="home-page-center" src={Center} alt="Center" />
+            <div className="home-page-left-img">
+              <img src={Center} alt="Center" />
+            </div>
           </div>
         </div>
 
@@ -288,7 +278,7 @@ class HomePage extends React.Component {
 
         {/* Donate */}
         <div className="home-page-donate block">
-          <h1 style={{ width: "100%" }}>Donate to Basic Needs Security</h1>
+          <h1 style={{ width: "100%" }}>Donate</h1>
           <div className="home-page-right">
             <div
               className="home-page-donate-text"
@@ -297,6 +287,11 @@ class HomePage extends React.Component {
                 marginBottom: "32px",
               }}
             >
+              <p>
+                Support UC Berkeley students thrive by contributing to their
+                holistic success, ensuring that their food and housing needs are
+                met.
+              </p>
               <p>
                 Your contribution will go to help transform UC Berkeley into a
                 basic needs secure institution.
@@ -311,7 +306,7 @@ class HomePage extends React.Component {
                   large
                   className="button-primary"
                   intent={Intent.PRIMARY}
-                  text="Donate now"
+                  text="Donate Online"
                 />
               </a>
               <br />
@@ -350,8 +345,9 @@ class HomePage extends React.Component {
               </div>
             </div>
           </div>
-
-          <img className="home-donate-image" src={Donate} />
+          <div className="home-donate-image">
+            <img src={Donate} />
+          </div>
         </div>
 
         {/* End of Container */}
