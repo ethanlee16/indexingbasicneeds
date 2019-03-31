@@ -25,3 +25,9 @@ $lap-lane: #19a498;
 $california-gold: #fbb431;
 $golden-gate: #ea633b;
 $berkeley-blue: #043361;
+
+$gradient-overlay: linear-gradient(
+  0deg,
+  rgba(darken($rose-garden, 40%), 0.6),
+  rgba(desaturate(lighten($berkeley-blue, 30%), 40%), 0.8)
+);

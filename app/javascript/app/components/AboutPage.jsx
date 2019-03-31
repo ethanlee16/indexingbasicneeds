@@ -36,11 +36,10 @@ class AboutPage extends React.Component {
                 <h1>Our Center</h1>
                 <p>
                   The Basic Needs Center serves as a physical resource hub for
-                  basic needs resources and services. The Basic Needs Center
-                  serves as a space for students to create community and access
-                  coordinated basic needs services. We are committed to
-                  cultivate wellness and belonging in the Basic Needs Center
-                  space.
+                  basic needs resources and services. The Center also is a space
+                  for students to create community and access coordinated
+                  support for their basic needs. We are committed to cultivating
+                  wellness and belonging in the Basic Needs Center space.
                 </p>
               </div>
               <div className="col right">
@@ -127,47 +126,45 @@ class AboutPage extends React.Component {
 
           {/* BNS Background  */}
           <div className="about-page-background ">
-            <div className="about-page-background-text">
-              <h1>Background</h1>
-            </div>
-            <div className="right">
-              <img className="about-img" src={about_background} />
-            </div>
-            <div className="about-page-background-text">
-              <p>
-                Basic Needs Security refers to the food, housing, and economic
-                security of our community. We understand that basic needs have a
-                direct impact on the mental-emotional-physical health, wellness,
-                academic performance, professional development, and holistic
-                success of students.
-              </p>
-              <p>
-                The quality of life of our students has a major impact on their
-                sense of belonging, persistence, graduation, and overall
-                experience. Therefore, we refuse to accept hunger,
-                malnourishment, and homelessness as part of our university.
-              </p>
-              <p>
-                Basic Needs is committed to accomplishing food, housing and
-                economic justice on the UC Berkeley campus through a robust
-                model of prevention, intervention and emergency relief efforts.
-                Our goal is to ensure that UC Berkeley is a Basic Needs Secure
-                campus. Our prevention efforts thus far have included
-                pre-college education, first year student outreach and messaging
-                around Basic Needs, as well as Basic Needs skill development
-                such as NST 20 lecture, and nutrition and cooking demonstration.
-                Emergency interventions include the UC Berkeley Food Pantry
-                which provides emergency food relief. Crisis interventions
-                include the Food Assistance Program which provides eligible
-                students with financial support for food, as well as the
-                Emergency Housing Support program.
-              </p>
-
-              <p>
-                {" "}
-                <b>UC System Basic Needs Model</b>{" "}
-              </p>
-              <img className="ucb-wide" src={ucb_wide} alt="Img" />
+            <div className="about-page-background-container">
+              <div className="about-page-background-text">
+                <h1>Background</h1>
+                <p>
+                  Basic Needs Security refers to the food, housing, and economic
+                  security of our community. We understand that basic needs have
+                  a direct impact on the mental-emotional-physical health,
+                  wellness, academic performance, professional development, and
+                  holistic success of students.
+                </p>
+                <p>
+                  The quality of life of our students has a major impact on
+                  their sense of belonging, persistence, graduation, and overall
+                  experience. Therefore, we refuse to accept hunger,
+                  malnourishment, and homelessness as part of our university.
+                </p>
+                <p>
+                  Basic Needs is committed to accomplishing food, housing and
+                  economic justice on the UC Berkeley campus through a robust
+                  model of prevention, intervention and emergency relief
+                  efforts. Our goal is to ensure that UC Berkeley is a Basic
+                  Needs Secure campus. Our prevention efforts thus far have
+                  included pre-college education, first year student outreach
+                  and messaging around Basic Needs, as well as Basic Needs skill
+                  development such as NST 20 lecture, and nutrition and cooking
+                  demonstration. Emergency interventions include the UC Berkeley
+                  Food Pantry which provides emergency food relief. Crisis
+                  interventions include the Food Assistance Program which
+                  provides eligible students with financial support for food, as
+                  well as the Emergency Housing Support program.
+                </p>
+              </div>
+              <div className="right">
+                <img className="about-img" src={about_background} />
+                <p style={{ marginTop: "10px", marginBottom: "0" }}>
+                  <b>UC System Basic Needs Model</b>
+                </p>
+                <img className="ucb-wide" src={ucb_wide} alt="Img" />
+              </div>
             </div>
           </div>
           {/* Our Team  */}
@@ -396,7 +393,9 @@ class AboutPage extends React.Component {
                 </div>
 
                 <div className="about-page-focus-card">
-                  <img className="about-focus-img" src={about_housing} />
+                  <div className="left-img">
+                    <img className="about-focus-img" src={about_housing} />
+                  </div>
                   <div className="about-page-focus-text-container">
                     <h3>Housing Support</h3>
                     <br />
@@ -420,7 +419,10 @@ class AboutPage extends React.Component {
                 {/* row */}
 
                 <div className="about-page-focus-card">
-                  <img className="about-focus-img" src={about_econ} />
+                  <div className="left-img">
+                    <img className="about-focus-img" src={about_econ} />
+                  </div>
+
                   <div className="about-page-focus-text-container">
                     <h3>Economic Support</h3>
                     <br />

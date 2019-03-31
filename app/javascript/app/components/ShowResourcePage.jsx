@@ -159,8 +159,12 @@ class ShowResourcePage extends React.Component {
           </a>
         )}
 
-        <h4>Admin Note (only viewable to you)</h4>
-        {resource.admin_note && <p>{resource.admin_note}</p>}
+        {resource.admin_note && resource.admin_note !== "N/A" && (
+          <>
+            <h4>Admin Note (only viewable to you)</h4>
+            <p>{resource.admin_note}</p>
+          </>
+        )}
 
         {resource.body && (
           <React.Fragment>
