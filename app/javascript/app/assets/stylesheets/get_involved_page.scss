@@ -14,16 +14,18 @@
   padding: 10px 50px 10px 50px;
 }
 
-.get-involved-centered {
+.get-involved-centered,
+.get-involved-text h4 {
   font-family: "Lato", sans-serif;
   font-size: 24px;
   color: var(--berkeley-blue);
   text-align: center;
   font-weight: 600;
-  margin: 0 auto;
+  // margin: 0 auto;
 }
 
-.get-involved-testimony {
+.get-involved-testimony,
+.get-involved-text blockquote {
   padding: 10px 0 10px 15px;
   font-family: "Lato", sans-serif;
   font-size: 18px;
@@ -32,6 +34,7 @@
   font-weight: 600;
   border-left: 4px var(--berkeley-blue) solid;
   font-style: italic;
+  margin-left: 0;
 }
 
 .get-involved-menu {

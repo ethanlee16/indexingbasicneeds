@@ -288,7 +288,7 @@ class ResourceIndexPage extends React.Component {
             <h2 style={{ marginTop: "0px", marginBottom: "0px" }}>
               BNS Resources
             </h2>
-            {checkUserIsAdmin() && (
+            {checkUserIsAdmin() ? (
               <Link to="/resource/new">
                 <Button
                   large
@@ -298,6 +298,19 @@ class ResourceIndexPage extends React.Component {
                   text="Add new resource"
                 />
               </Link>
+            ) : (
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSd7DQ9L2DeUAzPwOfU5A1gvSV_IBMCMnUTRpFrrfzKYLZ0rqA/viewform"
+                target="_blank"
+              >
+                <Button
+                  large
+                  className="button-primary"
+                  intent={Intent.PRIMARY}
+                  rightIcon="add"
+                  text="Submit/Update a Resource"
+                />
+              </a>
             )}
           </div>
 

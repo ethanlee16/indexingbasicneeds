@@ -17,8 +17,8 @@
   min-height: 70vh;
   display: flex;
   align-items: center;
-  // background-color: rgba(darken($berkeley-blue, 5%), 0.7);
-  background-image: $gradient-overlay;
+  background-color: rgba(darken($berkeley-blue, 0%), 0.8);
+  // background-image: $gradient-overlay;
 }
 
 .about-hero-content {

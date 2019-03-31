@@ -305,7 +305,8 @@ class AboutPage extends React.Component {
                     <div className="about-page-team-text-container">
                       <h3>Ibrahim Ramoul</h3>
                       <p className="about-page-team-description">
-                        Basic Needs Farms and Gardens Coordinator{" "}
+                        Food Pantry Coordinator, Basic Needs Farms and Gardens
+                        Coordinator
                       </p>
                     </div>
                   </div>
@@ -337,7 +338,7 @@ class AboutPage extends React.Component {
                     <div className="about-page-team-text-container">
                       <h3>Sara Tsai</h3>
                       <p className="about-page-team-description">
-                        Basic Needs Farms and Gardens Coordinator{" "}
+                        Community Partnerships and Outreach Coordinator
                       </p>
                     </div>
                   </div>

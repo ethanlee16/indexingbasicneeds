@@ -62,7 +62,7 @@ class FAQPage extends React.Component {
                   href="https://docs.google.com/forms/d/e/1FAIpQLSd6hMxM_S2NvaxKjqNMZClc-UybEzqGV6nZT-iqob9i8iibXg/viewform?vc=0&c=0&w=1"
                   target="_blank"
                 >
-                  form
+                  form.
                 </a>
               </p>
             </div>

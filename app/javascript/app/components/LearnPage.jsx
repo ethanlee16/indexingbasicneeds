@@ -24,6 +24,7 @@ import { Link } from "react-router-dom";
 import update from "immutability-helper";
 
 import Navbar from "./common/Navbar";
+import LearnPageTable from "./LearnPageTable";
 
 import {
   checkUserIsAdmin,
@@ -141,24 +142,6 @@ class LearnPage extends React.Component {
     this.closeModal();
     this.refreshResearchFiles();
   };
-
-  renderTableHeaders() {
-    return (
-      <thead>
-        <tr>
-          <th colSpan={2}>
-            <h4 className="learn-page-research-table-header">Name</h4>
-          </th>
-          <th>
-            <h4 className="learn-page-research-table-header">Date</h4>
-          </th>
-          <th>
-            <h4 className="learn-page-research-table-header">Action</h4>
-          </th>
-        </tr>
-      </thead>
-    );
-  }
 
   renderFileUploadModal() {
     return (
@@ -332,81 +315,11 @@ class LearnPage extends React.Component {
           <p className="learn-page-research-description" />
 
           <h3 className="learn-page-research-category">Campus Research</h3>
-          <HTMLTable className="learn-page-table">
-            {this.renderTableHeaders()}
-            <tbody>
-              {this.getFilesByCategory("campus").map((file, i) => (
-                <tr key={`campus-file-${i}`}>
-                  <td>
-                    <Icon icon="document" iconSize={18} />
-                  </td>
-                  <td>{file.name}</td>
-                  <td>{file.updated_at}</td>
-                  <td>
-                    <a href={file.download_link} target="_blank">
-                      <Button
-                        large
-                        minimal
-                        intent={Intent.PRIMARY}
-                        text="Download"
-                      />
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </HTMLTable>
+          <LearnPageTable files={this.getFilesByCategory("campus")} />
           <h3 className="learn-page-research-category">Statewide Research</h3>
-          <HTMLTable className="learn-page-table">
-            {this.renderTableHeaders()}
-            <tbody>
-              {this.getFilesByCategory("statewide").map((file, i) => (
-                <tr key={`statewide-file-${i}`}>
-                  <td>
-                    <Icon icon="document" iconSize={18} />
-                  </td>
-                  <td>{file.name}</td>
-                  <td>{file.updated_at}</td>
-                  <td>
-                    <a href={file.download_link} target="_blank">
-                      <Button
-                        large
-                        minimal
-                        intent={Intent.PRIMARY}
-                        text="Download"
-                      />
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </HTMLTable>
-
+          <LearnPageTable files={this.getFilesByCategory("statewide")} />
           <h3 className="learn-page-research-category">National Research</h3>
-          <HTMLTable className="learn-page-table">
-            {this.renderTableHeaders()}
-            <tbody>
-              {this.getFilesByCategory("national").map((file, i) => (
-                <tr key={`national-file-${i}`}>
-                  <td>
-                    <Icon icon="document" iconSize={18} />
-                  </td>
-                  <td>{file.name}</td>
-                  <td>{file.updated_at}</td>
-                  <td>
-                    <a href={file.download_link} target="_blank">
-                      <Button
-                        large
-                        minimal
-                        intent={Intent.PRIMARY}
-                        text="Download"
-                      />
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </HTMLTable>
+          <LearnPageTable files={this.getFilesByCategory("national")} />
         </div>
       </div>
     );

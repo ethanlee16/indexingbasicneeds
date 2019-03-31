@@ -147,7 +147,7 @@
 }
 
 .home-page-landing {
-  background-image: $gradient-overlay;
+  background-color: rgba($berkeley-blue, 0.7);
   align-items: center;
   flex-wrap: wrap-reverse;
   padding-top: 80px;
@@ -416,70 +416,4 @@ p.card-test-text {
   width: 100%;
   margin: auto;
   transform: translateY(-5%);
-}
-
-.home-page-donate {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.home-page-right {
-  // width: 50%;
-  flex: 2 1 400px;
-  padding-right: 40px;
-}
-
-.home-page-donate-label {
-  font-family: Lato, sans-serif;
-  font-weight: 400;
-}
-
-.home-donate-image {
-  // width: 400px;
-  flex: 1 1 200px;
-}
-
-.home-donate-image img {
-  width: 100%;
-}
-
-.home-page-donate-info {
-  width: 100%;
-  line-height: 1.2;
-  font-family: Lato, sans-serif;
-  font-weight: 400;
-}
-
-.info {
-  padding-top: 8%;
-  line-height: 1.4;
-  font-family: Lato, sans-serif;
-  font-weight: 400;
-}
-
-.row {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.donate-by-mail {
-  // min-width: 50%;
-}
-
-.donate-by-mail.left {
-  flex: 1;
-}
-
-.donate-by-mail.right {
-  flex: 3;
-}
-
-.donate-by-mail.left > p {
-  font-weight: 700;
-}
-
-.donate-by-mail.address > p {
-  margin-bottom: 0;
 }
