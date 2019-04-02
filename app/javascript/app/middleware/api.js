@@ -34,11 +34,11 @@ class API {
   static async ResourcesIndex(
     category,
     tags,
-    order_method = "updated_desc",
+    order_method = "upvotes_desc",
     query = ""
   ) {
     if (order_method === "") {
-      order_method = "updated_desc";
+      order_method = "upvotes_desc";
     }
     let URI = `/api/resources?ordered=${order_method}`;
 

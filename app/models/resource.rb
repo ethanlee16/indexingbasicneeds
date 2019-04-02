@@ -45,7 +45,8 @@ class Resource < ApplicationRecord
     created_asc: { created_at: :asc },
     created_desc: { created_at: :desc },
     updated_asc: { updated_at: :asc },
-    updated_desc: { updated_at: :desc }
+    updated_desc: { updated_at: :desc },
+    upvotes_desc: { cached_votes_score: :desc }
   }.freeze
   DEFAULT_ORDER_METHOD = ORDER_METHODS[:updated_desc]
 

@@ -357,6 +357,7 @@ class ResourceIndexPage extends React.Component {
             <HTMLSelect
               large
               options={[
+                { label: "Top Rated", value: "upvotes_desc" },
                 { label: "Last Updated", value: "updated_desc" },
                 { label: "First Updated", value: "updated_asc" },
                 { label: "Last Created", value: "created_desc" },
