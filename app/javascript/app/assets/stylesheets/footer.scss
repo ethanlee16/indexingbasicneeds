@@ -1,0 +1,19 @@
+@import "./variables";
+
+.footer-container {
+  background-color: $berkeley-blue;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-link * {
+  color: white;
+}
+
+.footer-header {
+  color: white;
+  font-weight: 700;
+}

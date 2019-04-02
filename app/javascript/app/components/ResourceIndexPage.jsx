@@ -18,6 +18,7 @@ import {
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
 import { debounce } from "debounce";
+import queryString from "query-string";
 
 import ResourceIndexFilterSidebar from "./ResourceIndexFilterSidebar";
 import Navbar from "./common/Navbar";
@@ -271,6 +272,14 @@ class ResourceIndexPage extends React.Component {
   }
 
   render() {
+    const queryParams = queryString.parse(this.props.location.search, {
+      arrayFormat: "bracket",
+    });
+    let initialFilters;
+    if (queryParams.by_tags) {
+      initialFilters = queryParams.by_tags.map(tag => Number(tag));
+    }
+
     return (
       <div className="container is-widescreen">
         <Navbar
@@ -281,6 +290,7 @@ class ResourceIndexPage extends React.Component {
         <div className="resource-index-page-sidebar">
           <ResourceIndexFilterSidebar
             filterResourcesCallback={this.filterResources}
+            initialFilters={initialFilters}
           />
         </div>
         <div className="resource-index-page-main-container">

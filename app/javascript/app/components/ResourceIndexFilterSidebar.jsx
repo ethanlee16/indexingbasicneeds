@@ -18,6 +18,12 @@ class ResourceIndexFilterSidebar extends FilterSidebar {
 
   async componentDidMount() {
     await this.getResourceTags();
+    this.setState(
+      {
+        checkedResourceTagIds: new Set(this.props.initialFilters),
+      },
+      () => this.props.filterResourcesCallback(this.state.checkedResourceTagIds)
+    );
   }
 
   async getResourceTags() {
@@ -89,6 +95,7 @@ class ResourceIndexFilterSidebar extends FilterSidebar {
     return (
       <FilterSidebar
         sections={this.state.sections}
+        checkedResourceTagIds={this.state.checkedResourceTagIds}
         checkTagCallback={this.checkResourceTagCallback}
       />
     );

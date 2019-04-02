@@ -125,7 +125,7 @@ class AboutPage extends React.Component {
           </div>
 
           {/* BNS Background  */}
-          <div className="about-page-background ">
+          <div className="about-page-background" id="background">
             <div className="about-page-background-container">
               <div className="about-page-background-text">
                 <h1>Background</h1>
@@ -349,7 +349,7 @@ class AboutPage extends React.Component {
             </div>
           </div>
           {/* Areas of Focus */}
-          <div className="about-page-focus ">
+          <div className="about-page-focus" id="focus">
             <div className="about-page-focus-text">
               <h1>Areas of Focus</h1>
             </div>

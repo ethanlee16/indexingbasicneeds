@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import PageLayout from "./components/PageLayout";
 import ResourceIndexPage from "./components/ResourceIndexPage";
 import CreateResourcePage from "./components/CreateResourcePage";
 import UpdateResourcePage from "./components/UpdateResourcePage";
@@ -20,16 +22,14 @@ const App = props => (
     <div>
       <Route path="/" component={() => window.scrollTo(0, 0) || null} />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route path="/get_involved" component={GetInvolvedPage} />
-        <Route path="/calendar" component={CalendarPage} />
-        <Route path="/learn" component={LearnPage} />
-        <Route path="/donate" component={DonatePage} />
-        <Route path="/faq" component={FAQPage} />
-      </Switch>
-      <Switch>
-        <Route path="/guides" component={WorkInProgressPage} />
+        <PageLayout exact path="/" component={HomePage} />
+        <PageLayout path="/about" component={AboutPage} />
+        <PageLayout path="/get_involved" component={GetInvolvedPage} />
+        <PageLayout path="/calendar" component={CalendarPage} />
+        <PageLayout path="/learn" component={LearnPage} />
+        <PageLayout path="/donate" component={DonatePage} />
+        <PageLayout path="/faq" component={FAQPage} />
+        <PageLayout path="/guides" component={WorkInProgressPage} />
       </Switch>
       <Switch>
         <Route path="/resource/new" component={CreateResourcePage} />

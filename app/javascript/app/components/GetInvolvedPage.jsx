@@ -9,10 +9,7 @@ import Navbar from "./common/Navbar";
 import GetInvolvedImg from "images/Get_Involved_1_Intro.jpg";
 import StudentCoImg from "images/Get_Involved_2_Student_Coalition.jpg";
 import FoodPantryImg from "images/Get_Involved_3_Food_Pantry.jpg";
-
-const kebabCase = string => {
-  return string.replace(/\s+/g, "-").toLowerCase();
-};
+import kebabCase from "../utils/kebabCase";
 
 const client = contentful.createClient({
   space: "2ftjcpa1p8eb",
@@ -28,13 +25,27 @@ class GetInvolvedPage extends React.Component {
     };
   }
 
-  componentDidMount() {
-    client
-      .getEntry("2m7m6YEdaGC9H9jrAQVTtT")
-      .then(entry => {
-        this.setState({ entry });
+  async componentDidMount() {
+    try {
+      const entry = await GetInvolvedPage.fetchContentfulPage();
+      this.setState({ entry });
+    } catch (err) {
+      // TODO: Provide user messaging and retry
+      console.error(err);
+    }
+  }
+
+  static async fetchContentfulPage() {
+    return await client.getEntry("2m7m6YEdaGC9H9jrAQVTtT");
+  }
+
+  static getHeadings(contentfulEntry) {
+    if (!contentfulEntry.fields || !contentfulEntry.fields.content) return [];
+    return contentfulEntry.fields.content.content
+      .filter(block => {
+        return block.nodeType === BLOCKS.HEADING_2;
       })
-      .catch(console.error);
+      .map(block => block.content[0].value);
   }
 
   render() {
@@ -45,19 +56,15 @@ class GetInvolvedPage extends React.Component {
           <div className="get-involved-left-container">
             <div className="get-involved-menu">
               {this.state.entry.fields &&
-                this.state.entry.fields.content.content.map((block, i) => {
-                  if (block.nodeType !== BLOCKS.HEADING_2) return null;
-                  const content = block.content[0].value;
-                  return (
-                    <HashLink
-                      className="get-involved-item"
-                      to={`/get_involved#${kebabCase(content)}`}
-                      key={kebabCase(content)}
-                    >
-                      {content}
-                    </HashLink>
-                  );
-                })}
+                GetInvolvedPage.getHeadings(this.state.entry).map(heading => (
+                  <HashLink
+                    className="get-involved-item"
+                    to={`/get_involved#${kebabCase(heading)}`}
+                    key={kebabCase(heading)}
+                  >
+                    {heading}
+                  </HashLink>
+                ))}
             </div>
           </div>
           <div className="get-involved-right-container">
@@ -95,3 +102,7 @@ class GetInvolvedPage extends React.Component {
 }
 
 export default GetInvolvedPage;
+
+const fetchContentfulPage = GetInvolvedPage.fetchContentfulPage;
+const getHeadings = GetInvolvedPage.getHeadings;
+export { fetchContentfulPage, getHeadings };

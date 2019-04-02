@@ -314,11 +314,17 @@ class LearnPage extends React.Component {
 
           <p className="learn-page-research-description" />
 
-          <h3 className="learn-page-research-category">Campus Research</h3>
+          <h3 className="learn-page-research-category" id="campus">
+            Campus Research
+          </h3>
           <LearnPageTable files={this.getFilesByCategory("campus")} />
-          <h3 className="learn-page-research-category">Statewide Research</h3>
+          <h3 className="learn-page-research-category" id="state">
+            Statewide Research
+          </h3>
           <LearnPageTable files={this.getFilesByCategory("statewide")} />
-          <h3 className="learn-page-research-category">National Research</h3>
+          <h3 className="learn-page-research-category" id="national">
+            National Research
+          </h3>
           <LearnPageTable files={this.getFilesByCategory("national")} />
         </div>
       </div>

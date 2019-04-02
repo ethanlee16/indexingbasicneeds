@@ -13,6 +13,7 @@ class FilterSidebar extends React.Component {
                 {section.tags.map(tag => {
                   return (
                     <Checkbox
+                      checked={this.props.checkedResourceTagIds.has(tag.id)}
                       className="filter-sidebar-item"
                       label={tag.name}
                       onChange={this.props.checkTagCallback(tag.id)}
